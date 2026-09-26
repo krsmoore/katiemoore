@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "index": 1,
+      "caseStudy": "Walmart — Marketplace Logistics",
+      "what": "Reframed ~20 disconnected logistics programs around an 8-phase seller lifecycle.",
+      "win": "One unified strategy, built and launched in ~3 months across 13+ partner groups.",
+      "storyId": "walmart-lifecycle"
+    },
+    {
+      "index": 2,
+      "caseStudy": "Walmart — OPP",
+      "what": "Built Enablement’s operating and measurement system from the ground up.",
+      "win": "Turned invisible workload into capacity decisions, intake controls and evidence for added resources.",
+      "storyId": "walmart-opp"
+    },
+    {
+      "index": 3,
+      "caseStudy": "Walmart — WFS Certification",
+      "what": "Replaced one-size-fits-all training with role-based capability paths built around what associates actually need to do.",
+      "win": "Secured VP sponsorship and mandatory completion; the organization ultimately reached 116% of target.",
+      "storyId": "walmart-certification"
+    },
+    {
+      "index": 4,
+      "caseStudy": "Samsung — Learning Organization Turnaround",
+      "what": "Rebuilt a 40-person learning organization after quality issues had eroded partner confidence.",
+      "win": "Won back every major carrier and expanded learner reach from ~90K to 192K in two launches.",
+      "storyId": "samsung-turnaround"
+    },
+    {
+      "index": 5,
+      "caseStudy": "Samsung — Developing a Future Director",
+      "what": "Helped a high-potential Sr. Manager close the accountability gap standing between her and the next level.",
+      "win": "She built the performance-leadership capability she was missing—and later became a Director.",
+      "storyId": "samsung-future-director"
+    },
+    {
+      "index": 6,
+      "caseStudy": "Samsung — Galaxy AI",
+      "what": "Challenged an impressive-but-unreliable Galaxy AI demo and proposed a more relatable use case.",
+      "win": "Predicted the adoption failure before launch—and turned it into a lasting framework for evaluating AI use cases.",
+      "storyId": "samsung-ai-readiness"
+    },
+    {
+      "index": 8,
+      "caseStudy": "T-Mobile — 56 People, 8 Leaders",
+      "what": "Led a newly remote, support-only organization through a shift into sales during COVID and merger integration.",
+      "win": "Acquired accounts grew from ~400 per quarter to 1,200+ in a single month.",
+      "storyId": "tmobile-transformation"
+    },
+    {
+      "index": 9,
+      "caseStudy": "Sprint — $900K",
+      "what": "Moved a training team from measuring completions to coaching and measuring real business performance.",
+      "win": "Generated ~$900K in additional accessory sales within 90 days.",
+      "storyId": "sprint-sales-accountability"
+    },
+    {
+      "index": 10,
+      "caseStudy": "Sprint — The Quiz",
+      "what": "Took a local leader’s quiz idea, added learning and measurement, and rapidly scaled it across the region.",
+      "win": "The next weekend, our region sold more than the rest of the nation combined—and sold out the warehouse.",
+      "storyId": "sprint-quiz-warehouse"
+    },
+    {
+      "index": 11,
+      "caseStudy": "Verizon — Building the Bench",
+      "what": "Changed succession conversations from “Who are our stars?” to “Do we actually know the talent on our teams?”",
+      "win": "Internal promotions increased 15%, while employees reported feeling more seen and recognized.",
+      "storyId": "verizon-building-the-bench"
+    },
+    {
+      "index": 12,
+      "caseStudy": "Samsung — $3.2M Portfolio",
+      "what": "Managed a $3.2M portfolio by challenging whether spending was actually creating value.",
+      "win": "Cut one recurring vendor charge 90%—from $500 to $50—and reinvested savings into higher-value work.",
+      "storyId": "samsung-budget-portfolio"
+    },
+    {
+      "index": 13,
+      "caseStudy": "Samsung — Influencing 700 People",
+      "what": "Built consistent launch execution across ~700 field employees who didn't report to me.",
+      "win": "Turned leadership sponsorship, tools and recognition into a ripple effect of adoption across the field.",
+      "storyId": "samsung-influencing-700"
+    },
+    {
+      "index": 14,
+      "caseStudy": "Verizon — When My Leadership Style Failed",
+      "what": "Realized the “firm” leadership style I'd been told the team needed was actually damaging trust.",
+      "win": "Rebuilt the relationships—and saw employee sentiment, NPS and sales rise while turnover fell.",
+      "storyId": "verizon-early-failure"
+    }
+  ]
+}

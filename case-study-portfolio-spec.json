@@ -1,0 +1,519 @@
+{
+  "meta": {
+    "title": "Case Study Portfolio Viewer",
+    "description": "A multi-story portfolio site displaying work case studies with narrative content and a sticky contextual sidebar. Supports navigation between stories.",
+    "vibe": "clean editorial, trust-forward, detail-rich",
+    "totalStories": 13
+  },
+  "palette": {
+    "background": "#ffffff",
+    "foreground": "#0f0f0f",
+    "primary": "#1428A0",
+    "primaryLight": "#e8ecf8",
+    "secondary": "#f7f8fc",
+    "accent": "#f5c518",
+    "success": "#2e7d32",
+    "error": "#c62828",
+    "muted": "#f7f8fc",
+    "mutedForeground": "#6b7280",
+    "border": "#e5e7eb",
+    "cardBackground": "#ffffff",
+    "highlightYellow": "#fffbeb",
+    "purple": "#7c3aed",
+    "teal": "#0891b2"
+  },
+  "typography": {
+    "fontFamily": "Inter",
+    "fontSource": "Google Fonts — https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900",
+    "displaySize": "clamp(26px, 3.5vw, 38px)",
+    "displayWeight": 900,
+    "h2Size": "20px",
+    "h2Weight": 800,
+    "bodySize": "14px",
+    "bodyLineHeight": 1.75,
+    "smallSize": "13px",
+    "xsSize": "11-12px",
+    "scale": "comfortable"
+  },
+  "layout": {
+    "type": "two-column",
+    "maxWidth": "1100px",
+    "margin": "0 auto",
+    "padding": "32px 24px 80px",
+    "columns": "1fr 320px",
+    "columnGap": "40px",
+    "columnAlignment": "start",
+    "navStyle": "sticky",
+    "sidebarSticky": true,
+    "sidebarTopOffset": "68px"
+  },
+  "chrome": {
+    "topBar": {
+      "height": "52px",
+      "position": "sticky",
+      "top": 0,
+      "zIndex": 50,
+      "background": "#ffffff",
+      "borderBottom": "1px solid #e5e7eb",
+      "padding": "0 24px",
+      "layout": "space-between",
+      "left": {
+        "type": "button",
+        "icon": "X (14px, stroke)",
+        "label": "Close story",
+        "fontSize": 13,
+        "fontWeight": 500,
+        "color": "#374151"
+      },
+      "right": {
+        "brand": "SAMSUNG or Walmart (bold, brand color)",
+        "separator": "· (gray)",
+        "year": "string (gray, 500 weight)"
+      }
+    },
+    "bottomBar": {
+      "height": "52px",
+      "position": "sticky",
+      "bottom": 0,
+      "zIndex": 50,
+      "background": "#ffffff",
+      "borderTop": "1px solid #e5e7eb",
+      "padding": "0 24px",
+      "layout": "space-between",
+      "left": {
+        "type": "button",
+        "icon": "arrowLeft",
+        "label": "Previous story",
+        "disabledColor": "#d1d5db"
+      },
+      "center": {
+        "type": "text",
+        "content": "{index} of {total} stories",
+        "fontSize": 13,
+        "color": "#6b7280"
+      },
+      "right": {
+        "type": "button",
+        "label": "Next story",
+        "icon": "arrowRight",
+        "style": "pill",
+        "backgroundColor": "#f5c518",
+        "color": "#000000",
+        "borderRadius": 999,
+        "padding": "7px 18px",
+        "fontWeight": 700,
+        "disabledBackground": "#f3f4f6",
+        "disabledColor": "#9ca3af"
+      }
+    }
+  },
+  "storySchema": {
+    "description": "Each story follows this data structure",
+    "fields": {
+      "company": "string",
+      "year": "string",
+      "index": "string (e.g. '6 of 14')",
+      "heading": "string — display headline",
+      "subheading": "string — blockquote hook line",
+      "attribution": "string — 'Company · Year'",
+      "tags": [
+        {
+          "label": "string",
+          "icon": "string"
+        }
+      ],
+      "sections": "array of section objects (see sections below)",
+      "reflections": "array of 2–3 reflection columns",
+      "sidebar": {
+        "atAGlance": "array of stat rows",
+        "whyYoureSeeing": {
+          "matchedTags": "array of strings",
+          "additionalTags": "array of { label, icon }"
+        },
+        "ifWeTalk": "array of conversation prompt strings",
+        "myRole": "array of bullet strings"
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "story-header",
+      "type": "hero",
+      "layout": "stacked full-width",
+      "elements": [
+        {
+          "type": "h1",
+          "style": "display — clamp(26px,3.5vw,38px), weight 900, lineHeight 1.15"
+        },
+        {
+          "type": "blockquote",
+          "style": "4px left border in primary blue (#1428A0), paddingLeft 16px, fontSize 17px, weight 500"
+        },
+        {
+          "type": "attribution",
+          "style": "fontSize 13, color muted, marginBottom 16"
+        },
+        {
+          "type": "tag-pills",
+          "style": "flex wrap, gap 8, rounded-full, border 1px solid #e5e7eb, bg white, fontSize 12, weight 500. Each pill has an inline SVG icon + label."
+        }
+      ]
+    },
+    {
+      "id": "section-narrative-with-media",
+      "type": "narrative",
+      "layout": "flex row — text left (flex:1), media floated right (fixed width)",
+      "notes": "Used for the 'The technology worked' section. Media can be a phone mockup component or image.",
+      "phoneComponent": {
+        "description": "A phone frame (border 8px solid #1a1a1a, borderRadius 32px) containing a dark gradient screen with a galaxy swirl gradient, a search query bubble, and a row of colored app icon squares. A pull-quote card is absolutely positioned to the right of the phone.",
+        "pullQuote": {
+          "position": "absolute, right: -110px, top: 40px",
+          "style": "white card, border, borderRadius 10, shadow, width 140px",
+          "quoteChar": "fontSize 22, color primary blue, weight 800",
+          "text": "fontSize 12, weight 600"
+        }
+      }
+    },
+    {
+      "id": "section-comparison",
+      "type": "comparison-card",
+      "layout": "3-column grid: [proposed | vs-badge | recommendation]",
+      "style": "border 1px solid #e5e7eb, borderRadius 12, overflow hidden",
+      "columns": {
+        "proposed": {
+          "labelColor": "#c62828",
+          "labelSize": "11px weight 800 letterSpacing 0.08em",
+          "image": "w-full h-120 objectFit cover borderRadius 8",
+          "description": "fontSize 13, lineHeight 1.5",
+          "checks": "CheckItem components — red X circle icon + label"
+        },
+        "vsBadge": {
+          "style": "32px circle, bg #1f2937, color white, fontSize 11 weight 800, centered vertically"
+        },
+        "recommendation": {
+          "labelColor": "#2e7d32",
+          "checks": "CheckItem components — green check circle icon + label",
+          "borderLeft": "1px solid #e5e7eb"
+        }
+      },
+      "footer": {
+        "style": "borderTop, bg #fafafa, padding 12px 20px, textAlign center",
+        "text": "italic, fontSize 13, color #374151"
+      }
+    },
+    {
+      "id": "section-outcome",
+      "type": "image-text",
+      "layout": "2-column grid 1fr 1fr, gap 20",
+      "image": {
+        "style": "w-full h-200 objectFit cover borderRadius 10",
+        "overlay": "absolute inset-0 bg rgba(0,0,0,0.55) flex items-center justify-center",
+        "overlayText": "color white, fontWeight 800, fontSize 18, textAlign center"
+      },
+      "infoBox": {
+        "style": "bg #e8ecf8, border 1px solid #1428A033, borderRadius 10, padding 14px 16px, flex gap 12",
+        "icon": "doc icon, color primary blue",
+        "text": "fontSize 13, lineHeight 1.6"
+      }
+    },
+    {
+      "id": "section-callout",
+      "type": "north-star-callout",
+      "layout": "flex row, gap 16, alignItems flex-start",
+      "style": "bg #fffbeb, border 1px solid #f5c51833, borderRadius 12, padding 20px 24px",
+      "icon": {
+        "style": "48px circle, bg #f5c51833, centered",
+        "content": "✦ character, fontSize 22"
+      },
+      "heading": "fontSize 16, fontWeight 800, lineHeight 1.4",
+      "body": "fontSize 13, lineHeight 1.65, color #374151, strong for inline emphasis"
+    },
+    {
+      "id": "section-timeline",
+      "type": "timeline",
+      "layout": "flex row, justify space-between, position relative",
+      "connector": "position absolute, top 50%, left 10%, right 10%, height 2px, bg #e5e7eb, zIndex 0",
+      "milestones": {
+        "style": "flex column, alignItems center, gap 8, zIndex 1",
+        "dot": "40px circle, bg[color], border 3px solid white, boxShadow 0 0 0 2px [color]",
+        "dateLabel": "fontSize 12, fontWeight 600",
+        "label": "fontSize 11, color muted"
+      }
+    },
+    {
+      "id": "section-reflections",
+      "type": "reflections-grid",
+      "layout": "CSS grid, 2–3 columns, gap 20–28, borderTop 1px solid #e5e7eb, paddingTop 24",
+      "columns": {
+        "heading": "flex row gap 6–8, icon + uppercase label 11px weight 800 letterSpacing 0.07em color muted",
+        "subheading": "fontSize 15, fontWeight 700, marginBottom 6–10",
+        "body": "fontSize 13, lineHeight 1.65, color #374151",
+        "pullQuote": "color primary blue, fontSize 15–16, fontStyle italic, fontWeight 700, borderLeft 3px solid blue, paddingLeft 14"
+      }
+    },
+    {
+      "id": "section-4up-grid",
+      "type": "feature-grid",
+      "layout": "CSS grid 2x2, gap 10",
+      "cards": {
+        "style": "bg #f7f8fc, borderRadius 8, padding 10px 12px",
+        "label": "fontSize 12, fontWeight 700, marginBottom 3",
+        "description": "fontSize 11, color muted, lineHeight 1.4"
+      }
+    }
+  ],
+  "sidebar": {
+    "position": "right column",
+    "width": "320px",
+    "sticky": true,
+    "topOffset": "68px",
+    "cards": [
+      {
+        "id": "at-a-glance",
+        "background": "#ffffff",
+        "border": "1px solid #e5e7eb",
+        "borderRadius": 12,
+        "padding": "18px 20px",
+        "heading": {
+          "style": "11px, weight 700, letterSpacing 0.08em, color #6b7280, uppercase",
+          "marginBottom": 14
+        },
+        "statRows": {
+          "layout": "flex row, gap 14, padding 14px 0, borderBottom 1px solid #e5e7eb",
+          "icon": "44px circle, bg [iconColor]22, centered",
+          "stat": "fontSize 18, fontWeight 800, lineHeight 1.1, whitespace pre-wrap",
+          "label": "fontSize 12, color #6b7280, marginTop 2"
+        }
+      },
+      {
+        "id": "why-seeing-this",
+        "background": "#fffbeb",
+        "headingIcon": "star (filled yellow)",
+        "sections": [
+          {
+            "preLabel": "fontSize 12, color muted, marginBottom 10",
+            "matchedTags": "flex column gap 7 — green check icon (16px) + label fontSize 13"
+          },
+          {
+            "preLabel": "fontSize 12, color muted",
+            "additionalTags": "flex column gap 7 — small icon (14px, color #9ca3af) + label fontSize 13 color #374151"
+          }
+        ]
+      },
+      {
+        "id": "if-we-talk",
+        "headingIcon": "chat bubble",
+        "items": {
+          "layout": "flex row, gap 10, marginBottom 10",
+          "icon": "arrowRight 14px, color primary blue",
+          "text": "fontSize 13, color #1f2937, lineHeight 1.5"
+        }
+      },
+      {
+        "id": "my-role",
+        "headingIcon": "person",
+        "items": {
+          "layout": "flex row, gap 8, marginBottom 8",
+          "bullet": "• character, color #9ca3af, flexShrink 0",
+          "text": "fontSize 13, color #374151, lineHeight 1.5"
+        }
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "TagPill",
+      "props": [
+        "label: string",
+        "icon?: string",
+        "checked?: boolean"
+      ],
+      "description": "Rounded-full pill. Border 1px #e5e7eb, bg white, padding 5px 12px, fontSize 12, fontWeight 500. Optional leading SVG icon (13px). Optional green check / red X circle icon when checked prop is provided."
+    },
+    {
+      "name": "StatRow",
+      "props": [
+        "icon: string",
+        "iconBg: string",
+        "stat: string",
+        "label: string"
+      ],
+      "description": "Horizontal flex row. 44px circle icon container with bg opacity 13%. Bold large stat text, small muted label. Separated by bottom border."
+    },
+    {
+      "name": "SidebarCard",
+      "props": [
+        "children",
+        "bg?: string"
+      ],
+      "description": "White (or tinted) card with border 1px #e5e7eb, borderRadius 12, padding 18px 20px, marginBottom 16."
+    },
+    {
+      "name": "SidebarHeading",
+      "props": [
+        "label: string",
+        "icon?: string",
+        "iconColor?: string"
+      ],
+      "description": "Flex row with optional icon (14px) + uppercase label text (11px, weight 700, letterSpacing 0.08em, color #6b7280). MarginBottom 14."
+    },
+    {
+      "name": "CheckItem",
+      "props": [
+        "label: string",
+        "pass: boolean"
+      ],
+      "description": "Flex row. Green filled check circle (pass=true) or red X circle (pass=false) at 16px, then label fontSize 13. Used in comparison cards."
+    },
+    {
+      "name": "ArrowItem",
+      "props": [
+        "text: string"
+      ],
+      "description": "Flex row gap 10. Blue arrowRight icon (14px) + text fontSize 13, lineHeight 1.5. MarginBottom 10."
+    },
+    {
+      "name": "PhoneMockup",
+      "props": [],
+      "description": "185px wide phone frame (border 8px #1a1a1a, borderRadius 32, overflow hidden). Screen has dark gradient background with a radial galaxy swirl, Galaxy AI label, a query bubble (bg rgba(255,255,255,0.12)), and a row of 4 colored app icon squares. A pull-quote card is absolutely positioned 110px to the right."
+    },
+    {
+      "name": "Icon",
+      "props": [
+        "name: string",
+        "size?: number",
+        "color?: string"
+      ],
+      "description": "Inline SVG icon switcher. Supported names: x, arrowLeft, arrowRight, sparkles, chart, building, people, globe, star, check, close, chat, person, calendar, lightbulb, refresh, doc, ambiguity, strategy, data, influence, enterprise."
+    }
+  ],
+  "stories": [
+    {
+      "id": "samsung-galaxy-ai",
+      "company": "Samsung",
+      "year": "2024",
+      "index": "6 of 14",
+      "heading": "What happens when an AI demo proves capability—but not adoption value?",
+      "subheading": "192K employees were preparing to demonstrate Galaxy AI. I thought the flagship use case was going to fail.",
+      "tags": [
+        "AI & Emerging Technology",
+        "Enterprise Scale",
+        "Strategic Influence"
+      ],
+      "atAGlance": [
+        {
+          "stat": "192K",
+          "label": "employees",
+          "icon": "people",
+          "color": "#1428A0"
+        },
+        {
+          "stat": "Multi-company,\nmulti-geography",
+          "label": "launch",
+          "icon": "globe",
+          "color": "#2e7d32"
+        },
+        {
+          "stat": "Emerging",
+          "label": "AI technology",
+          "icon": "sparkles",
+          "color": "#7c3aed"
+        },
+        {
+          "stat": "2024",
+          "label": "Galaxy AI launch",
+          "icon": "calendar",
+          "color": "#1565c0"
+        }
+      ],
+      "whyYoureSeeing": {
+        "matched": [
+          "Navigating Ambiguity",
+          "Strategy → Execution",
+          "Data → Decisions"
+        ],
+        "also": [
+          "AI & Emerging Technology",
+          "Data → Decisions",
+          "Influence Without Authority",
+          "Enterprise Scale"
+        ]
+      },
+      "ifWeTalk": [
+        "How I evaluate AI adoption risk before a large-scale launch",
+        "How I handle being right when a recommendation is declined",
+        "What I look for in an AI use case to make it adoption-ready"
+      ],
+      "myRole": [
+        "Workforce readiness strategy and use-case quality critique",
+        "Alternative recommendation anchored in context-reliable behavior",
+        "Readiness planning across multiple companies and geographies",
+        "Documented post-mortem recommendations when proposal was not adopted"
+      ]
+    },
+    {
+      "id": "walmart-logistics",
+      "company": "Walmart",
+      "year": "2026",
+      "index": "1 of 14",
+      "heading": "How do you turn 20 separate logistics programs into one seller strategy?",
+      "subheading": "We had plenty of programs. What we didn't have was a way to talk about them as one solution.",
+      "tags": [
+        "Strategy → Execution",
+        "Building From Scratch",
+        "Influence Without Authority"
+      ],
+      "atAGlance": [
+        {
+          "stat": "~20",
+          "label": "logistics programs",
+          "icon": "chart",
+          "color": "#1428A0"
+        },
+        {
+          "stat": "8",
+          "label": "seller lifecycle phases",
+          "icon": "refresh",
+          "color": "#2e7d32"
+        },
+        {
+          "stat": "~3 months",
+          "label": "kickoff → launch",
+          "icon": "calendar",
+          "color": "#7c3aed"
+        },
+        {
+          "stat": "13+",
+          "label": "partner groups",
+          "icon": "people",
+          "color": "#0891b2"
+        }
+      ],
+      "whyYoureSeeing": {
+        "matched": [
+          "Strategy → Execution",
+          "Building From Scratch",
+          "Influence Without Authority"
+        ],
+        "also": [
+          "Leading Big Things",
+          "Cross-Functional Leadership",
+          "Change Management",
+          "Workforce Capability"
+        ]
+      },
+      "ifWeTalk": [
+        "How we validated the eight-phase lifecycle with 20 different programs",
+        "How we kept partners aligned without a dedicated team",
+        "What the next phase of adoption looks like across the organization"
+      ],
+      "myRole": [
+        "Conceived the eight-phase lifecycle framework",
+        "Mapped ~20 programs to seller needs",
+        "Wrote core copy for learning and seller materials",
+        "Led a cross-functional team to build and launch the solution"
+      ]
+    }
+  ],
+  "buildInstructions": "Build a React single-page app with Inter font. Render a sticky top bar (close + brand/year) and sticky bottom bar (prev/next story navigation with a yellow pill button). The main area is a two-column CSS grid (1fr 320px) with a scrollable narrative article on the left and a sticky sidebar on the right. Each story's narrative contains a hero header with a blockquote hook, tag pills, then multiple content sections: narrative + media, a two-column comparison card with check/X items, an image with a dark overlay quote, a tinted callout box, a timeline, and a 2–3 column reflections grid. The sidebar has four stacked cards: stat rows, a yellow-tinted personalization card, a conversation prompts card, and a role bullets card. Wire the bottom bar arrows to an index state that swaps between story components."
+}

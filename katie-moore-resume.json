@@ -1,0 +1,435 @@
+{
+  "name": "Katie Moore",
+  "title": "Enterprise Workforce Capability & Transformation Executive",
+  "yearsExperience": 15,
+  "contact": {
+    "location": "Bentonville, AR",
+    "phone": "706-333-0085",
+    "email": "katherine.rs.moore@gmail.com"
+  },
+  "summary": "Enterprise workforce capability and learning executive with 15+ years of experience building scalable learning strategies, skills-based capability programs, and operating models that improve workforce and business performance. Proven success leading enterprise learning organizations, emerging-technology enablement, certification programs, and complex cross-functional transformations at global scale.",
+  "capabilityGroups": [
+    {
+      "group": "Workforce Strategy",
+      "items": [
+        "Enterprise Learning Strategy",
+        "Skills-Based Capability Building",
+        "Certification & Readiness Programs",
+        "Workforce Development"
+      ]
+    },
+    {
+      "group": "AI & Technology Enablement",
+      "items": [
+        "AI Fluency & Enablement",
+        "Generative AI Adoption",
+        "Emerging Technology Readiness",
+        "AI-Enabled Content & Experience Development"
+      ]
+    },
+    {
+      "group": "Transformation Execution",
+      "items": [
+        "Business & Workforce Transformation",
+        "Change Leadership",
+        "Enterprise Program Scaling",
+        "Cross-Functional Leadership"
+      ]
+    },
+    {
+      "group": "Measurement & Operations",
+      "items": [
+        "Learning & Business Impact Measurement",
+        "KPI & Insights Strategy",
+        "Executive Stakeholder Management",
+        "Portfolio & Budget Management"
+      ]
+    }
+  ],
+  "impactStats": [
+    {
+      "label": "Learners Supported",
+      "value": "190K+",
+      "context": "120K US + 70K international"
+    },
+    {
+      "label": "Portfolio Managed",
+      "value": "$3.2M",
+      "context": "Enterprise learning portfolio"
+    },
+    {
+      "label": "Training Reach Growth",
+      "value": "+43%",
+      "context": "Samsung leadership tenure"
+    },
+    {
+      "label": "KPI Improvement",
+      "value": "+37%",
+      "context": "Learning performance metrics"
+    },
+    {
+      "label": "Ramp-Up Time",
+      "value": "-40%",
+      "context": "Capability program optimization"
+    },
+    {
+      "label": "IoT Sales Lift",
+      "value": "+200%",
+      "context": "Above national benchmark"
+    }
+  ],
+  "roles": [
+    {
+      "id": "walmart-sm",
+      "title": "Senior Manager, WFS Sales Enablement",
+      "company": "Walmart",
+      "years": "Mar 2025 - Present",
+      "location": "Bentonville, AR",
+      "scope": "Unified WFS + SFS enablement and built scalable capability framework across internal and international teams.",
+      "highlights": [
+        "Unified Walmart Marketplace logistics enablement by replacing siloed WFS/SFS positioning with an integrated fulfillment lifecycle.",
+        "Architected progressive learning and second-level certification framework now expanding across international marketplaces.",
+        "Extended enablement framework into Marketing for seller communications and events support.",
+        "Secured VP sponsorship for first mandatory capability initiative tied to WFS adoption barriers.",
+        "Built first full Sales Enablement measurement stack (operations, productivity, performance dashboards).",
+        "Applied AI and vibe-coding tools to rapidly prototype and deliver hundreds of digital solutions.",
+        "Automated low-adoption intake workflow, reducing process complexity from 20 steps to 6."
+      ],
+      "metricWins": [
+        {
+          "label": "Intake workflow",
+          "delta": "-70% steps",
+          "context": "20 -> 6 steps"
+        },
+        {
+          "label": "Solution throughput",
+          "delta": "100s",
+          "context": "AI-enabled digital assets produced"
+        }
+      ],
+      "teamSize": "2",
+      "scopeCard": "800 associates | 40K sellers, Domestic and International",
+      "partners": "Product, Program Management, Marketing, Seller Education, Human Resources, People Strategy, Data and Analytics, Finance, Operations, Onboarding, Seller Support, Risk, Supply Chain",
+      "mission": "Equip sales teams with the knowledge, tools, and capabilities to effectively position Walmart Marketplace logistics solutions and accelerate seller adoption.",
+      "roleInMyOwnWords": "I’m responsible for making sure our sales teams understand Walmart’s logistics solutions well enough to have the right conversation with a seller. That means understanding where the business is trying to go, identifying what our teams need to know and be able to do to get us there, and then building the capability around it. A big part of my role has also been connecting pieces of the business that were historically treated separately and creating a simpler, more consistent way for our teams—and ultimately our sellers—to understand how Walmart fulfillment works."
+    },
+    {
+      "id": "samsung-director",
+      "title": "Director of Retail Learning and Product Training",
+      "company": "Samsung Electronics America",
+      "years": "Feb 2022 - Mar 2025",
+      "location": "Plano, TX",
+      "scope": "Led a 40-person enterprise capability org supporting major product launches and global learning scale.",
+      "highlights": [
+        "Led enterprise capability strategy for 120,000 U.S. associates and 70,000 international learners.",
+        "Supported rollout readiness for Galaxy AI expansion and workforce introduction of Gemini and Samsung GenAI capabilities.",
+        "Directed a $3.2M learning portfolio aligned to strategic priorities.",
+        "Increased training reach by 43% and improved KPIs by 37%.",
+        "Built onboarding/readiness/certification programs accelerating time-to-productivity.",
+        "Implemented governance and quality standards that rebuilt stakeholder confidence and protected in-house design capability."
+      ],
+      "metricWins": [
+        {
+          "label": "Team size led",
+          "delta": "40",
+          "context": "Direct learning organization"
+        },
+        {
+          "label": "Learners supported",
+          "delta": "190K",
+          "context": "US + international"
+        },
+        {
+          "label": "Training reach",
+          "delta": "+43%",
+          "context": "Program expansion"
+        },
+        {
+          "label": "KPI performance",
+          "delta": "+37%",
+          "context": "Learning effectiveness"
+        }
+      ],
+      "teamSize": "4 direct reports, 40 total employees",
+      "scopeCard": "190K employees, Domestic and International",
+      "partners": "Product, Merchandising, Marketing, Digital Development, Local and International Leadership, B2B, Sales, Human Resources, Operations, Channel Partners, Supply Chain, Recruiting, Business Strategy, Data and Analytics, Finance, International GTM",
+      "mission": "Achieve business and product-launch goals by ensuring frontline employees and partners were ready to confidently demonstrate, position, and sell Samsung products.",
+      "roleInMyOwnWords": "This role was my shift from owning how we built product learning to owning the strategy for how we prepared the workforce for what Samsung was bringing to market. I was thinking much further upstream—working with Product, Marketing, Sales, and our partners to understand the launch strategy, identify what the field needed to be ready, and determine how learning, communications, demonstrations, and certification all needed to come together. My team then turned that strategy into a coordinated readiness approach that could scale across markets and channels."
+    },
+    {
+      "id": "samsung-sr-mgr",
+      "title": "Senior Manager, Learning Strategy and Content Design",
+      "company": "Samsung Electronics America",
+      "years": "Feb 2021 - Feb 2022",
+      "location": "Plano, TX",
+      "scope": "Scaled enterprise capability programs and modernized learning modalities and measurement.",
+      "highlights": [
+        "Scaled capability programs supporting 92,000 employees.",
+        "Increased engagement by 35% and reduced ramp-up time by 40%.",
+        "Built and led a 15-person cross-functional team with improved resource utilization and operations.",
+        "Introduced AR/VR learning experiences reducing training time by 30%.",
+        "Established measurement and readiness frameworks that increased certification completion by 22%."
+      ],
+      "metricWins": [
+        {
+          "label": "Engagement",
+          "delta": "+35%",
+          "context": "Program adoption"
+        },
+        {
+          "label": "Ramp-up time",
+          "delta": "-40%",
+          "context": "Time-to-productivity"
+        },
+        {
+          "label": "Training time",
+          "delta": "-30%",
+          "context": "AR/VR-enabled programs"
+        },
+        {
+          "label": "Cert completion",
+          "delta": "+22%",
+          "context": "Readiness framework impact"
+        }
+      ],
+      "teamSize": "6 employees",
+      "scopeCard": "92K employees, Domestic and International",
+      "partners": "Product, Merchandising, Marketing, Digital Development, Local and International Leadership, B2B, Sales, Human Resources, Operations, Channel Partners, Supply Chain, Recruiting, Business Strategy, Data and Analytics, Finance",
+      "mission": "Achieve performance targets by ensuring retail employees demonstrated accurate product knowledge and delivered effective product demonstrations with customers.",
+      "roleInMyOwnWords": "My team was responsible for figuring out what retail employees needed to know and be able to demonstrate to successfully sell Samsung products. We architected the methods they used to learn the products, practice customer conversations, and demonstrate features effectively. Ultimately, our job was to make sure learning showed up in the customer interaction and translated into better performance."
+    },
+    {
+      "id": "tmobile",
+      "title": "Contact Center Manager, SMB Sales",
+      "company": "T-Mobile for Business",
+      "years": "Jul 2020 - Feb 2021",
+      "location": "Irving, TX",
+      "scope": "Led remote sales/support org through merger and pandemic operations.",
+      "highlights": [
+        "Led remote organization of 56 employees via eight frontline leaders.",
+        "Shifted from support-only model to integrated sales-and-support organization.",
+        "Increased acquired accounts from ~400 per quarter to 1,200+ in one month.",
+        "Established coaching and performance systems to maintain continuity during transformation."
+      ],
+      "metricWins": [
+        {
+          "label": "Org size",
+          "delta": "56",
+          "context": "Remote team through 8 leaders"
+        },
+        {
+          "label": "Acquired accounts",
+          "delta": "3x",
+          "context": "From quarterly baseline to monthly peak"
+        }
+      ],
+      "teamSize": "8 direct reports, 56 total employees",
+      "scopeCard": "11K business accounts",
+      "partners": "Sales, Operations, Security, Workforce Management, Human Resources, Marketing, Local and National Leadership, Sales Acquisition",
+      "mission": "Support small and medium business cellular accounts by resolving service needs within SLA while identifying opportunities to grow and deepen customer relationships",
+      "roleInMyOwnWords": "I led eight frontline leaders and 56 employees supporting small and medium business customers with their cellular accounts. The job was to make sure we solved what customers called us for within SLA, but also that we understood enough about their business to recognize when there was an opportunity to do more for them. I spent most of my time developing my leaders, looking at where the operation was performing well or breaking down, and making sure they knew how to coach their teams to deliver both sides of the job—support and growth."
+    },
+    {
+      "id": "sprint",
+      "title": "Senior Regional Manager, Learning & Development",
+      "company": "Sprint",
+      "years": "Jul 2018 - Jul 2020",
+      "location": "Irving, TX",
+      "scope": "Drove regional capability strategy tied directly to measurable business outcomes.",
+      "highlights": [
+        "Led capability development for 5,500+ employees across a multi-state region.",
+        "Shifted success measures from completion rates to business-impact outcomes.",
+        "Designed coaching frameworks that drove IoT sales to 200% above national benchmarks.",
+        "Generated $900K+ additional sales within 90 days through targeted upskilling initiatives."
+      ],
+      "metricWins": [
+        {
+          "label": "Employees supported",
+          "delta": "5,500+",
+          "context": "Regional capability programs"
+        },
+        {
+          "label": "IoT sales",
+          "delta": "+200%",
+          "context": "Vs national benchmark"
+        },
+        {
+          "label": "Sales impact",
+          "delta": "$900K+",
+          "context": "Within 90 days"
+        }
+      ],
+      "teamSize": "3 direct reports, 19 total employees",
+      "scopeCard": "5,500 employees | 5 states",
+      "partners": "Regional and National Leadership, Field Sales, Operations, Customer Service, Marketing, Human Resources, Recruiting",
+      "mission": "Turn workforce capability into measurable business performance by developing leaders, trainers, and frontline teams around the skills that mattered most",
+      "roleInMyOwnWords": "I led a 19-person learning team responsible for supporting more than 5,500 employees across a multi-state region. My job was to understand where the business needed to perform differently, figure out what people needed to do differently to get there, and build the coaching, learning, and reinforcement around it. I also wanted us to stop treating training completion as success—if the business didn't perform differently afterward, we hadn't finished the job."
+    },
+    {
+      "id": "ahs-call-center-manager",
+      "title": "Call Center Manager – Inbound Sales",
+      "company": "American Home Shield",
+      "years": "Jul 2017 - Jun 2018",
+      "location": "LaGrange, GA",
+      "scope": "Led inbound sales team performance across sales, service, quality, productivity, and customer outcomes.",
+      "highlights": [
+        "Led a 15-person inbound sales team across sales, service, quality, productivity, and customer performance.",
+        "Used performance analytics and quality evaluation to identify capability gaps and deliver targeted coaching.",
+        "Partnered cross-functionally on workforce-readiness and process-improvement initiatives."
+      ],
+      "metricWins": [
+        {
+          "label": "Team size",
+          "delta": "15",
+          "context": "Inbound sales organization"
+        },
+        {
+          "label": "Leadership scope",
+          "delta": "5",
+          "context": "Sales, service, quality, productivity, customer performance"
+        }
+      ],
+      "teamSize": "15",
+      "scopeCard": "100K customer base",
+      "partners": "Sales, Risk, Operations, Marketing, Customer Service, Human Resources",
+      "mission": "Convert customer inquiries into revenue opportunities while developing a high-performing team",
+      "roleInMyOwnWords": "I led an inbound sales team in a high-volume contact center, where we had to sell, take care of the customer, hit our quality standards, and manage things like handle time and service levels—all at the same time. My job was to use the data to understand where performance was breaking down, then listen for the human cues that explained why. From there, I could coach the behaviors, skills, and conversations that actually changed the outcome."
+    },
+    {
+      "id": "verizon-hrbp",
+      "title": "Human Resources Business Partner",
+      "company": "Verizon Wireless",
+      "years": "Jan 2016 - May 2017",
+      "location": "Peachtree City, GA",
+      "scope": "Aligned talent and workforce development with business priorities across retail operations.",
+      "highlights": [
+        "Led succession planning across 27 retail locations, increasing internal promotions by 15%.",
+        "Supported frontline hourly workforces and partnered with district and store leaders on talent and capability plans.",
+        "Led strategic learning initiatives supporting 5,500 employees.",
+        "Coached leaders on performance and development strategies that contributed to a 12% increase in team performance ratings."
+      ],
+      "metricWins": [
+        {
+          "label": "Locations supported",
+          "delta": "27",
+          "context": "Retail succession and talent planning"
+        },
+        {
+          "label": "Internal promotions",
+          "delta": "+15%",
+          "context": "Leadership pipeline outcomes"
+        },
+        {
+          "label": "Employees supported",
+          "delta": "5,500",
+          "context": "Strategic learning initiatives"
+        },
+        {
+          "label": "Performance ratings",
+          "delta": "+12%",
+          "context": "Leadership coaching impact"
+        }
+      ],
+      "teamSize": "Individual Contributor",
+      "scopeCard": "27 stores | 450 employees",
+      "partners": "Store Managers, District Leadership, HR Leadership, Payroll, Benefits and Leave Teams, Security, Fraud",
+      "mission": "Help leaders navigate the full employee lifecycle while strengthening performance, talent readiness, and the overall health of the organization",
+      "roleInMyOwnWords": "I was the HR partner for leaders across 27 stores and about 450 employees, so I was involved in pretty much every people issue that came with running the business. That included employee relations, leaves of absence, benefits, performance management, leader coaching, and succession planning. A big part of my job was helping leaders work through difficult situations while also making sure we were developing the people who were ready for what came next."
+    },
+    {
+      "id": "verizon-district-trainer",
+      "title": "District Trainer",
+      "company": "Verizon Wireless",
+      "years": "Oct 2013 - Jan 2016",
+      "location": "Columbus, GA",
+      "scope": "Led district workforce development and blended learning aligned to business goals and frontline performance.",
+      "highlights": [
+        "Led district-wide workforce development and blended-learning initiatives targeting skill gaps and business priorities.",
+        "Partnered with retail leaders to build continuous-learning practices.",
+        "Coached employees in skill development, performance improvement, and career advancement."
+      ],
+      "metricWins": [
+        {
+          "label": "Learning model",
+          "delta": "Blended",
+          "context": "District-wide development approach"
+        },
+        {
+          "label": "Primary focus",
+          "delta": "Frontline",
+          "context": "Performance and capability improvement"
+        }
+      ],
+      "teamSize": "Individual Contributor",
+      "scopeCard": "7 stores | 120 employees",
+      "partners": "Store Managers, Sales Leaders, Hourly Associates, Operations, L&D",
+      "mission": "Build frontline capability by identifying performance gaps and translating them into practical learning, coaching, and development",
+      "roleInMyOwnWords": "I supported seven stores and about 120 employees, working closely with store leaders to understand where their teams needed help and then building learning around those needs. I spent a lot of time in the field, so I could see whether something actually worked after the training was over—not just whether people completed it. This role was my first opportunity to explore learning content creation, which I found out I loved."
+    },
+    {
+      "id": "verizon-gsm",
+      "title": "General Manager",
+      "company": "Verizon Wireless",
+      "years": "Jun 2012 - Sep 2013",
+      "location": "Auburn, AL",
+      "scope": "Led full store operations and frontline team development while exceeding performance targets.",
+      "highlights": [
+        "Led a 16-person frontline retail organization.",
+        "Exceeded sales targets by 35% and advanced the location from Tier 3 to Tier 1.",
+        "Sustained customer NPS above 90%.",
+        "Developed frontline employees and managers through onboarding, coaching, and performance development."
+      ],
+      "metricWins": [
+        {
+          "label": "Team size",
+          "delta": "16",
+          "context": "Frontline retail team"
+        },
+        {
+          "label": "Sales performance",
+          "delta": "+35%",
+          "context": "Vs target"
+        },
+        {
+          "label": "Store tier",
+          "delta": "3 -> 1",
+          "context": "Location advancement"
+        },
+        {
+          "label": "Customer NPS",
+          "delta": ">90%",
+          "context": "Sustained performance"
+        }
+      ],
+      "teamSize": "16",
+      "scopeCard": "5K customers/month",
+      "partners": "Local and Regional Leadership, Operations, Human Resources",
+      "mission": "Exceed performance targets while sustaining top-tier support and developing hourly labor",
+      "roleInMyOwnWords": "I moved into this role after several customer facing retail roles, including customer service, sales, and consumer education. This is where I learned what leadership feels like at the frontline. About 5,000 customers came through our store every month, and I was responsible for the people, performance, customer experience, inventory, and everything in between. My job was to build a team that could perform at a high level without sacrificing the customer or each other."
+    }
+  ],
+  "education": [
+    {
+      "program": "Executive MBA",
+      "institution": "Quantic University",
+      "year": "2022"
+    },
+    {
+      "program": "BM in Music",
+      "institution": "LaGrange College",
+      "year": "2008"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google AI Professional Certificate",
+      "provider": "Coursera",
+      "year": "2026"
+    },
+    {
+      "name": "High Performance Leadership; Executive Leadership",
+      "provider": "eCornell",
+      "year": "2019"
+    }
+  ]
+}

@@ -1833,13 +1833,13 @@ function getThemeForRole(role) {
 
 function getLogoPath(brandKey) {
   const logos = {
-    walmart: 'assets/logos/walmart.png',
-    samsung: 'assets/logos/samsung.png',
-    tmobile: 'assets/logos/tmobile.jpg',
-    sprint: 'assets/logos/sprint.jpg',
-    verizon: 'assets/logos/verizon.jpg',
-    ahs: 'assets/logos/ahs.png',
-    default: 'assets/logos/walmart.png',
+    walmart: 'logos/walmart.png',
+    samsung: 'logos/samsung.png',
+    tmobile: 'logos/tmobile.jpg',
+    sprint: 'logos/sprint.jpg',
+    verizon: 'logos/verizon.jpg',
+    ahs: 'logos/ahs.png',
+    default: 'logos/walmart.png',
   };
 
   return logos[brandKey] ?? logos.default;
@@ -1847,8 +1847,8 @@ function getLogoPath(brandKey) {
 
 function getStoryVisualAssets(storyId) {
   const defaults = {
-    primary: 'assets/story-visuals/walmart-lifecycle-primary.png',
-    secondary: 'assets/story-visuals/walmart-lifecycle-secondary.png',
+    primary: 'story-visuals/walmart-lifecycle-primary.png',
+    secondary: 'story-visuals/walmart-lifecycle-secondary.png',
   };
 
   const byStory = {
@@ -1887,24 +1887,24 @@ function getStoryPdfPageImage(storyId) {
   // Bundled build embeds these (see bundle_for_puppy_share.py) same as the
   // brand logos. Local dev falls back to the plain relative asset path.
   const embedded = typeof EMBEDDED_CASE_STUDY_PAGES !== 'undefined' ? EMBEDDED_CASE_STUDY_PAGES[fileName] : null;
-  return embedded ?? `assets/case-study-pages/${fileName}`;
+  return embedded ?? `case-study-pages/${fileName}`;
 }
 
 function getStoryPdfPath(storyId) {
   const pdfUrlByStory = {
-    "walmart-lifecycle": "assets/case-studies/walmart-lifecycle.pdf",
-    "walmart-opp": "assets/case-studies/walmart-opp.pdf",
-    "walmart-certification": "assets/case-studies/walmart-certification.pdf",
-    "samsung-turnaround": "assets/case-studies/samsung-turnaround.pdf",
-    "samsung-future-director": "assets/case-studies/samsung-future-director.pdf",
-    "samsung-ai-readiness": "assets/case-studies/samsung-ai-readiness.pdf",
-    "tmobile-transformation": "assets/case-studies/tmobile-transformation.pdf",
-    "sprint-sales-accountability": "assets/case-studies/sprint-sales-accountability.pdf",
-    "sprint-quiz-warehouse": "assets/case-studies/sprint-quiz-warehouse.pdf",
-    "verizon-building-the-bench": "assets/case-studies/verizon-building-the-bench.pdf",
-    "samsung-budget-portfolio": "assets/case-studies/samsung-budget-portfolio.pdf",
-    "samsung-influencing-700": "assets/case-studies/samsung-influencing-700.pdf",
-    "verizon-early-failure": "assets/case-studies/verizon-early-failure.pdf"
+    "walmart-lifecycle": "case-studies/walmart-lifecycle.pdf",
+    "walmart-opp": "case-studies/walmart-opp.pdf",
+    "walmart-certification": "case-studies/walmart-certification.pdf",
+    "samsung-turnaround": "case-studies/samsung-turnaround.pdf",
+    "samsung-future-director": "case-studies/samsung-future-director.pdf",
+    "samsung-ai-readiness": "case-studies/samsung-ai-readiness.pdf",
+    "tmobile-transformation": "case-studies/tmobile-transformation.pdf",
+    "sprint-sales-accountability": "case-studies/sprint-sales-accountability.pdf",
+    "sprint-quiz-warehouse": "case-studies/sprint-quiz-warehouse.pdf",
+    "verizon-building-the-bench": "case-studies/verizon-building-the-bench.pdf",
+    "samsung-budget-portfolio": "case-studies/samsung-budget-portfolio.pdf",
+    "samsung-influencing-700": "case-studies/samsung-influencing-700.pdf",
+    "verizon-early-failure": "case-studies/verizon-early-failure.pdf"
 };
   return pdfUrlByStory[storyId] ?? null;
 }

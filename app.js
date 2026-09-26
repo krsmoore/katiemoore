@@ -1048,6 +1048,19 @@ function handlePersonaSelection(persona) {
   }
 }
 
+function resetCaseStudyScroll() {
+  const detail = el.ceDetail;
+  detail.closest('.quiz-modal__panel')?.scrollTo({ top: 0, behavior: 'instant' });
+  requestAnimationFrame(() => {
+    if (detail.hidden) return;
+    detail.querySelectorAll('.ce-detail-card, .ce-spec-story, .ce-spec-story__body, .ce-pdf-window__preview').forEach((node) => {
+      node.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    });
+    detail.querySelector('#ceCloseDetail')?.focus({ preventScroll: true });
+    detail.closest('.quiz-modal__panel')?.scrollTo({ top: 0, behavior: 'instant' });
+  });
+}
+
 function showExplorerScreen(screen) {
   if (!el.ceScreenWho || !el.ceScreenSelect || !el.ceScreenResults) {
     return;
@@ -1056,6 +1069,17 @@ function showExplorerScreen(screen) {
   el.ceScreenWho.hidden = screen !== 'who';
   el.ceScreenSelect.hidden = screen !== 'select';
   el.ceScreenResults.hidden = screen !== 'results';
+
+  // New steps begin at the top of the scrollable dialog, including on phones.
+  const activeScreen = screen === 'results' ? el.ceScreenResults
+    : screen === 'select' ? el.ceScreenSelect : el.ceScreenWho;
+  requestAnimationFrame(() => {
+    if (activeScreen.hidden) return;
+    const heading = activeScreen.querySelector('h3');
+    heading?.setAttribute('tabindex', '-1');
+    heading?.focus({ preventScroll: true });
+    activeScreen.closest('.quiz-modal__panel')?.scrollTo({ top: 0, behavior: 'instant' });
+  });
 }
 
 function renderExplorerOptions() {
@@ -1407,6 +1431,7 @@ function openSpecStoryDetail(baseStoryId, specStory) {
   };
 
   el.ceDetail.hidden = false;
+  resetCaseStudyScroll();
   el.ceDetail.querySelector('#ceCloseDetail')?.addEventListener('click', closeDetail);
   el.ceDetail.querySelector('[data-close-detail="true"]')?.addEventListener('click', closeDetail);
   el.ceDetail.querySelectorAll('[data-story-nav]').forEach((node) => {
@@ -1468,6 +1493,7 @@ function openStoryPdf(storyId, pdfPath) {
   };
 
   el.ceDetail.hidden = false;
+  resetCaseStudyScroll();
   el.ceDetail.querySelector('#ceCloseDetail')?.addEventListener('click', closeDetail);
   el.ceDetail.querySelector('[data-close-detail="true"]')?.addEventListener('click', closeDetail);
 
@@ -1697,6 +1723,7 @@ function openStoryDetail(storyId) {
   };
 
   el.ceDetail.hidden = false;
+  resetCaseStudyScroll();
   el.ceDetail.querySelector('#ceCloseDetail')?.addEventListener('click', closeDetail);
   el.ceDetail.querySelector('[data-close-detail="true"]')?.addEventListener('click', closeDetail);
   el.ceDetail.querySelectorAll('[data-story-nav]').forEach((node) => {

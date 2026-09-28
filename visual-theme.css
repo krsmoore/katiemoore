@@ -225,7 +225,7 @@ h1 { font-family:Georgia,'Times New Roman',serif; font-size:58px; font-weight:40
   .role-chip .role-title {font-size:16px;}
   .role-chip .years {font-size:12px;}
   .main {min-width:0;padding:16px 12px 32px;}
-  .hero-card,.hero-card.theme-ahs {padding:clamp(170px,43vw,280px) 16px 20px;border-radius:12px;}
+  .hero-card,.hero-card.theme-ahs {padding:24px 16px 20px;border-radius:12px;}
   .hero-card h2 {max-width:100%;font-size:clamp(28px,7vw,38px);line-height:1.12;}
   .hero-company {font-size:14px;letter-spacing:1px;line-height:1.5;margin:10px 0 18px;}
   .hero-location {position:static;max-width:100%;font-size:13px;}

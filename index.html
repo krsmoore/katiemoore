@@ -1,131 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Katie Moore | Interactive Resume</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="visual-theme.css" />
-    <style id="mobile-career-spacing-fix">
-      @media (max-width: 760px) {
-        #roleHero.hero-card { padding-top: 24px; }
-      }
-    </style>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
-
-    <header class="topbar">
-      <div class="topbar__inner">
-        <div>
-          <h1 id="name"></h1>
-          <p id="title" class="subtitle"></p>
-          <p class="header-tagline">Strategy. Enablement. Operations. People. Impact.</p>
-          <a class="header-email" href="mailto:katherine.rs.moore@gmail.com?subject=Following%20up%20from%20your%20interactive%20resume">Send Katie an email</a>
-        </div>
-        <div class="actions">
-          <p class="fitcheck-prompt">Is Katie who you're looking for? <span aria-hidden="true">→</span> Do a fit check.</p>
-          <button class="btn btn--fitcheck" id="fitQuizButton" type="button" aria-haspopup="dialog" aria-controls="fitQuizModal">Fit Check</button>
-          <a class="btn btn--primary" id="downloadResume" href="documents/KMoore.2026Resume.pdf" download="KMoore.2026Resume.pdf">Download Resume</a>
-        </div>
-      </div>
-    </header>
-
-    <div class="career-layout">
-    <section class="timeline-shell" aria-labelledby="timelineTitle">
-      <div class="timeline-shell__inner">
-        <div class="timeline-head">
-          <h2 id="timelineTitle">Career History</h2>
-        </div>
-        <nav id="roleNav" class="role-nav" aria-label="Role timeline"></nav>
-      </div>
-    </section>
-
-    <main id="main" class="main">
-      <article id="roleHero" class="hero-card" aria-live="polite"></article>
-
-      <section class="content-section">
-        <h3 class="section-title">Role KPIs</h3>
-        <div id="measurements" class="card-grid card-grid--kpis"></div>
-      </section>
-
-      <section class="content-section">
-        <h3 class="section-title">Major Metric Wins</h3>
-        <div id="wins" class="card-grid card-grid--wins"></div>
-      </section>
-
-      <section class="content-section">
-        <h3 class="section-title">What I'm Proud Of</h3>
-        <ol id="accomplishments" class="accomplishments"></ol>
-      </section>
-
-      <section class="content-section">
-        <h3 class="section-title">What I became known for</h3>
-        <div id="loved" class="loved-grid"></div>
-      </section>
-    </main>
-    </div>
-
-    <div id="fitQuizModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="fitQuizTitle" hidden>
-      <div id="fitQuizBackdrop" class="quiz-modal__backdrop" data-close-quiz="true"></div>
-      <section class="quiz-modal__panel career-explorer-modal">
-        <button class="quiz-modal__close" id="fitQuizClose" type="button" aria-label="Close Career Explorer">×</button>
-        <div class="ce-get-in-touch" role="group" aria-label="Get in touch with Katie">
-          <a class="ce-get-in-touch__link" href="mailto:katherine.rs.moore@gmail.com?subject=Following%20up%20from%20your%20interactive%20resume" aria-label="Email Katie Moore">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.11 5.86a1 1 0 0 0 1.27 0L19.8 6H4.2ZM20 7.7l-6.86 5.66a3 3 0 0 1-3.8 0L4.2 7.7V18h15.8V7.7Z"/></svg>
-            <span>Send Katie an email</span>
-          </a>
-        </div>
-        <h2 id="fitQuizTitle">Career Explorer</h2>
-        <p class="explorer-kicker">Let’s find the right way to connect</p>
-
-        <div id="careerExplorerRoot" class="career-explorer">
-          <section id="ceScreenWho" class="ce-screen">
-            <h3>What brings you here?</h3>
-            <p class="persona-helper">Choose the option that best fits your needs.</p>
-            <div class="ce-persona-grid" role="radiogroup" aria-label="Visitor type">
-              <button type="button" id="cePersonaRecruiter" class="ce-persona" data-persona="recruiter" onclick="window.__cePersonaPick && window.__cePersonaPick('recruiter')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-4a7 7 0 0 1 14 0v4m1-17a3 3 0 1 1 0 6m2 4a6 6 0 0 1 3 5v2"/></svg></span><span class="persona-title">Recruiter</span><span class="persona-description">I’m evaluating fit and experience.</span></button>
-              <button type="button" id="cePersonaHiringManager" class="ce-persona" data-persona="hiring-manager" onclick="window.__cePersonaPick && window.__cePersonaPick('hiring-manager')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M8 7V3h8v4M2 12a22 22 0 0 0 20 0M10 12v3h4v-3"/></svg></span><span class="persona-title">Hiring Manager</span><span class="persona-description">I’m evaluating leadership and capability.</span></button>
-              <button type="button" id="cePersonaBrowsing" class="ce-persona" data-persona="browsing" onclick="window.__cePersonaPick && window.__cePersonaPick('browsing')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8m-8 5h8m-8 5h8"/></svg></span><span class="persona-title">Just Browsing</span><span class="persona-description">Take me straight to the work.</span></button>
-            </div>
-          </section>
-
-          <section id="ceScreenSelect" class="ce-screen" hidden>
-            <h3 id="ceSelectPrompt">What matters most to you?</h3>
-            <p class="ce-helper">Choose up to three. I’ll show you the work from my career that best demonstrates what matters to you.</p>
-            <p id="ceProgress" class="ce-progress">0 of 3 selected</p>
-            <div id="ceOptions" class="ce-options"></div>
-            <div class="quiz-actions">
-              <button class="btn btn--primary" id="ceShowResults" type="button">Show me Katie in action →</button>
-              <button class="btn btn--ghost" id="ceBrowseAll" type="button">Skip personalization & browse everything</button>
-              <button class="btn btn--ghost" id="ceBackToWho" type="button">Back</button>
-            </div>
-          </section>
-
-          <section id="ceScreenResults" class="ce-screen" hidden>
-            <h3 id="ceResultsHeading">Here’s the evidence.</h3>
-            <p id="ceResultsSubhead" class="ce-helper"></p>
-            <div class="quiz-actions ce-results-actions">
-              <button class="btn btn--ghost" id="ceResultsBack" type="button">← Back</button>
-            </div>
-            <div id="ceCards" class="ce-cards"></div>
-            <div class="ce-replay" id="ceReplay">
-              <p id="ceReplayCombo"><strong>Curious about a different Katie?</strong> Change the combination and you’ll get a different set of stories.</p>
-              <p id="ceReplayBrowsing" hidden><strong>Want a more tailored set of stories?</strong> Tell me what matters most and I’ll narrow it down.</p>
-              <div class="quiz-actions">
-                <button class="btn btn--primary" id="ceTryAnother" type="button">Try another combination</button>
-                <button class="btn btn--ghost" id="ceBackToSelect" type="button">Edit selections</button>
-                <button class="btn btn--primary" id="ceFilterBySkill" type="button" hidden>Filter by what matters most</button>
-              </div>
-              <div id="ceSuggestedCombos" class="ce-suggested"></div>
-            </div>
-          </section>
-
-          <section id="ceDetail" class="ce-detail" hidden aria-live="polite"></section>
-        </div>
-      </section>
-    </div>
-
-    <script src="app.js" type="module"></script>
-  </body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Katie Moore | Strategy, Enablement & Leadership</title><meta name="description" content="I build the strategies, systems, and capabilities that help people and organizations perform better. Explore Katie Moore’s career and ways to work together."><link rel="stylesheet" href="home.css"><link rel="stylesheet" href="site-nav.css?v=1"></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="site-identity" href="index.html">Katie Moore<span>Strategy · Enablement · Operations · Leadership</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="career.html">Experience</a><a href="services.html?tab=shop">Shop</a><a href="services.html?tab=for-events">Speaking</a><a href="mailto:katherine.rs.moore@gmail.com" class="site-contact">Contact</a><a href="https://www.linkedin.com/in/katie-moore-mba-921192a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></header>
+<main id="main">
+<section class="hero"><div class="portrait" role="img" aria-label="Katie Moore in an office"></div><div class="hero-copy"><h1>I turn complexity<br>into clarity —<br><em>and clarity into action.</em></h1><span class="rule"></span><p>I build the strategies, systems, and capabilities<br class="desktop-break"> that help people and organizations perform better.</p><div class="buttons"><a class="button" href="career.html">Explore My Career <span>→</span></a><a class="button outline" href="services.html">Work With Me <span>→</span></a></div></div></section>
+<section class="pathways" aria-label="Explore my work">
+<article class="feature career-feature"><p class="eyebrow">My Career</p><span class="rule"></span><h2>The work behind<br>the resume.</h2><p>A career spanning retail, operations, learning, human resources,<br>enablement, and transformation — from frontline leadership<br>to enterprise strategy.</p><div class="highlights career-highlights"><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 27h26M6 23V16h4v7m5 0V10h4v13m5 0V4h4v19"/></svg><strong>15+ YEARS</strong><span>Depth</span></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="4"/><circle cx="5" cy="6" r="3"/><circle cx="27" cy="6" r="3"/><circle cx="5" cy="26" r="3"/><circle cx="27" cy="26" r="3"/><path d="m8 9 5 4m6 0 5-4M8 23l5-4m6 0 5 4"/></svg><strong>5 MAJOR BRANDS</strong><span>Breadth</span></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="5" r="3"/><path d="M11 13v-2a5 5 0 0 1 10 0v2M16 13v4H7v3m9-3h9v3"/><circle cx="7" cy="23" r="2.5"/><circle cx="25" cy="23" r="2.5"/><path d="M2 31v-2a5 5 0 0 1 10 0v2m8 0v-2a5 5 0 0 1 10 0v2"/></svg><strong>DIRECTOR</strong><span>Leadership</span></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3 16h26M6 8h20M6 24h20"/></svg><strong>ENTERPRISE</strong><span>Scale</span></div></div><a class="button" href="career.html">Explore My Career <span>→</span></a></article>
+<article class="feature services-feature" id="services"><p class="eyebrow">Work With Me</p><span class="rule"></span><h2>Put my experience<br>to work.</h2><p>Speaking, workshops, career services, and practical tools<br>for individuals, leaders, and teams.</p><div class="highlights services-highlights"><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="8" r="4"/><path d="M3 29v-5a8 8 0 0 1 16 0v5M25 22V5m-5 5 5-5 5 5"/></svg><strong>For You</strong></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="6" r="3"/><circle cx="6" cy="22" r="3"/><circle cx="26" cy="22" r="3"/><path d="M11 14v-2a5 5 0 0 1 10 0v2M1 31v-2a5 5 0 0 1 10 0v2m10 0v-2a5 5 0 0 1 10 0v2M10 17l3-4m6 0 3 4M12 27h8"/></svg><strong>For Teams</strong></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="3" width="10" height="18" rx="5"/><path d="M7 15v2a9 9 0 0 0 18 0v-2M16 26v5m-6 0h12"/></svg><strong>For Events</strong></div><div><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 30H5V3h15l7 7v6M20 3v8h7M23 18v12m-5-5 5 5 5-5M10 11h5m-5 6h7m-7 6h4"/></svg><strong>Digital Tools</strong></div></div><a class="button" href="services.html">Explore Services & Shop <span>→</span></a></article>
+</section>
+<section class="brands" aria-label="Experience across companies"><p class="eyebrow">Experience Across</p><div class="brand-row"><img src="logos/walmart.png" alt="Walmart"><img src="logos/samsung.png" alt="Samsung"><img src="logos/ahs.png" alt="American Home Shield"><img src="logos/sprint.jpg" alt="Sprint"><img src="logos/verizon.jpg" alt="Verizon"></div></section>
+<section class="approach" id="about"><div><p class="eyebrow">How I Work</p><span class="rule"></span><h2>Start with<br>the problem,<br>not the solution.</h2></div><div class="approach-copy"><p><strong>I ask a lot of questions. Five Whys is a good start. I’m more of a Fifty Whys person.</strong></p><p>I want to understand what’s actually happening, what people actually need, and why we’re doing things the way we are. People rarely build systems intending for them to fail. So before I declare something broken, I want to know what problem it was built to solve — and whether that problem still exists.</p><p>Then I figure out what’s worth keeping, what’s getting in the way, and what would work better — and build from there.</p></div></section>
+<section class="start"><div class="start-title"><span class="rule"></span><p class="eyebrow">Where do you want to go?</p><h2>Start here.</h2></div><div class="start-links"><a href="career.html"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="13"/><path d="m22 10-4 8-8 4 4-8Z"/></svg><span>I’m exploring<br>Katie’s experience</span><small>Career →</small></a><a href="services.html?tab=for-you"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M2 29v-5a8 8 0 0 1 16 0v5M25 24V5m-5 5 5-5 5 5"/></svg><span>I want to grow<br>my career</span><small>Individual services →</small></a><a href="services.html?tab=for-teams"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="6" r="3"/><circle cx="6" cy="21" r="3"/><circle cx="26" cy="21" r="3"/><path d="M11 14v-2a5 5 0 0 1 10 0v2M1 30v-2a5 5 0 0 1 10 0v2m10 0v-2a5 5 0 0 1 10 0v2M10 17l3-4m6 0 3 4M12 26h8"/></svg><span>I’m developing<br>my team</span><small>Workshops →</small></a><a href="services.html?tab=for-events"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="3" width="10" height="18" rx="5"/><path d="M7 15v2a9 9 0 0 0 18 0v-2M16 26v5m-6 0h12"/></svg><span>I need a speaker</span><small>Speaking →</small></a><a class="shop-link" href="services.html?tab=shop"><svg viewBox="0 0 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h22l2 20H3ZM11 12V7a5 5 0 0 1 10 0v5"/></svg><span>I’m just<br>here to shop.</span><small>Shop →</small></a></div></section>
+</main><footer><a class="identity" href="index.html">Katie Moore<span>Strategy · Enablement · Operations · Leadership</span></a><nav aria-label="Footer navigation"><a href="about.html">About</a><a href="career.html">Experience</a><a href="services.html?tab=shop">Shop</a><a href="services.html">Speaking</a><a href="mailto:katherine.rs.moore@gmail.com">Contact</a><a href="https://www.linkedin.com/in/katie-moore-mba-921192a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></footer>
+</body></html>

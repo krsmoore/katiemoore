@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katie Moore | Interactive Resume</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="visual-theme.css" />
+  <link rel="stylesheet" href="site-nav.css?v=1"><style>.career-actions-bar .topbar__inner{padding:14px 40px;justify-content:flex-end;min-height:0}.career-actions-bar .actions{margin-left:auto}@media(max-width:700px){.career-actions-bar .topbar__inner{padding:12px 16px}.career-actions-bar .actions{margin-left:0;width:100%}}</style></head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header"><a class="site-identity" href="index.html">Katie Moore<span>Strategy · Enablement · Operations · Leadership</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="career.html" aria-current="page">Experience</a><a href="services.html?tab=shop">Shop</a><a href="services.html?tab=for-events">Speaking</a><a href="mailto:katherine.rs.moore@gmail.com" class="site-contact">Contact</a><a href="https://www.linkedin.com/in/katie-moore-mba-921192a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></header>
+<header class="topbar career-actions-bar">
+      <div class="topbar__inner">
+        <div hidden aria-hidden="true"><span id="name"></span><span id="title"></span></div>
+        <div class="actions">
+          <p class="fitcheck-prompt">Is Katie who you're looking for? <span aria-hidden="true">→</span> Do a fit check.</p>
+          <button class="btn btn--fitcheck" id="fitQuizButton" type="button" aria-haspopup="dialog" aria-controls="fitQuizModal">Fit Check</button>
+          <a class="btn btn--primary" id="downloadResume" href="documents/KMoore.2026Resume.pdf" download="KMoore.2026Resume.pdf">Download Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="career-layout">
+    <section class="timeline-shell" aria-labelledby="timelineTitle">
+      <div class="timeline-shell__inner">
+        <div class="timeline-head">
+          <h2 id="timelineTitle">Career History</h2>
+        </div>
+        <nav id="roleNav" class="role-nav" aria-label="Role timeline"></nav>
+      </div>
+    </section>
+
+    <main id="main" class="main">
+      <article id="roleHero" class="hero-card" aria-live="polite"></article>
+
+      <section class="content-section">
+        <h3 class="section-title">Role KPIs</h3>
+        <div id="measurements" class="card-grid card-grid--kpis"></div>
+      </section>
+
+      <section class="content-section">
+        <h3 class="section-title">Major Metric Wins</h3>
+        <div id="wins" class="card-grid card-grid--wins"></div>
+      </section>
+
+      <section class="content-section">
+        <h3 class="section-title">What I'm Proud Of</h3>
+        <ol id="accomplishments" class="accomplishments"></ol>
+      </section>
+
+      <section class="content-section">
+        <h3 class="section-title">What I became known for</h3>
+        <div id="loved" class="loved-grid"></div>
+      </section>
+    </main>
+    </div>
+
+    <div id="fitQuizModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="fitQuizTitle" hidden>
+      <div id="fitQuizBackdrop" class="quiz-modal__backdrop" data-close-quiz="true"></div>
+      <section class="quiz-modal__panel career-explorer-modal">
+        <button class="quiz-modal__close" id="fitQuizClose" type="button" aria-label="Close Career Explorer">×</button>
+        <div class="ce-get-in-touch" role="group" aria-label="Get in touch with Katie">
+          <a class="ce-get-in-touch__link" href="mailto:katherine.rs.moore@gmail.com?subject=Following%20up%20from%20your%20interactive%20resume" aria-label="Email Katie Moore">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.11 5.86a1 1 0 0 0 1.27 0L19.8 6H4.2ZM20 7.7l-6.86 5.66a3 3 0 0 1-3.8 0L4.2 7.7V18h15.8V7.7Z"/></svg>
+            <span>Send Katie an email</span>
+          </a>
+        </div>
+        <h2 id="fitQuizTitle">Career Explorer</h2>
+        <p class="explorer-kicker">Let’s find the right way to connect</p>
+
+        <div id="careerExplorerRoot" class="career-explorer">
+          <section id="ceScreenWho" class="ce-screen">
+            <h3>What brings you here?</h3>
+            <p class="persona-helper">Choose the option that best fits your needs.</p>
+            <div class="ce-persona-grid" role="radiogroup" aria-label="Visitor type">
+              <button type="button" id="cePersonaRecruiter" class="ce-persona" data-persona="recruiter" onclick="window.__cePersonaPick && window.__cePersonaPick('recruiter')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-4a7 7 0 0 1 14 0v4m1-17a3 3 0 1 1 0 6m2 4a6 6 0 0 1 3 5v2"/></svg></span><span class="persona-title">Recruiter</span><span class="persona-description">I’m evaluating fit and experience.</span></button>
+              <button type="button" id="cePersonaHiringManager" class="ce-persona" data-persona="hiring-manager" onclick="window.__cePersonaPick && window.__cePersonaPick('hiring-manager')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M8 7V3h8v4M2 12a22 22 0 0 0 20 0M10 12v3h4v-3"/></svg></span><span class="persona-title">Hiring Manager</span><span class="persona-description">I’m evaluating leadership and capability.</span></button>
+              <button type="button" id="cePersonaBrowsing" class="ce-persona" data-persona="browsing" onclick="window.__cePersonaPick && window.__cePersonaPick('browsing')"><span class="persona-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8m-8 5h8m-8 5h8"/></svg></span><span class="persona-title">Just Browsing</span><span class="persona-description">Take me straight to the work.</span></button>
+            </div>
+          </section>
+
+          <section id="ceScreenSelect" class="ce-screen" hidden>
+            <h3 id="ceSelectPrompt">What matters most to you?</h3>
+            <p class="ce-helper">Choose up to three. I’ll show you the work from my career that best demonstrates what matters to you.</p>
+            <p id="ceProgress" class="ce-progress">0 of 3 selected</p>
+            <div id="ceOptions" class="ce-options"></div>
+            <div class="quiz-actions">
+              <button class="btn btn--primary" id="ceShowResults" type="button">Show me Katie in action →</button>
+              <button class="btn btn--ghost" id="ceBrowseAll" type="button">Skip personalization & browse everything</button>
+              <button class="btn btn--ghost" id="ceBackToWho" type="button">Back</button>
+            </div>
+          </section>
+
+          <section id="ceScreenResults" class="ce-screen" hidden>
+            <h3 id="ceResultsHeading">Here’s the evidence.</h3>
+            <p id="ceResultsSubhead" class="ce-helper"></p>
+            <div class="quiz-actions ce-results-actions">
+              <button class="btn btn--ghost" id="ceResultsBack" type="button">← Back</button>
+            </div>
+            <div id="ceCards" class="ce-cards"></div>
+            <div class="ce-replay" id="ceReplay">
+              <p id="ceReplayCombo"><strong>Curious about a different Katie?</strong> Change the combination and you’ll get a different set of stories.</p>
+              <p id="ceReplayBrowsing" hidden><strong>Want a more tailored set of stories?</strong> Tell me what matters most and I’ll narrow it down.</p>
+              <div class="quiz-actions">
+                <button class="btn btn--primary" id="ceTryAnother" type="button">Try another combination</button>
+                <button class="btn btn--ghost" id="ceBackToSelect" type="button">Edit selections</button>
+                <button class="btn btn--primary" id="ceFilterBySkill" type="button" hidden>Filter by what matters most</button>
+              </div>
+              <div id="ceSuggestedCombos" class="ce-suggested"></div>
+            </div>
+          </section>
+
+          <section id="ceDetail" class="ce-detail" hidden aria-live="polite"></section>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

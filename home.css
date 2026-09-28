@@ -1,0 +1,85 @@
+:root{--cream:#f8f5ef;--ink:#101222;--wine:#650b25;--gold:#b78d42}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif}a{color:inherit}a:focus-visible{outline:3px solid var(--gold);outline-offset:5px}.skip{position:absolute;left:12px;top:-80px;z-index:10;background:white;padding:12px}.skip:focus{top:12px}.header{display:flex;align-items:center;justify-content:space-between;padding:12px 5%;gap:24px;border-bottom:1px solid #e8e1d7}.identity{text-decoration:none;white-space:nowrap;font-size:36px;line-height:1.05}.identity span{display:block;text-transform:uppercase;letter-spacing:3px;font-size:10px;margin-top:5px}nav{display:flex;gap:28px;align-items:center}nav a{text-decoration:none;text-transform:uppercase;font-size:11px;padding:12px 0}nav a:hover,nav .active{color:var(--wine);border-bottom:1px solid var(--gold)}.hero{position:relative;overflow:hidden;min-height:375px;display:flex;align-items:center}.portrait{position:absolute;inset:0;background:url('home-assets/home-reference.png') right 6.2%/auto 407% no-repeat}.hero-copy{position:relative;z-index:1;width:62%;padding:24px 0 42px 5%;background:linear-gradient(90deg,var(--cream) 72%,#f8f5ef00)}h1,h2,p{margin:0}h1{font-size:clamp(36px,5.2vw,66px);font-weight:400;line-height:1.02;letter-spacing:-1.6px}h1 em{font-style:normal;color:var(--wine)}.rule{display:block;background:var(--gold);width:66px;height:2px;margin:18px 0}.hero-copy>p{font-size:clamp(18px,2vw,24px);line-height:1.3}.buttons{display:flex;gap:16px;margin-top:22px}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 30px;border:1px solid #956471;border-radius:3px;background:var(--wine);color:#fff8f2;text-decoration:none;font-size:18px}.button:hover{background:#811333}.button.outline{background:transparent;color:var(--wine)}.pathways{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px}.feature{position:relative;isolation:isolate;overflow:hidden;color:#fff8ee;padding:32px 7% 14px;border-radius:4px;display:flex;flex-direction:column;align-items:flex-start;min-height:430px}.feature:before{content:'';position:absolute;inset:0;z-index:-1;background-image:url('home-assets/home-reference.png');background-repeat:no-repeat;background-size:205% auto}.career-feature:before{background-position:left 40.8%}.services-feature:before{background-position:right 40.8%}.feature:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#100e0bcc,#100e0b25)}.services-feature:after{background:linear-gradient(90deg,#7d4a44e8,#77473922)}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:3.5px}.feature .rule{margin:9px 0}.feature h2{font-size:clamp(38px,4.5vw,58px);font-weight:400;line-height:.98;letter-spacing:-1px}.feature>p:not(.eyebrow){font-size:19px;line-height:1.2;margin-top:16px}.highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:390px;margin:22px 0 14px}.highlights div{text-align:center;font-size:16px}.highlights b{display:block;font-size:36px;color:#e8b650;font-weight:400;line-height:1.2;margin-bottom:6px}.services-feature .highlights b{color:#fff8ee}.feature .button{margin-top:auto}.brands{padding:24px 5%}.brand-row{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;margin-top:16px}.brand-row img{width:100%;height:40px;object-fit:contain;padding:0 24px;border-right:1px solid #c9c1ba;filter:grayscale(1);mix-blend-mode:multiply}.brand-row img:last-child{border:0}.approach{display:grid;grid-template-columns:44% 56%;gap:0;padding:26px 5%;border-top:1px solid #e7e0d8}.approach .eyebrow{color:var(--wine)}.approach .rule{margin:10px 0}.approach h2{font-size:clamp(38px,5vw,64px);font-weight:400;letter-spacing:-1.5px;line-height:1}.approach-copy{border-left:1px solid var(--gold);padding:22px 0 12px 36px;font-size:22px;line-height:1.4}.approach-copy p+p{margin-top:20px}.start,footer{background:linear-gradient(110deg,#360d19,#260b12);color:var(--cream)}.start{padding:24px 5%;display:grid;grid-template-columns:30% 70%;gap:10px}.start-title h2{font-weight:400;font-size:60px;line-height:1.2}.start-title .eyebrow{font-size:11px}.start-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.start-links a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:16px 8px;background:var(--cream);color:var(--ink);border-radius:3px;text-decoration:none;font-size:14px}.start-links b{font-weight:400;font-size:32px;color:var(--wine)}.start-links small{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--wine);margin-top:auto}.start-links .shop-link{background:transparent;color:var(--cream);border-left:1px solid var(--gold);margin-left:12px;border-radius:0}.shop-link b,.shop-link small{color:var(--cream)}footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 4% 46px;border-top:1px solid var(--gold)}footer .identity{font-size:30px}footer .identity span{font-size:9px;letter-spacing:2px}footer nav{gap:18px}@media(min-width:1450px){.hero{min-height:530px}.feature{min-height:540px}}@media(max-width:800px){.header{flex-direction:column;align-items:flex-start;padding:16px 5%;gap:12px}.identity{font-size:32px}.identity span{font-size:8px;letter-spacing:1.5px}nav{gap:20px;flex-wrap:wrap}.hero{padding-top:280px}.portrait{inset:0 0 auto;height:280px;background-size:auto 407%;}.hero-copy{width:100%;padding:26px 5%;background:var(--cream)}h1{font-size:clamp(34px,7vw,52px)}.hero-copy>p{font-size:20px}.desktop-break{display:none}.buttons{flex-wrap:wrap;gap:10px}.button{font-size:16px;padding:12px 18px}.pathways{grid-template-columns:1fr;padding:0 12px;gap:12px}.feature{min-height:440px;padding:28px 24px 20px}.feature h2{font-size:46px}.feature:before{background-size:205% auto}.brand-row{grid-template-columns:repeat(3,1fr);gap:20px}.brand-row img{border:0;padding:0 10px;height:32px}.approach{grid-template-columns:1fr;padding:30px 6%;gap:24px}.approach h2{font-size:46px}.approach-copy{padding:0;border-left:0;font-size:20px}.start{grid-template-columns:1fr;padding:24px 6%;gap:20px}.start-title h2{font-size:50px}.start-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.start-links a{min-height:154px}.start-links .shop-link{margin:0;border:1px solid var(--gold);grid-column:1/-1;min-height:100px}footer{flex-direction:column;align-items:flex-start;padding:26px 6%}.highlights{gap:8px}.highlights div{font-size:15px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Original portrait supplied by Katie. */
+.portrait {left:48%;background-image:url('home-assets/katie-portrait.png');background-size:cover;background-position:center top;}
+.hero-copy {background:linear-gradient(90deg,var(--cream) 79%,#f8f5ef00);}
+.feature:before {background-image:url('home-assets/katie-portrait.png');background-size:240% auto;}
+.career-feature:before {background-position:right 60%;}
+.services-feature:before {background-position:right 49%;}
+@media(max-width:800px){.portrait {left:0;background-size:cover;background-position:center top;}.hero-copy{background:var(--cream);}}
+/* Give the portrait room from head through the seated pose. */
+@media (min-width:801px) {
+  .hero { min-height:clamp(620px,65vw,940px); }
+  .hero-copy { padding-top:48px;padding-bottom:48px; }
+  .portrait { background-position:center top; }
+}
+@media (max-width:800px) {
+  .hero { padding-top:clamp(460px,110vw,760px); }
+  .portrait { height:clamp(460px,110vw,760px); }
+}
+/* Each card displays its own half of the supplied office photograph. */
+.feature:before {
+  background-image:url('home-assets/secondary-offices.png');
+  background-size:cover;
+  width:200%;
+}
+.career-feature:before {left:0;right:auto;background-position:left center;}
+.services-feature:before {left:auto;right:0;background-position:right center;}
+/* Fade belongs to the full hero, rather than the shorter text block. */
+@media (min-width:801px) {
+  .hero::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,var(--cream) 48.98%,#f8f5ef00 62%);
+    pointer-events:none;
+  }
+  .hero-copy {background:transparent;}
+}
+
+.career-highlights {max-width:520px;gap:12px;}
+.career-highlights svg {display:block;width:36px;height:38px;color:#e8b650;margin:0 auto 10px;}
+.career-highlights strong {display:block;font:600 12px/1.4 "Segoe UI",sans-serif;letter-spacing:.5px;}
+.career-highlights span {display:block;font-size:16px;margin-top:4px;}
+@media(max-width:420px){.career-highlights {gap:6px;}.career-highlights strong {font-size:10px;letter-spacing:0;}.career-highlights span {font-size:14px;}}
+/* Keep the career action directly beneath its four highlights. */
+.career-feature > .button {margin-top:0;}
+
+/* Shared typography and brass line icons across both feature cards. */
+.services-highlights {max-width:520px;gap:12px;}
+.services-highlights svg {display:block;width:36px;height:38px;color:#e8b650;margin:0 auto 10px;}
+.services-highlights strong {display:block;font:600 12px/1.4 "Segoe UI",sans-serif;letter-spacing:.5px;text-transform:uppercase;}
+.services-feature > .button {margin-top:0;}
+@media(max-width:420px){.services-highlights {gap:6px;}.services-highlights strong {font-size:10px;letter-spacing:0;}}
+/* Shared rows keep both feature cards aligned despite different copy lengths. */
+@media (min-width:801px) {
+  .pathways {grid-template-rows:auto auto auto auto auto auto;row-gap:0;column-gap:6px;}
+  .pathways > .feature {
+    display:grid;
+    grid-row:span 6;
+    grid-template-rows:subgrid;
+    align-items:start;
+    justify-items:start;
+    align-content:start;
+  }
+  .feature > .highlights {align-self:start;}
+  .feature > .button {align-self:start;margin-top:0;}
+}
+
+.brand-row img {height:64px;filter:none;}
+@media(max-width:800px){.brand-row img {height:48px;}}
+/* Give the longer How I Work copy more horizontal room. */
+@media (min-width:801px) {
+  .approach {grid-template-columns:36% 64%;}
+}
+
+/* Larger, readable destination cards with purpose-specific line icons. */
+.start {grid-template-columns:25% minmax(0,1fr);gap:20px;}
+.start-links a {font-size:18px;line-height:1.35;padding:22px 12px;gap:16px;min-height:190px;}
+.start-links svg {width:40px;height:42px;flex-shrink:0;color:var(--wine);}
+.start-links small {font-size:12px;line-height:1.4;letter-spacing:.8px;}
+.start-links .shop-link svg {color:var(--cream);}
+@media(max-width:1000px){.start {grid-template-columns:1fr;}.start-links a {font-size:17px;}}
+@media(max-width:800px){.start-links a {font-size:19px;}.start-links small {font-size:12px;}}
+/* Brass hover and keyboard-focus color for header and footer navigation. */
+nav a:hover,
+nav a:focus-visible {color:var(--gold);}

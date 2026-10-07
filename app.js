@@ -1297,12 +1297,15 @@ function openSellerStrategyExperience() {
   const returnFocus = document.activeElement;
   const popup = document.createElement('dialog');
   popup.setAttribute('aria-label', 'Seller strategy interactive case study');
+  popup.className = 'seller-strategy-popup';
   popup.style.cssText = 'padding:0;border:1px solid #C9BFB3;width:min(1120px,calc(100vw - 48px));max-width:none;height:min(820px,calc(100dvh - 48px));max-height:none;background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
   const frame = document.createElement('iframe');
   frame.src = 'case-study-seller-strategy.html?embedded=1';
   frame.title = 'How do you turn 20 separate logistics programs into one seller strategy?';
   frame.style.cssText = 'display:block;width:100%;height:100%;border:0';
-  popup.append(frame);
+  const responsiveStyle = document.createElement('style');
+  responsiveStyle.textContent = '@media(max-width:750px){dialog.seller-strategy-popup{width:100vw!important;height:100dvh!important;margin:0!important;border:0!important}}';
+  popup.append(responsiveStyle, frame);
   document.body.append(popup);
   const receive = (event) => {
     if (event.origin === location.origin && event.source === frame.contentWindow && event.data === 'close-seller-strategy') popup.close();

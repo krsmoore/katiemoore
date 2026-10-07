@@ -1187,7 +1187,7 @@ function renderExplorerResults({ browseAll = false, sixtySecond = false } = {}) 
     .map((story) => {
       const pdfPath = getStoryPdfPath(story.id);
       const isComingSoon = isStoryComingSoon(story.id);
-      const actionLabel = pdfPath
+      const actionLabel = story.id === 'walmart-lifecycle' ? 'Learn more' : pdfPath
         ? 'Open case study (PDF)'
         : (isComingSoon ? 'Coming soon' : 'Explore this story');
 
@@ -1292,7 +1292,35 @@ function buildWhatWinByStoryId(items) {
   return byId;
 }
 
+
+function openSellerStrategyExperience() {
+  const returnFocus = document.activeElement;
+  const popup = document.createElement('dialog');
+  popup.setAttribute('aria-label', 'Seller strategy interactive case study');
+  popup.style.cssText = 'padding:0;border:1px solid #C9BFB3;width:min(1120px,calc(100vw - 48px));max-width:none;height:min(820px,calc(100dvh - 48px));max-height:none;background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
+  const frame = document.createElement('iframe');
+  frame.src = 'case-study-seller-strategy.html?embedded=1';
+  frame.title = 'How do you turn 20 separate logistics programs into one seller strategy?';
+  frame.style.cssText = 'display:block;width:100%;height:100%;border:0';
+  popup.append(frame);
+  document.body.append(popup);
+  const receive = (event) => {
+    if (event.origin === location.origin && event.source === frame.contentWindow && event.data === 'close-seller-strategy') popup.close();
+  };
+  window.addEventListener('message', receive);
+  popup.addEventListener('close', () => {
+    window.removeEventListener('message', receive);
+    popup.remove();
+    returnFocus?.focus({ preventScroll: true });
+  }, { once: true });
+  popup.showModal();
+}
+
 function openStoryExperience(storyId) {
+  if (storyId === 'walmart-lifecycle') {
+    openSellerStrategyExperience();
+    return;
+  }
   const pdfPath = getStoryPdfPath(storyId);
   if (pdfPath) {
     openStoryPdf(storyId, pdfPath);

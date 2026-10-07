@@ -28,27 +28,32 @@
 </main><footer><a class="identity" href="index.html">Katie Moore<span>Strategy · Enablement · Operations · Leadership</span></a><nav aria-label="Footer navigation"><a href="about.html">About</a><a href="career.html">Experience</a><a href="services.html?tab=shop">Shop</a><a href="services.html">Speaking</a><a href="mailto:katherine.rs.moore@gmail.com">Contact</a><a href="https://www.linkedin.com/in/katie-moore-mba-921192a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></footer>
 <script>
 (() => {
-  const carousel = document.querySelector('.testimonials');
-  const slides = Array.from(carousel.querySelectorAll('.quote-slide'));
-  }
-  function schedule() {
-    clearTimeout(timer);
-    if (document.hidden) return;
-    const words = slides[current].textContent.trim().split(/\s+/).length;
-    timer = setTimeout(() => { show(current + 1, false); schedule(); }, Math.max(14000, words * 350));
-  }
-  carousel.classList.add('carousel-ready');
-  show(0, false);
-  document.addEventListener('visibilitychange', schedule);
-  schedule();
-  document.querySelector('.learn-more').addEventListener('click', event => {
-    event.preventDefault();
-    const target = document.getElementById('explore-my-work');
-    const header = document.querySelector('.site-header');
-    const top = target.getBoundingClientRect().top + window.scrollY - header.getBoundingClientRect().height;
-    target.focus({preventScroll:true});
-    window.scrollTo({top, behavior:motion.matches ? 'instant' : 'smooth'});
-    history.replaceState(null, '', '#explore-my-work');
-  });
+const carousel=document.querySelector('.testimonials');
+const slides=Array.from(carousel.querySelectorAll('.quote-slide'));
+const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let current=0,timer;
+function show(index){
+current=(index+slides.length)%slides.length;
+slides.forEach((slide,i)=>{slide.classList.toggle('is-active',i===current);slide.setAttribute('aria-hidden',String(i!==current));});
+}
+function schedule(){
+clearTimeout(timer);
+if(document.hidden)return;
+const words=slides[current].textContent.trim().split(/\s+/).length;
+timer=setTimeout(()=>{show(current+1);schedule();},Math.max(14000,words*350));
+}
+carousel.classList.add('carousel-ready');
+show(0);
+schedule();
+document.addEventListener('visibilitychange',schedule);
+document.querySelector('.learn-more').addEventListener('click',event=>{
+event.preventDefault();
+const target=document.getElementById('explore-my-work');
+const header=document.querySelector('.site-header');
+const top=target.getBoundingClientRect().top+window.scrollY-header.getBoundingClientRect().height;
+target.focus({preventScroll:true});
+window.scrollTo({top,behavior:motion.matches?'instant':'smooth'});
+history.replaceState(null,'','#explore-my-work');
+});
 })();
 </script></body></html>

@@ -39,8 +39,7 @@ slides.forEach((slide,i)=>{slide.classList.toggle('is-active',i===current);slide
 function schedule(){
 clearTimeout(timer);
 if(document.hidden)return;
-const words=slides[current].textContent.trim().split(/\s+/).length;
-timer=setTimeout(()=>{show(current+1);schedule();},Math.max(14000,words*350));
+timer=setTimeout(()=>{show(current+1);schedule();},12000);
 }
 carousel.classList.add('carousel-ready');
 show(0);

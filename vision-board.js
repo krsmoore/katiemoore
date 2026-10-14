@@ -24,5 +24,6 @@ form.addEventListener('submit',event=>{
   const count=group.querySelectorAll('input:checked').length,min=Number(group.dataset.min);
   if(count<min){event.preventDefault();error.textContent=group.dataset.group==='Feelings'?'Choose three feelings before continuing.':'Choose at least one life area before continuing.';error.hidden=false;group.scrollIntoView({block:'center',behavior:'smooth'});return;}
  }
+ for(const group of document.querySelectorAll("[data-limit]")){const hidden=document.createElement("input");hidden.type="hidden";hidden.name="Selected "+group.dataset.group;hidden.value=[...group.querySelectorAll("input:checked")].map(input=>input.value).join(", ");form.append(hidden);}
  error.hidden=true;
 });

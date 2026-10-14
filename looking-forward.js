@@ -1,8 +1,10 @@
+const sandboxCheckout=new URLSearchParams(location.search).get('checkout')==='test';
+const checkoutUrl=sandboxCheckout?"https://buy.stripe.com/test_3cI7sFg7Ubw6chLfRy08g01":"https://buy.stripe.com/7sY14ge6e6aS11Ddnn3Je01";
 const form=document.getElementById('visionForm');
 const reference='LF-'+crypto.randomUUID();
 document.getElementById('orderRef').value=reference;
-document.getElementById('emailSubject').value='Looking Forward To Wallpaper design brief — '+reference+' (SANDBOX)';
-document.getElementById('checkoutNext').value='https://buy.stripe.com/test_3cI7sFg7Ubw6chLfRy08g01?client_reference_id='+encodeURIComponent(reference);
+document.getElementById('emailSubject').value='Looking Forward To Wallpaper design brief — '+reference+(sandboxCheckout?' (SANDBOX)':'');
+document.getElementById('checkoutNext').value=checkoutUrl+'?client_reference_id='+encodeURIComponent(reference);
 document.querySelectorAll('[data-limit]').forEach(group=>{
  const update=()=>{
   const checked=[...group.querySelectorAll('input:checked')],max=Number(group.dataset.limit);
@@ -31,3 +33,5 @@ form.addEventListener('submit',event=>{
 const photoInputs=[...document.querySelectorAll('[data-photo]')];const photoConsent=document.getElementById('photoConsent');
 function validatePhotos(){const files=photoInputs.flatMap(input=>[...input.files]);const error=document.getElementById('photoError');document.getElementById('photoConsentRow').hidden=files.length===0;photoConsent.required=files.length>0;let message='';if(files.some(file=>!['image/jpeg','image/png'].includes(file.type)))message='Please choose JPEG or PNG photos.';else if(files.reduce((sum,file)=>sum+file.size,0)>10000000)message='Please keep the combined photo size under 10 MB.';error.textContent=message;error.hidden=!message;photoInputs[0].setCustomValidity(message);return !message;}
 photoInputs.forEach(input=>input.addEventListener('change',validatePhotos));form.addEventListener('submit',event=>{if(!validatePhotos()){event.preventDefault();document.getElementById('photoError').scrollIntoView({block:'center'});}});
+
+if(sandboxCheckout){const banner=document.querySelector('.test-banner');banner.hidden=false;banner.textContent='Sandbox checkout preview — no real payment is collected.';form.querySelector('[name="Payment status"]').value='Sandbox questionnaire — not a real paid order.';form.querySelector('button[type="submit"]').textContent='Send answers & continue to test checkout →';}

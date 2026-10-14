@@ -6,5 +6,5 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "vars": {"SITE_ORIGIN":"https://krsmoore.github.io","SITE_BASE":"https://krsmoore.github.io/katiemoore","ALLOW_SANDBOX":"true"},
-  "kv_namespaces": [{"binding":"ORDER_EVENTS","id":"REPLACE_WITH_DEPLOYED_NAMESPACE_ID"}]
+  "kv_namespaces": [{"binding":"ORDER_EVENTS","id":"7b468071dfce440f93c1afef6b08ea02"}]
 }

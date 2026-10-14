@@ -54,7 +54,7 @@
         onComplete:()=>showStatus().catch(()=>{status.textContent='We could not verify the payment yet. Retry to check the payment status.';retry.hidden=false;})
       });
       checkout.mount('#embeddedCheckout');status.textContent='';
-    }catch(err){if(mode==='test')console.warn('Sandbox checkout integration:',String(err.message).replace(/(?:pk|rk|sk|whsec|cs)_[A-Za-z0-9_]+/g,'[redacted]'));status.textContent='Secure checkout could not load. Your brief has been submitted. Please retry or contact Katie.';retry.hidden=false;}
+    }catch(err){if(mode==='test')console.warn('Sandbox checkout integration:',String(err.message).replace(/(?:pk|rk|sk|whsec|cs)_[A-Za-z0-9_]+/g,'[redacted]'));status.textContent=mode==='test'?'Sandbox preview: '+String(err.message).replace(/(?:pk|rk|sk|whsec|cs)_[A-Za-z0-9_]+/g,'[redacted]'):'Secure checkout could not load. Your brief has been submitted. Please retry or contact Katie.';retry.hidden=false;}
   }
   retry.addEventListener('click',begin);begin();
 })();

@@ -27,14 +27,14 @@
   form.hidden=true;section.hidden=false;
   let data;try{data=JSON.parse(sessionStorage.getItem(storageKey(reference))||'null');}catch{}
   if(!data||data.reference!==reference||data.product!==product||data.mode!==mode){status.textContent='Please return to the browser where you completed your questionnaire, or start a new questionnaire.';note.hidden=true;return;}
-  let checkout,sessionId=params.get('session_id');
+  let checkout,sessionId=params.get('session_id')||data.sessionId;
   async function api(path,options={}){const response=await fetch(apiBase+path,{...options,credentials:'omit'});const result=await response.json();if(!response.ok)throw Error(result.error||'Checkout unavailable');return result;}
   async function showStatus(){
     if(!sessionId)return;
     const result=await api('/session-status'+modeQuery+'&session_id='+encodeURIComponent(sessionId)+'&reference='+encodeURIComponent(reference));
     if(result.status==='complete'&&result.paymentStatus==='paid'){
       checkout?.destroy();mount.replaceChildren();note.textContent='Payment received. Katie has your brief and will create your personalized wallpaper.';
-      status.textContent='Order reference: '+reference;retry.hidden=true;sessionStorage.removeItem(storageKey(reference));return true;
+      status.textContent='Order reference: '+reference;retry.hidden=true;sessionStorage.setItem(storageKey(reference),JSON.stringify({reference,product,mode,sessionId}));return true;
     }
     if(result.status==='complete'){status.textContent='Your payment is still processing. Your order will be ready once Stripe confirms payment.';retry.hidden=false;return true;}
     return false;
@@ -50,11 +50,11 @@
       checkout?.destroy();
       const stripe=window.Stripe(config.publishableKey);
       checkout=await stripe.initEmbeddedCheckout({
-        fetchClientSecret:async()=>{const result=await api('/checkout-session'+modeQuery,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});sessionId=result.sessionId;return result.clientSecret;},
+        fetchClientSecret:async()=>{const result=await api('/checkout-session'+modeQuery,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});sessionId=result.sessionId;data.sessionId=sessionId;sessionStorage.setItem(storageKey(reference),JSON.stringify(data));return result.clientSecret;},
         onComplete:()=>showStatus().catch(()=>{status.textContent='We could not verify the payment yet. Retry to check the payment status.';retry.hidden=false;})
       });
       checkout.mount('#embeddedCheckout');status.textContent='';
-    }catch(err){if(mode==='test')console.warn('Sandbox checkout integration:',String(err.message).replace(/(?:pk|rk|sk|whsec|cs)_[A-Za-z0-9_]+/g,'[redacted]'));status.textContent=mode==='test'?'Sandbox preview: '+String(err.message).replace(/(?:pk|rk|sk|whsec|cs)_[A-Za-z0-9_]+/g,'[redacted]'):'Secure checkout could not load. Your brief has been submitted. Please retry or contact Katie.';retry.hidden=false;}
+    }catch{status.textContent='Secure checkout could not load. Your brief has been submitted. Please retry or contact Katie.';retry.hidden=false;}
   }
   retry.addEventListener('click',begin);begin();
 })();

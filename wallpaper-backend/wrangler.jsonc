@@ -3,8 +3,21 @@
   "name": "katie-moore-wallpaper-payments",
   "main": "src/worker.mjs",
   "compatibility_date": "2026-10-13",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "workers_dev": true,
-  "vars": {"SITE_ORIGIN":"https://krsmoore.github.io","SITE_BASE":"https://krsmoore.github.io/katiemoore","ALLOW_SANDBOX":"true"},
-  "kv_namespaces": [{"binding":"ORDER_EVENTS","id":"7b468071dfce440f93c1afef6b08ea02"}]
+  "vars": {
+    "SITE_ORIGIN": "https://krsmoore.github.io",
+    "SITE_BASE": "https://krsmoore.github.io/katiemoore",
+    "ALLOW_SANDBOX": "true",
+    "STRIPE_PUBLISHABLE_KEY": "pk_live_51UKoTo37dVOsPr0AvzHfbVX0InX2XzPLJwsW3TOwbvWELRLvFb2e7POa8JdnkK74KJ4FNgIxhbTB9JmnTbPXKiTu00uZqYxcOt",
+    "STRIPE_TEST_PUBLISHABLE_KEY": "pk_test_51UKno87V1kfjGKUWataQJII02jUZIFgA3gbzYAhuGa4zU5M2LL1ZdukDMbD0usPHdO1XHRdk8pSlk2TGqOG8KzqG00g0QGkTGX"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "ORDER_EVENTS",
+      "id": "7b468071dfce440f93c1afef6b08ea02"
+    }
+  ]
 }

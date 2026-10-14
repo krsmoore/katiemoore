@@ -12,12 +12,27 @@
     "SITE_BASE": "https://krsmoore.github.io/katiemoore",
     "ALLOW_SANDBOX": "true",
     "STRIPE_PUBLISHABLE_KEY": "pk_live_51UKoTo37dVOsPr0AvzHfbVX0InX2XzPLJwsW3TOwbvWELRLvFb2e7POa8JdnkK74KJ4FNgIxhbTB9JmnTbPXKiTu00uZqYxcOt",
-    "STRIPE_TEST_PUBLISHABLE_KEY": "pk_test_51UKno87V1kfjGKUWataQJII02jUZIFgA3gbzYAhuGa4zU5M2LL1ZdukDMbD0usPHdO1XHRdk8pSlk2TGqOG8KzqG00g0QGkTGX"
+    "STRIPE_TEST_PUBLISHABLE_KEY": "pk_test_51UKno87V1kfjGKUWataQJII02jUZIFgA3gbzYAhuGa4zU5M2LL1ZdukDMbD0usPHdO1XHRdk8pSlk2TGqOG8KzqG00g0QGkTGX",
+    "BRIEF_INBOX": "katherine.rs.moore@gmail.com"
   },
   "kv_namespaces": [
     {
       "binding": "ORDER_EVENTS",
       "id": "7b468071dfce440f93c1afef6b08ea02"
     }
-  ]
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "WALLPAPER_ORDERS",
+        "class_name": "WallpaperOrder"
+      }
+    ]
+  },
+  "exports": {
+    "WallpaperOrder": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
 }

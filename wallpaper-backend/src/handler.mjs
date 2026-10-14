@@ -1,4 +1,4 @@
-const PRODUCTS = {
+export const PRODUCTS = {
   vision_board_wallpaper: {amount:1500, live:'price_1UQI1p37dVOsPr0Aza6gPH0r', test:'price_1UKomi7V1kfjGKUWsIZhT4fj', page:'vision-board.html', prefix:'VB'},
   looking_forward_wallpaper: {amount:1000, live:'price_1UQI1q37dVOsPr0ATbRRu8FB', test:'price_1UQHcI7V1kfjGKUWPPmyZajv', page:'looking-forward.html', prefix:'LF'}
 };
@@ -16,6 +16,28 @@ export function createHandler(getStripe, cryptoProvider) {
     if(!isWebhook&&origin!==env.SITE_ORIGIN)return json({error:'Origin not allowed'},403);
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers:cors});
     try {
+      if(url.pathname==='/submit'&&request.method==='POST'){
+        if(!env.WALLPAPER_ORDERS)return json({error:'Combined checkout is not configured yet'},503,cors);
+        if(Number(request.headers.get('Content-Length')||0)>10100000)return json({error:'Please keep photos under 10 MB combined.'},413,cors);
+        const raw=await request.arrayBuffer();if(raw.byteLength>10100000)return json({error:'Please keep photos under 10 MB combined.'},413,cors);
+        const probe=await new Request(request.url,{method:'POST',headers:{'Content-Type':request.headers.get('Content-Type')},body:raw}).formData(),reference=probe.get('reference'),product=PRODUCTS[probe.get('product')];
+        if(!product||!REFERENCE.test(reference||'')||!reference.startsWith(product.prefix+'-'))return json({error:'Invalid questionnaire'},400,cors);
+        const stub=env.WALLPAPER_ORDERS.get(env.WALLPAPER_ORDERS.idFromName(mode+':'+reference));
+        const result=await stub.fetch(new Request('https://order/stage?mode='+mode,{method:'POST',headers:{'Content-Type':request.headers.get('Content-Type')},body:raw}));
+        return new Response(result.body,{status:result.status,headers:{...cors,'Content-Type':'application/json','Cache-Control':'no-store'}});
+      }
+      if(['/resume','/cancel'].includes(url.pathname)){
+        const id=url.searchParams.get('session_id'),reference=url.searchParams.get('reference');
+        if(!id||!/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)||!REFERENCE.test(reference||''))return json({error:'Invalid session'},400,cors);
+        const stripe=getStripe(env,mode),session=await stripe.checkout.sessions.retrieve(id);
+        if(session.metadata?.site!=='katiemoore'||session.metadata?.brief_version!=='2'||session.client_reference_id!==reference)return json({error:'Session not found'},404,cors);
+        if(url.pathname==='/cancel'&&request.method==='POST'){
+          if(session.status==='open')await stripe.checkout.sessions.expire(id);
+          return json({status:session.status==='open'?'expired':session.status,paymentStatus:session.payment_status},200,cors);
+        }
+        if(url.pathname==='/resume'&&request.method==='GET')return json({clientSecret:session.client_secret,sessionId:session.id},200,cors);
+        return json({error:'Method not allowed'},405,cors);
+      }
       if(url.pathname==='/config'&&request.method==='GET'){
         const publishableKey=mode==='test'?env.STRIPE_TEST_PUBLISHABLE_KEY:env.STRIPE_PUBLISHABLE_KEY;
         if(!publishableKey)return json({error:'Checkout is not configured yet'},503,cors);
@@ -43,7 +65,12 @@ export function createHandler(getStripe, cryptoProvider) {
         if(!id||!/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)||!REFERENCE.test(reference||''))return json({error:'Invalid session'},400,cors);
         const session=await getStripe(env,mode).checkout.sessions.retrieve(id);
         if(session.metadata?.site!=='katiemoore'||session.client_reference_id!==reference||!PRODUCTS[session.metadata.product_key])return json({error:'Session not found'},404,cors);
-        return json({status:session.status,paymentStatus:session.payment_status,reference,amount:session.amount_total,currency:session.currency},200,cors);
+        let deliveryStatus;
+        if(session.metadata?.brief_version==='2'&&env.WALLPAPER_ORDERS){
+          const stub=env.WALLPAPER_ORDERS.get(env.WALLPAPER_ORDERS.idFromName(mode+':'+reference));
+          const response=await stub.fetch('https://order/status?session_id='+id);if(response.ok)deliveryStatus=(await response.json()).deliveryStatus;
+        }
+        return json({status:session.status,paymentStatus:session.payment_status,reference,amount:session.amount_total,currency:session.currency,deliveryStatus},200,cors);
       }
       if(isWebhook&&request.method==='POST'){
         const signature=request.headers.get('stripe-signature');
@@ -57,6 +84,12 @@ export function createHandler(getStripe, cryptoProvider) {
         if(session.currency!=='usd'||session.amount_total!==product.amount)return json({received:true});
         const paid=session.payment_status==='paid';
         if(!paid&&event.type!=='checkout.session.async_payment_failed')return json({received:true});
+        if(paid&&session.metadata?.brief_version==='2'){
+          if(!env.WALLPAPER_ORDERS)return json({error:'Order storage unavailable'},503);
+          const stub=env.WALLPAPER_ORDERS.get(env.WALLPAPER_ORDERS.idFromName(mode+':'+session.client_reference_id));
+          const saved=await stub.fetch('https://order/paid',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(session)});
+          if(!saved.ok)return json({error:'Order delivery unavailable'},503);
+        }
         const key=mode+':order:'+session.client_reference_id;
         const previous=await env.ORDER_EVENTS.get(key,'json');
         if(previous?.paymentStatus==='paid'&&!paid)return json({received:true});

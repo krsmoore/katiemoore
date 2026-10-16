@@ -1293,6 +1293,10 @@ function buildWhatWinByStoryId(items) {
 
 function openSellerStrategyExperience(storyId = 'walmart-lifecycle') {
   const returnFocus = document.activeElement;
+  const previousRootOverflow = document.documentElement.style.overflow;
+  const previousBodyOverflow = document.body.style.overflow;
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
   const popup = document.createElement('dialog');
   popup.setAttribute('aria-label', 'Interactive case study');
   popup.className = 'seller-strategy-popup';
@@ -1312,6 +1316,8 @@ function openSellerStrategyExperience(storyId = 'walmart-lifecycle') {
   popup.addEventListener('close', () => {
     window.removeEventListener('message', receive);
     popup.remove();
+    document.documentElement.style.overflow = previousRootOverflow;
+    document.body.style.overflow = previousBodyOverflow;
     returnFocus?.focus({ preventScroll: true });
   }, { once: true });
   popup.showModal();

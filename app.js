@@ -1296,13 +1296,13 @@ function openSellerStrategyExperience(storyId = 'walmart-lifecycle') {
   const popup = document.createElement('dialog');
   popup.setAttribute('aria-label', 'Interactive case study');
   popup.className = 'seller-strategy-popup';
-  popup.style.cssText = 'padding:0;border:1px solid #C9BFB3;width:min(524px,calc(100vw - 48px));max-width:none;height:min(820px,calc(100dvh - 48px));max-height:none;background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
+  popup.style.cssText = 'position:fixed;inset:0;margin:auto;padding:0;box-sizing:border-box;border:1px solid #C9BFB3;width:min(480px,calc(100vw - 32px));max-width:calc(100vw - 32px);height:min(852px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
   const frame = document.createElement('iframe');
-  frame.src = 'case-study-seller-strategy.html?embedded=1&story=' + encodeURIComponent(storyId);
+  frame.src = 'case-study-seller-strategy.html?v=20261016-fit&embedded=1&story=' + encodeURIComponent(storyId);
   frame.title = CAREER_EXPLORER_STORIES.find(story => story.id === storyId)?.hook ?? 'Interactive case study';
-  frame.style.cssText = 'display:block;width:100%;height:100%;border:0';
+  frame.style.cssText = 'position:absolute;inset:0;display:block;width:100%;height:100%;min-width:0;min-height:0;border:0';
   const responsiveStyle = document.createElement('style');
-  responsiveStyle.textContent = '@media(max-width:750px){dialog.seller-strategy-popup{width:100vw!important;height:100dvh!important;margin:0!important;border:0!important}}';
+  responsiveStyle.textContent = '@media(max-width:750px){dialog.seller-strategy-popup{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;border:0!important}}';
   popup.append(responsiveStyle, frame);
   document.body.append(popup);
   const receive = (event) => {

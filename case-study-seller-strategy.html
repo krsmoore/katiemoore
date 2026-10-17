@@ -26,7 +26,7 @@ let pages=[
 {label:'07 / Go deeper',title:'Want to<br><em>learn more?</em>',text:'Download the case study.',zoom:1.7,x:100,y:100}
 ];let current=0;let isSeller=true;let pdfPath='case-studies/walmart-lifecycle.pdf?v=20261016-km1';function camera(p){
  if(reader.classList.contains('opp-story') && p.focus){
-  const w=reader.clientWidth,h=reader.clientHeight,z=p.zoom;
+  const w=reader.clientWidth,h=reader.clientHeight,z=Math.min(p.zoom,1.8);
   if(z===1){img.style.transform='translate(0px,0px) scale(1)';return;}
   const ratio=(img.naturalWidth||941)/(img.naturalHeight||1672);
   const dw=Math.min(w,h*ratio),dh=dw/ratio,ox=(w-dw)/2,oy=(h-dh)/2;
@@ -68,7 +68,7 @@ async function initializeStory(){
     reader.classList.remove('generic');isSeller=true;reader.classList.add('opp-story');
     document.querySelector('.masthead span:nth-child(2)').textContent='BUILDING OPP';
     document.querySelector('.masthead span:last-child').textContent='CASE 02';
-    img.src='case-study-story/opp.webp';img.alt='OPP collage showing scattered requests, an initial tracker, a rebuilt intake system, and operations, productivity, and performance dashboards';
+    img.src='case-study-story/opp-lossless.webp';img.alt='OPP collage showing scattered requests, an initial tracker, a rebuilt intake system, and operations, productivity, and performance dashboards';
     const opp=(label,title,text,zoom,x,y,detail)=>({label,title,text,zoom,focus:{x,y},detail});
     pages=[opp('The cover','','',1,.5,.5),
      opp('01 / The challenge','I couldn’t manage<br><em>work I couldn’t see.</em>','When I arrived, Enablement did not just lack dashboards. It lacked the operating infrastructure needed to produce the data.',2.7,.47,.08,'I arrived in March and could not answer basic questions about the work. There was no project management system, standardized intake, completion hierarchy, or consistent set of metrics. Before I could manage capacity, I needed a way to see demand and workload.'),

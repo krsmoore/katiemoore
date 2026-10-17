@@ -1984,15 +1984,15 @@ function splitSentences(text, limit = 2) {
 
 function orderRoles(roles) {
   const preferredOrder = [
-    'verizon-gsm',
-    'verizon-district-trainer',
-    'verizon-hrbp',
-    'ahs-call-center-manager',
-    'sprint',
-    'tmobile',
-    'samsung-sr-mgr',
-    'samsung-director',
     'walmart-sm',
+    'samsung-director',
+    'samsung-sr-mgr',
+    'tmobile',
+    'sprint',
+    'ahs-call-center-manager',
+    'verizon-hrbp',
+    'verizon-district-trainer',
+    'verizon-gsm',
   ];
 
   const rank = new Map(preferredOrder.map((id, index) => [id, index]));

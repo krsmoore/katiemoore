@@ -1,0 +1,856 @@
+{
+  "walmart-lifecycle": {
+    "sourceCaseNumber": 1,
+    "cards": [
+      {
+        "number": 1,
+        "header": "Twenty programs. No shared story.",
+        "subheader": "The assignment was consistency. The obstacle was positioning.",
+        "body": "We needed seller-facing associates to speak consistently about Marketplace Logistics. But the project had stalled: we had 20 programs and no clear way to explain how they worked together.",
+        "detailTitle": "Before we could teach it, we had to make sense of it.",
+        "detail": "The work needed a foundation that individual program descriptions couldn’t provide. Associates could learn what each offering did and still struggle to connect the portfolio to a seller’s needs. Moving forward meant establishing a relationship between the programs that people could understand, explain, and use."
+      },
+      {
+        "number": 2,
+        "header": "The first pitch shaped everything.",
+        "subheader": "WFS led. Everything else followed.",
+        "body": "The conversation kept starting with Walmart Fulfillment Services, followed by “If that’s not right for you, look at this.” That made the rest of the portfolio sound like a fallback before sellers had even considered it.",
+        "detailTitle": "The sequence was sending its own message.",
+        "detail": "The issue wasn’t whether WFS belonged in the conversation. It was the hierarchy created by always putting it first. Even accurate descriptions could reinforce that hierarchy if every other offering appeared as an alternative to the main recommendation. We needed a starting point that gave each program a meaningful role."
+      },
+      {
+        "number": 3,
+        "header": "I changed the starting point.",
+        "subheader": "Seller need → lifecycle phase → best-fit solution.",
+        "body": "I stopped organizing the story around programs and built a framework around eight phases of the seller lifecycle. The question became: what is the seller trying to do, and which solution fits?",
+        "detailTitle": "The lifecycle gave the portfolio a structure.",
+        "detail": "Program-by-program explanations ask people to assemble the bigger picture themselves. The lifecycle supplied that picture first, giving each offering a place within the seller’s work. It also changed the logic of the conversation: the need could guide the recommendation instead of the presentation order determining what came next."
+      },
+      {
+        "number": 4,
+        "header": "One goal became the decision rule.",
+        "subheader": "A holistic solution, without a hierarchy of programs.",
+        "body": "I established a shared goal: present the portfolio without making one program sound more important than another. When the work drifted, I asked, “Does this bring us closer to the goal or farther from it?”",
+        "detailTitle": "I didn’t need to make every decision.",
+        "detail": "A large cross-functional team brings different priorities and areas of expertise. The shared goal gave us a way to evaluate those perspectives without reopening the entire strategy each time. Alignment came from agreeing on how to judge a decision, allowing contributors to move the work forward without depending on me for every answer."
+      },
+      {
+        "number": 5,
+        "header": "I built the foundation. We brought it to life.",
+        "subheader": "Clear direction, with room for others’ expertise.",
+        "body": "I built the framework and wrote the core copy. Instructional designers, product and program experts, brand designers, Marketing, Legal, and copy reviewers helped translate it into learning and seller-facing materials.",
+        "detailTitle": "Ownership didn’t mean controlling every detail.",
+        "detail": "I held the team to the strategic intent while leaving room for specialists to determine how it should come to life. Reviews needed to protect accuracy and make sure the intended lesson came through. That distinction gave contributors meaningful ownership while keeping the experience connected to the same underlying goal."
+      },
+      {
+        "number": 6,
+        "header": "One language across the experience.",
+        "subheader": "From internal learning to seller-facing materials.",
+        "body": "The framework became the foundation for both sides of the conversation. Across 13-plus partner groups, we moved from kickoff to launch in three months, carrying the same approach into what associates learned and what sellers saw.",
+        "detailTitle": "The framework had to work beyond the original project.",
+        "detail": "Associate learning and seller-facing materials serve different purposes, but they needed to express the same logic. Using a common foundation helped connect those experiences without requiring identical execution. The strategy became something teams could build from, rather than an idea that lived only in the initial discussion."
+      },
+      {
+        "number": 7,
+        "header": "We crossed the finish line together.",
+        "subheader": "Shared ownership was part of the achievement.",
+        "body": "I’m proud that we moved quickly, challenged familiar thinking, and brought people along. We gave a complex portfolio a shared story—and built it together.",
+        "detailTitle": "I brought lessons from the times I got leadership wrong.",
+        "detail": "In past projects, I’d tried to be the loudest voice in the room or the person making every decision. This time, I was more intentional about asking questions, making room for different perspectives, and openly recognizing people’s contributions. I could hold a clear direction while letting others shape how we got there. That gave their expertise room to improve the work and helped us move forward with shared ownership."
+      }
+    ]
+  },
+  "walmart-opp": {
+    "sourceCaseNumber": 2,
+    "cards": [
+      {
+        "number": 1,
+        "header": "I couldn’t manage what I couldn’t see.",
+        "subheader": "Basic questions. No consistent answers.",
+        "body": "When I arrived in March, Enablement had no project-management system, standardized intake, or consistent metrics. Before I could understand capacity or performance, I needed a reliable picture of the work.",
+        "detailTitle": "The missing dashboard was only the surface.",
+        "detail": "A dashboard needs dependable information underneath it. We didn’t yet have a consistent way to capture requests, organize projects, or define completion. Building a useful view of the team meant first establishing how work entered the system and how we tracked what happened next."
+      },
+      {
+        "number": 2,
+        "header": "I gave someone else room to build.",
+        "subheader": "The first version was an opportunity to stretch.",
+        "body": "I let an employee take on the problem and build an approach she thought would work. We used it for about five months, giving her ownership and giving us experience with a first version.",
+        "detailTitle": "I didn’t have to be the person with the answer.",
+        "detail": "This was a chance for an employee to work through a real operating challenge. Giving her space to build meant allowing her to make choices and put them into practice. It also gave me something more useful than an imagined ideal: a working approach we could learn from through everyday use."
+      },
+      {
+        "number": 3,
+        "header": "Then I became the team.",
+        "subheader": "Rebuilding the function while keeping the work moving.",
+        "body": "When she left, I was rebuilding the team while also doing the work. I rebuilt the system around two principles: make it easy for people to get to us, and make it easy for us to manage what happened next.",
+        "detailTitle": "The process had to help both sides.",
+        "detail": "Partners needed a clear way to ask for support, and I needed a manageable way to turn those requests into work. That became request forms, numbered tickets, project tracking, and eventually a formal Statement of Work. Each piece helped connect the initial request to the commitments and activity that followed."
+      },
+      {
+        "number": 4,
+        "header": "One disagreement exposed a design flaw.",
+        "subheader": "The document showed one timeline. The work had several.",
+        "body": "Our Statement of Work treated assets as a single project with one start and delivery date. A disagreement revealed where that model broke down, so I updated it to account for phased reviews and distribution.",
+        "detailTitle": "The process needed to reflect how delivery actually happened.",
+        "detail": "Fast-moving projects didn’t always have all their source material available at the start. Different assets could be reviewed, distributed, and used by learners at different points. A single timeline hid those distinctions. The disagreement helped reveal what the tool needed to make explicit so that expectations matched the work."
+      },
+      {
+        "number": 5,
+        "header": "Tracking projects still wasn’t enough.",
+        "subheader": "Three questions shaped the next version.",
+        "body": "I organized measurement around Operations, Productivity, and Performance: How are we doing? What are we doing? Is it working? Together, those questions became OPP, the foundation for a fuller view of the team.",
+        "detailTitle": "Each question needed different evidence.",
+        "detail": "Operations covered budget, systems, and capacity. Productivity tracked projects, assets, and systems work. Performance looked at engagement, completion, and sales lift. Separating these dimensions let me examine delivery alongside resources and effectiveness. A busy project list could show activity, but it couldn’t answer all three questions on its own."
+      },
+      {
+        "number": 6,
+        "header": "I built the view I needed.",
+        "subheader": "From project data to a working management tool.",
+        "body": "I defined the metrics, structured the underlying data, designed the dashboards, and used AI-assisted coding to build the solution myself. As the team grew, OPP became a tool for managing our work and supporting our partners.",
+        "detailTitle": "I learned the technical skills as the work demanded them.",
+        "detail": "Building the system meant learning UI design terminology, connecting multiple systems, and turning their data into useful visualizations. AI-assisted coding expanded what I could build without a dedicated analytics or development team. I still had to determine what the information meant and how it should support decisions."
+      },
+      {
+        "number": 7,
+        "header": "Capacity became a conversation we could support with facts.",
+        "subheader": "Visible work made the tradeoffs clearer.",
+        "body": "The data helped me show where Design was the bottleneck and support a decision to pause intake. I could explain the constraint and act on it, rather than asking the team to keep absorbing more work.",
+        "detailTitle": "Next time, I’d design for less upkeep from the start.",
+        "detail": "I’m proud of how much I learned to make this work. As my skills developed, the later pieces became more refined than the earlier ones. I’d bring that learning forward by planning automation sooner and reducing manual maintenance. The system needed to make the work easier to manage, and maintaining the system was part of that workload."
+      }
+    ]
+  },
+  "walmart-certification": {
+    "sourceCaseNumber": 3,
+    "cards": [
+      {
+        "number": 1,
+        "header": "The questions weren’t difficult. Finding answers was.",
+        "subheader": "Repeated escalations pointed to a bigger problem.",
+        "body": "Across listening sessions, seller-call notes, and live observations, I kept seeing associates escalate basic WFS questions. When I tried finding the answers myself in real time, I understood why.",
+        "detailTitle": "I tested the experience before judging the knowledge gap.",
+        "detail": "These questions didn’t require interpretation or specialized system access. The answers already existed, which made it tempting to assume associates simply needed more training. Trying the search myself revealed how much effort it took to find usable information. That changed what I needed to solve."
+      },
+      {
+        "number": 2,
+        "header": "First, make the answers easier to find.",
+        "subheader": "The knowledge experience needed a structure.",
+        "body": "SharePoint had grown through pages and materials added as needed. I restructured the experience so the resources could work together and better support associates looking for answers.",
+        "detailTitle": "Training couldn’t compensate for a difficult search.",
+        "detail": "Information people need occasionally has to remain accessible after a course ends. Expecting associates to remember every detail would leave the underlying problem in place. Addressing the knowledge experience first gave reference material a clearer role and helped distinguish what people should look up from what they needed to understand."
+      },
+      {
+        "number": 3,
+        "header": "Then I questioned what we were teaching.",
+        "subheader": "Ninety minutes of content left essential gaps.",
+        "body": "The existing certification covered details like dimensional thresholds that associates could look up. It gave too little attention to why WFS mattered, how fulfillment worked, and what people needed to do in their roles.",
+        "detailTitle": "Different roles needed different capabilities.",
+        "detail": "Multiple employee groups interacted with WFS in different ways. A shared collection of facts couldn’t fully prepare all of them for their responsibilities. I needed to define the understanding everyone required, then connect it to the conversations, decisions, and actions expected of each role."
+      },
+      {
+        "number": 4,
+        "header": "I built the journey around the job.",
+        "subheader": "Explain. Sell. Support. Onboard. Grow.",
+        "body": "I created five capability levels for Walmart Marketplace associates, moving from understanding fulfillment to positioning WFS, solving partner challenges, guiding setup, and driving long-term value.",
+        "detailTitle": "Each level answered, “What should I be able to do?”",
+        "detail": "Explain established the foundation. Sell connected that understanding to value and positioning. Support focused on using WFS to address partner challenges, while Onboard covered setup and inbounding. Grow addressed adoption and retention. This gave the learning a practical purpose at each stage and made its relevance to the learner more explicit."
+      },
+      {
+        "number": 5,
+        "header": "I built the experience myself.",
+        "subheader": "From learning architecture to the finished course.",
+        "body": "Without headcount support, I created the architecture, copy, images, video, eLearning, and SCORM package. I learned the tools needed to turn the capability journey into an engaging, usable experience.",
+        "detailTitle": "The learning goals guided the production choices.",
+        "detail": "Building across formats required me to develop skills beyond writing the content. Each part still needed to serve the same purpose: help associates understand and apply what mattered to their work. I wanted the experience to make that value obvious, so learners wouldn’t have to work out for themselves why they were taking it."
+      },
+      {
+        "number": 6,
+        "header": "I made the case for an organization-wide commitment.",
+        "subheader": "A specific business problem. A specific leadership ask.",
+        "body": "I presented what we’d heard from associates and connected the rebuilt certification to problems the VP’s organization had raised. Then I asked him to make completion mandatory. He agreed.",
+        "detailTitle": "The recommendation began with the organization’s own evidence.",
+        "detail": "Asking a leader to require learning means asking for people’s time and attention. I grounded that request in the needs his organization had already expressed and showed how the capability journey addressed them. That gave him a concrete reason to sponsor participation across his team."
+      },
+      {
+        "number": 7,
+        "header": "Completion was one measure. Application was the point.",
+        "subheader": "85% completion. 116% of the acquisition goal.",
+        "body": "With 85% of the VP’s organization completing the certification, the group exceeded its WFS acquisition goal for the first time, reaching 116% of target. The next opportunity was strengthening how leaders reinforced the learning.",
+        "detailTitle": "Next time, I’d build the coaching layer earlier.",
+        "detail": "Those results are encouraging, but they don’t establish how much of the acquisition performance came from certification alone. I’d spend more time helping leaders recognize application: what to listen for, how to coach, and how to spot someone who finished the course but wasn’t yet using it. That would connect the learning more deliberately to everyday performance."
+      }
+    ]
+  },
+  "samsung-turnaround": {
+    "sourceCaseNumber": 4,
+    "cards": [
+      {
+        "number": 1,
+        "header": "Our partners had stopped wanting our work.",
+        "subheader": "The quality problem had become a credibility problem.",
+        "body": "Product errors and inconsistent visual execution had damaged confidence in our learning. Carrier partners increasingly questioned whether manufacturer-created materials were worth putting in front of their employees.",
+        "detailTitle": "Access to the audience depended on earning it.",
+        "detail": "Our partners decided what learning reached their teams. Materials that didn’t meet the standard of an international brand gave them little reason to make room for ours. Leading an organization of 40 people through four direct reports, I needed to address both the quality of our work and the experience of working with us."
+      },
+      {
+        "number": 2,
+        "header": "“What do you need from us to get a yes?”",
+        "subheader": "Their answers became our commitments.",
+        "body": "Partners wanted predictable delivery, clarity about the materials, a chance to provide feedback, and better quality. Those four expectations gave us a concrete starting point for rebuilding the relationship.",
+        "detailTitle": "We needed to understand what made our work difficult to use.",
+        "detail": "The feedback showed that the experience around the materials mattered too. Partners had to plan for delivery, decide what belonged in front of their employees, and contribute before the work was finished. Understanding those needs gave us a way to address the friction that better content alone wouldn’t resolve."
+      },
+      {
+        "number": 3,
+        "header": "We made the work more predictable.",
+        "subheader": "Clear timelines. Defined deliverables. A place for feedback.",
+        "body": "We introduced workback timelines, meetings, and flash reports. A menu of materials clarified the offering, while a recommended baseline package and structured review stages helped partners understand what to expect and how to contribute.",
+        "detailTitle": "Collaboration needed a process people could follow.",
+        "detail": "Commenting mechanisms and change logs gave partner feedback a defined place in development. The materials menu made the available options explicit, and the baseline package provided a starting recommendation. Together, these changes made it easier to discuss scope, track revisions, and prepare for delivery."
+      },
+      {
+        "number": 4,
+        "header": "Then we changed how quality was produced.",
+        "subheader": "Higher standards needed a stronger development process.",
+        "body": "We introduced governance, quality assurance, and a new content-development process to address product errors and inconsistent execution. The standard had to hold across the team’s output.",
+        "detailTitle": "Better work had to become repeatable.",
+        "detail": "A strong individual piece wouldn’t resolve the concerns partners had raised about the broader experience. The development process needed to support accuracy and consistency from one deliverable to the next. That meant changing how the team worked, alongside what we expected the finished materials to look like and accomplish."
+      },
+      {
+        "number": 5,
+        "header": "Raising the standard changed the team.",
+        "subheader": "Nearly 80% turnover over two years.",
+        "body": "Turnover wasn’t the objective, but the new expectations exposed differences in skill and willingness to work within the process. Some employees couldn’t meet the standard. Others didn’t want to work that way. We parted ways respectfully.",
+        "detailTitle": "These were consequential people decisions.",
+        "detail": "A turnaround at that scale affects people as well as output. I had to distinguish between the skills required to deliver the work and an employee’s willingness to operate within the expectations. Maintaining the standard meant accepting difficult changes to the team while continuing to treat the people involved with respect."
+      },
+      {
+        "number": 6,
+        "header": "Every major carrier said yes.",
+        "subheader": "Learner reach grew from roughly 90,000 to 192,000.",
+        "body": "Our channel partners successfully placed our materials with every major carrier. Within two launches, the learning population more than doubled, giving us tangible evidence that partners were willing to put our work in front of their employees again.",
+        "detailTitle": "Partner adoption was the test that mattered.",
+        "detail": "The original problem was that carriers no longer believed our materials deserved their employees’ time. Their decision to use the work again directly addressed that barrier. Expanded reach demonstrated renewed access and confidence in the offering; it also gave the team a much larger audience to serve well."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d build mutual accountability earlier.",
+        "subheader": "A healthy partnership needs commitments on both sides.",
+        "body": "I’m proud that we won back every major carrier and restored trust in our learning. Looking back, I would establish clearer partner commitments earlier, alongside the expectations we set for ourselves.",
+        "detailTitle": "Responsiveness alone doesn’t make a partnership healthy.",
+        "detail": "We worked hard to become dependable and responsive, but I didn’t create enough accountability for what partners would contribute to the work. I’d make those responsibilities explicit much sooner. Taking responsibility for our performance was essential; building a sustainable working relationship also required agreement about what each side would bring."
+      }
+    ]
+  },
+  "samsung-future-director": {
+    "sourceCaseNumber": 5,
+    "cards": [
+      {
+        "number": 1,
+        "header": "She wanted to be a Director.",
+        "subheader": "The talent was clear. Accountability needed work.",
+        "body": "She was creative, smart, persuasive, and an excellent presenter. But when her employees underperformed, she absorbed their work, avoided difficult conversations, and left the performance issues undocumented.",
+        "detailTitle": "Her next step depended on how she led others.",
+        "detail": "Her strengths made it easy to see her potential. The gap appeared in the less visible responsibilities of leadership: setting expectations, addressing missed commitments, and following through. Taking on unfinished work kept things moving in the moment, but it also allowed the same behavior to continue."
+      },
+      {
+        "number": 2,
+        "header": "Then she asked for another hire.",
+        "subheader": "I needed to understand what the added capacity would solve.",
+        "body": "The proposed headcount would absorb work an underperforming manager wasn’t completing. I declined the request. Before adding resources, she needed to address the performance issue within her existing team.",
+        "detailTitle": "Approving the request would have left the cause untouched.",
+        "detail": "The unfinished work was real, but hiring someone else to do it wouldn’t resolve the manager’s missed responsibilities. It would also let her continue working around a conversation she needed to have. Holding that boundary made addressing performance the necessary next step."
+      },
+      {
+        "number": 3,
+        "header": "I asked for the documentation.",
+        "subheader": "There wasn’t any.",
+        "body": "I documented her own leadership gap and explained why it mattered. If she wanted to become an effective Director, she needed to take responsibility for addressing poor performance rather than allowing it to become normal.",
+        "detailTitle": "The feedback had to connect to her ambition.",
+        "detail": "I wanted her to understand this as a development need with real consequences for her readiness. Her employee was responsible for completing the work; she was responsible for managing what happened when they didn’t. Making that distinction explicit gave us a specific leadership behavior to work on."
+      },
+      {
+        "number": 4,
+        "header": "We practiced the conversations she had been avoiding.",
+        "subheader": "Coaching made the expectation actionable.",
+        "body": "I modeled difficult conversations, then we rehearsed them together. We worked through documentation and practiced again, giving her a way to prepare for the parts of leadership that had been holding her back.",
+        "detailTitle": "Knowing what to do and being ready to do it are different.",
+        "detail": "Simply telling her to hold someone accountable wouldn’t help her develop the skill. Practice gave us space to work through how to address performance directly and support the conversation with facts. Documentation mattered because it preserved what happened and made follow-through possible without relying on memory."
+      },
+      {
+        "number": 5,
+        "header": "She followed through.",
+        "subheader": "The development showed up in her actions.",
+        "body": "She successfully managed the underperforming employee out of the organization. Her documentation went through HR and Legal without pushback, demonstrating that she could handle a difficult responsibility she had previously avoided.",
+        "detailTitle": "The meaningful change was her willingness to lead.",
+        "detail": "The employee’s departure was the outcome of that process. Her growth was in taking ownership of the conversations, documentation, and follow-through required to reach it. She had moved beyond personally absorbing the consequences of poor performance and begun addressing them as the leader responsible."
+      },
+      {
+        "number": 6,
+        "header": "Her next role was Director.",
+        "subheader": "The opportunity came at another company.",
+        "body": "She eventually left Samsung for the level she had been working toward. I was proud of her for accepting the feedback and doing the work to grow. We still get together whenever I’m in town.",
+        "detailTitle": "Her leaving still felt like a win.",
+        "detail": "Supporting someone’s development means caring about where that growth takes them. Her next opportunity happened outside our organization, and I could celebrate it. Our continued relationship also matters to me: holding a firm boundary and delivering difficult feedback had been compatible with a lasting, supportive connection."
+      },
+      {
+        "number": 7,
+        "header": "Next time, I’d hand back ownership sooner.",
+        "subheader": "Support needs a boundary, too.",
+        "body": "Looking back, I stayed in a helping role longer than I should have, creating templates and calendar reminders. I would still model the approach, but transfer responsibility for maintaining it to her earlier.",
+        "detailTitle": "I had to examine my own instinct to help.",
+        "detail": "I had challenged her for absorbing work her employee should own. My lesson was to apply that same discipline to my coaching. Showing someone a method can build capability; continuing to organize the follow-through can leave them dependent on that support. I’d make the handoff clearer so the leadership habit became fully hers."
+      }
+    ]
+  },
+  "samsung-ai-readiness": {
+    "sourceCaseNumber": 6,
+    "cards": [
+      {
+        "number": 1,
+        "header": "192,000 employees were preparing to demonstrate Galaxy AI.",
+        "subheader": "I saw a risk in the flagship use case.",
+        "body": "The proposed demo showcased AI working across applications. It was technically impressive, but its success depended on something the technology couldn’t control: whether the right local restaurants existed.",
+        "detailTitle": "The launch would reach very different environments.",
+        "detail": "This was a launch across companies and geographies, with employees expected to bring an emerging technology to life for customers. The example needed to hold up beyond the setting where it had been developed. I was thinking about the employee trying it in a store and needing a result they could confidently explain."
+      },
+      {
+        "number": 2,
+        "header": "“What happens when someone tries this in Kansas?”",
+        "subheader": "Four restaurant requirements narrowed the chances of success.",
+        "body": "The prompt asked for a vegan Italian restaurant with outdoor seating that was also pet friendly. In some locations, that combination might return nothing, leaving the employee without a useful demonstration.",
+        "detailTitle": "An accurate answer could still undermine confidence.",
+        "detail": "Finding no matching restaurants could be a perfectly valid response. But the employee’s task was to show a customer why the feature was useful. An empty result would leave them with little to demonstrate and no clear next step. That was the adoption risk I wanted us to address before launch."
+      },
+      {
+        "number": 3,
+        "header": "I proposed a more repeatable use case.",
+        "subheader": "The Super Bowl gave us a timely starting point.",
+        "body": "My recommendation was to find healthy Super Bowl appetizers and add the ingredients to a grocery list. It preserved the cross-application experience while making the task relevant in far more locations.",
+        "detailTitle": "The example could carry the same technical ambition.",
+        "detail": "Moving from recipe discovery to a grocery list still demonstrated AI connecting activities across applications. It also gave employees a familiar purpose to explain: helping someone prepare for a gathering. The experience would rely less on a particular mix of nearby businesses, making it more practical to repeat across the launch footprint."
+      },
+      {
+        "number": 4,
+        "header": "The original demo went forward.",
+        "subheader": "My recommendation didn’t change the launch decision.",
+        "body": "I had raised the concern and offered an alternative, but the restaurant example remained. Employees would be using a demonstration whose usefulness varied by location.",
+        "detailTitle": "Speaking up mattered even without agreement.",
+        "detail": "Our frontline teams had worked hard to establish credibility through the learning they built and their presence in retail stores. I wanted their practical experience to inform the launch. Raising the risk was part of representing the people who would have to make the demonstration work in front of a customer."
+      },
+      {
+        "number": 5,
+        "header": "“I couldn’t find any restaurants.”",
+        "subheader": "The anticipated problem began showing up in practice.",
+        "body": "Employees encountered the empty results I had worried about. Eventually, some stopped demonstrating the feature, turning a weakness in the example into a barrier to adoption.",
+        "detailTitle": "The consequence extended beyond one unsuccessful attempt.",
+        "detail": "A demonstration needs to give employees a reason to keep using it. When the prescribed example produced no useful result, some chose to leave the feature out. The technology’s capability hadn’t disappeared, but the experience intended to introduce it was discouraging people from showing it."
+      },
+      {
+        "number": 6,
+        "header": "I made sure the learning stayed with the team.",
+        "subheader": "A documented handoff as I transitioned to my next role.",
+        "body": "I captured what happened, the adoption risks, and my recommendations in the launch post-mortem. I left that record with my team and leader so they were prepared when asked for feedback.",
+        "detailTitle": "The follow-through needed to be useful after I left.",
+        "detail": "I knew the team would be looked to for insight into the launch experience. Documenting the concern alongside what employees subsequently encountered gave them a clear account to draw from. It also preserved recommendations that could inform future decisions without depending on me to retell the story."
+      },
+      {
+        "number": 7,
+        "header": "Next time, I’d establish the fallback earlier.",
+        "subheader": "Decision boundaries and backup options belong in launch planning.",
+        "body": "I’d still make the same recommendation. I would ask sooner which parts of the demonstration we could change and whether employees could use an approved alternative when the flagship example didn’t work.",
+        "detailTitle": "Employees need a clear path when the first attempt falls short.",
+        "detail": "Understanding which decisions were open would have helped me direct my influence earlier. Agreeing on backup examples could also have given employees a practical response to demonstration issues. A repeatable experience includes knowing what to do next when the initial result doesn’t give you something useful to show."
+      }
+    ]
+  },
+  "ai-building-capability": {
+    "sourceCaseNumber": 7,
+    "cards": [
+      {
+        "number": 1,
+        "header": "It started with images.",
+        "subheader": "A practical use for AI in work I already knew.",
+        "body": "My first meaningful AI use cases were images for eLearning and visual anchors for presentations. Much of the early output was mediocre, and getting something usable took considerable refinement.",
+        "detailTitle": "Generating something was only the beginning.",
+        "detail": "I still had to decide whether an image supported the message and belonged in the experience. The tool could produce options, but making those options useful required direction and judgment. That early work gave me a place to experiment while keeping the quality of the finished product in view."
+      },
+      {
+        "number": 2,
+        "header": "I kept testing what the tools could do.",
+        "subheader": "Different strengths became different possibilities.",
+        "body": "As I gained access to more tools, I learned where each was useful and pushed beyond the examples I’d been shown. My practice grew to include seven AI tools in active use.",
+        "detailTitle": "Familiarity came through making things.",
+        "detail": "I put time into experimenting, refining, and learning how the systems responded. Working across tools helped me develop a broader sense of what I could attempt. Each new capability gave me another option to consider when a problem came along, rather than a single method I had to make fit."
+      },
+      {
+        "number": 3,
+        "header": "Then I could build things that worked.",
+        "subheader": "AI-assisted coding opened the door to interactive solutions.",
+        "body": "Vibe coding changed the scope of what I could create without development-team support. I could explore functionality and interaction alongside the content and visuals I was already producing.",
+        "detailTitle": "I could define an idea and begin testing it myself.",
+        "detail": "Prototyping gave me a way to work through how a solution might behave. Questions about navigation, interaction, and usability became things I could explore in a working experience. That brought product and UI thinking into my process and expanded the kinds of problems I was willing to take on."
+      },
+      {
+        "number": 4,
+        "header": "“Why does this need to be this kind of thing at all?”",
+        "subheader": "I began questioning the format before creating the deliverable.",
+        "body": "I stopped treating a document, spreadsheet, or presentation as the fixed starting point. With more ways to build, I could ask what the person using the solution actually needed it to do.",
+        "detailTitle": "The original format could contain an assumption worth challenging.",
+        "detail": "A familiar deliverable often brings familiar limits: a linear sequence, passive information, or a layout that’s difficult to navigate. I began examining those limits as design choices. If someone needed to explore, decide, or follow a personalized path, I could consider a format that supported that behavior directly."
+      },
+      {
+        "number": 5,
+        "header": "I had more ways to solve the problem.",
+        "subheader": "The format could fit what someone needed to do.",
+        "body": "If someone needed to explore data, I could build an interactive dashboard. If different learners needed different guidance, I could create paths for them to follow. AI made those options available to me without a development team.",
+        "detailTitle": "I could address limitations I previously had to work around.",
+        "detail": "A spreadsheet can hold the right information and still take effort to interpret. A presentation can explain a process while giving everyone the same sequence, regardless of what they need. I could now explore ways for people to filter information, see patterns, or choose relevant content. That expanded how I could help them understand something or make a decision."
+      },
+      {
+        "number": 6,
+        "header": "The question became, “What would make this successful?”",
+        "subheader": "More capability demanded more judgment.",
+        "body": "Being able to build something impressive didn’t automatically make it the right answer. I began evaluating the options against usefulness, effectiveness, and whether they improved the experience already in place.",
+        "detailTitle": "The person using it remained the point.",
+        "detail": "New functionality needs a purpose. Interaction should help someone understand or accomplish something; personalization should make a path more relevant. I wanted the technology to serve the work and the people doing it. That meant keeping traditional formats available when they were still the clearest, most useful choice."
+      },
+      {
+        "number": 7,
+        "header": "I’m still finding the edges of what I can do.",
+        "subheader": "Experimentation has become part of how I solve problems.",
+        "body": "I’m proud that I kept learning and pushed the tools beyond what I’d been shown. If I could change one thing, I would have trusted my ability to develop these capabilities sooner.",
+        "detailTitle": "I don’t have a finished lesson yet.",
+        "detail": "I’m still learning where AI creates a better experience and where a familiar approach remains the right one. What has changed is my willingness to investigate an idea before ruling it out as beyond my skills. Being a lifelong learner now influences both how I build and what I believe is possible to attempt."
+      }
+    ]
+  },
+  "tmobile-transformation": {
+    "sourceCaseNumber": 8,
+    "cards": [
+      {
+        "number": 1,
+        "header": "Everything changed at once.",
+        "subheader": "An acquisition. A pandemic. A new expectation to sell.",
+        "body": "Following the company’s acquisition, I inherited a newly formed team of 56 employees and eight frontline leaders. They were adjusting to new ownership, remote work, and a shift from customer support to sales—all while worrying about their health and job security.",
+        "detailTitle": "The team had lost much of what felt familiar.",
+        "detail": "The acquisition brought changes to the organization, leadership structure, and team assignments. COVID moved work into people’s homes and separated them from coworkers. I joined as a leader they had never met in person, responsible for helping them succeed in roles that now required something different from what they had been hired to do. Establishing trust meant understanding those changes and being clear about what came next."
+      },
+      {
+        "number": 2,
+        "header": "Helping customers now included finding the next opportunity.",
+        "subheader": "Support experience was the starting point for a new capability.",
+        "body": "The team had been hired to resolve the problem a customer called about. Now they needed to recognize what that customer’s business might need next. Their leaders also had to learn how to coach those conversations.",
+        "detailTitle": "Operational coaching didn’t cover the new expectations.",
+        "detail": "Leaders knew how to manage support performance, but evaluating sales conversations, handling objections, and identifying account growth opportunities required different skills. They needed development alongside their employees. I challenged myself to learn the job in under 90 days so I could ground my expectations in the work they were actually doing."
+      },
+      {
+        "number": 3,
+        "header": "First, they needed to believe they could do it.",
+        "subheader": "Small wins helped make an unfamiliar expectation feel achievable.",
+        "body": "I began with open communication, peer support, and positive reinforcement. We created opportunities for people to experience progress and see colleagues succeed before expecting them to sell confidently on their own.",
+        "detailTitle": "Fear was part of the starting conditions.",
+        "detail": "Sales was a change in how people understood their role, during a period when much already felt uncertain. Giving them another set of instructions wouldn’t address that by itself. Consistent leadership and recognition of progress helped us build the trust needed for people to practice something they weren’t yet comfortable doing."
+      },
+      {
+        "number": 4,
+        "header": "We gave them something specific to look for.",
+        "subheader": "“Finding the Alert” made opportunity recognition teachable.",
+        "body": "We introduced a system for recognizing opportunities, supported by role play and coaching. Weekly leadership skill checks helped ensure managers were developing the ability to guide their teams through the same work.",
+        "detailTitle": "A broad sales expectation needed observable skills.",
+        "detail": "People needed to practice recognizing a possible customer need and deciding how to respond. Leaders needed to recognize those moments, too, so their feedback could be specific. Rehearsal gave both groups a place to work through the conversation before applying the skills with customers."
+      },
+      {
+        "number": 5,
+        "header": "Practice moved into live conversations.",
+        "subheader": "Coaching continued where the work happened.",
+        "body": "Live call support and side-by-side coaching helped employees apply their new skills. We tracked progress, continued developing leaders, and celebrated results so sales became part of the team’s everyday work.",
+        "detailTitle": "Capability came before accountability.",
+        "detail": "My sequence was to teach the skill, provide practice, and make the standard visible before holding people to it. That gave leaders a basis for discussing what happened in a conversation and what needed to improve. Accountability could be clear and consistent without relying on micromanagement or harsh approaches."
+      },
+      {
+        "number": 6,
+        "header": "From 400 sales a quarter to 1,200 a month.",
+        "subheader": "Seven months of building confidence and capability.",
+        "body": "Sales increased while turnover remained below 5%. Two employees were promoted into leadership, extending the impact beyond the team’s immediate performance.",
+        "detailTitle": "The next leaders came from within the team.",
+        "detail": "Both people promoted had previously missed out on a leadership role. Seeing them become the leaders who came next was a meaningful part of the result. The work also reset expectations across the newly acquired organization for what supportive, consistent accountability could look like."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d handle partner friction differently.",
+        "subheader": "A strong team result still left room to improve my leadership.",
+        "body": "I’m proud of what the team achieved. But in some external partnerships, I let another person’s behavior influence my response. I would approach those moments with more curiosity and ask for clarification before reacting.",
+        "detailTitle": "“What do you mean?” is where I’d start today.",
+        "detail": "When someone made a provocative comment, I sometimes responded before fully understanding what was behind it. Asking them to explain would have given me time to separate their delivery from the concern we needed to address. That is a lesson I’ve carried forward: understand the issue before deciding how to respond."
+      }
+    ]
+  },
+  "sprint-sales-accountability": {
+    "sourceCaseNumber": 9,
+    "cards": [
+      {
+        "number": 1,
+        "header": "People completed the training. Then what?",
+        "subheader": "Our reporting stopped before the business impact began.",
+        "body": "My team supported 5,500 retail employees across five states. We tracked attendance, completion, and knowledge checks, but couldn’t show whether people applied the learning or whether it improved performance.",
+        "detailTitle": "We needed to follow the work beyond the classroom.",
+        "detail": "Completion told us who finished. Knowledge checks showed what people could answer. Neither explained what happened in a customer conversation afterward. I wanted the team to investigate whether behavior changed, whether sales improved, and how those results compared with the cost of our effort."
+      },
+      {
+        "number": 2,
+        "header": "The trainers needed new skills, too.",
+        "subheader": "Business analysis became part of the job.",
+        "body": "The team knew learning and facilitation. Many were less comfortable using business systems, documenting evidence, analyzing performance, or discussing return on investment with leaders. Those gaps limited their ability to demonstrate value.",
+        "detailTitle": "Credibility required understanding the measures leaders used.",
+        "detail": "Store leaders were accountable for business performance. To have useful conversations with them, trainers needed to navigate the same data and connect a learning need to an observable result. That meant expanding their role from delivering a session to understanding the problem, supporting a change, and examining what followed."
+      },
+      {
+        "number": 3,
+        "header": "I built a bootcamp around business performance.",
+        "subheader": "Systems, evidence, ROI, and influence.",
+        "body": "I brought in experts to teach the business systems store managers used. I taught the team to calculate ROI by connecting performance results to delivery costs, then used games to practice influence and persuasion.",
+        "detailTitle": "Analysis only helped if they could get people to act.",
+        "detail": "Trainers needed to do more than identify a performance gap. They had to explain why it mattered and encourage leaders and associates to do something differently. Practicing influence alongside analysis helped connect the evidence they gathered to the conversations required to put a recommendation into practice."
+      },
+      {
+        "number": 4,
+        "header": "Accessory sales gave us a measurable test.",
+        "subheader": "Historical data helped identify where to focus.",
+        "body": "We had years of accessory-sales data at individual and group levels. That let us identify consistently low-performing stores and choose locations where we could examine the effect of a focused intervention.",
+        "detailTitle": "We could start with an established performance pattern.",
+        "detail": "The history gave us more context than a single weak month. It helped the team select stores based on sustained performance and provided a basis for examining subsequent results. The exercise made the new analytical skills practical: use the data to decide where support was needed, then measure what happened."
+      },
+      {
+        "number": 5,
+        "header": "Trainers worked beside associates in the store.",
+        "subheader": "Real customer interactions became the learning environment.",
+        "body": "The team went into the selected locations and coached associates during live customer interactions. They could connect guidance directly to the sales conversations and decisions happening in front of them.",
+        "detailTitle": "Application became something trainers could observe.",
+        "detail": "Working side by side brought the team closer to the behavior behind the numbers. They could see how associates approached an interaction and provide coaching in context. It also gave trainers a way to put their own new skills to work, connecting performance analysis with hands-on support."
+      },
+      {
+        "number": 6,
+        "header": "$900,000 in additional accessory sales.",
+        "subheader": "Measured across participating stores within 90 days.",
+        "body": "The results gave the team a concrete business outcome to discuss with regional leaders. The program became part of new-trainer onboarding and upskilling, extending the approach beyond the initial stores.",
+        "detailTitle": "The team’s definition of success changed.",
+        "detail": "Trainers began looking beyond the classroom and asking where their effort was making a difference. Connecting their work to sales performance strengthened their confidence and credibility with leaders. Incorporating the program into development also made business measurement part of how future trainers learned the role."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d involve sales leaders sooner.",
+        "subheader": "The business partners belonged in the preparation.",
+        "body": "I would bring local sales leaders into the bootcamp or planning before execution. They should understand what we were testing and how we intended to evaluate it before trainers arrived in their stores.",
+        "detailTitle": "Earlier involvement would create a stronger shared starting point.",
+        "detail": "The bootcamp prepared trainers to use the business’s systems and measures. Involving sales leaders at that stage would also create room to discuss store context, clarify the purpose of the test, and agree on how to interpret the results. That would make the work a more deliberate partnership from the beginning."
+      }
+    ]
+  },
+  "sprint-quiz-warehouse": {
+    "sourceCaseNumber": 10,
+    "cards": [
+      {
+        "number": 1,
+        "header": "The idea came from a District Manager.",
+        "subheader": "Paper quizzes were helping his team sell.",
+        "body": "He was using simple quizzes to test product knowledge, and the approach was working. I initially resisted because it hadn’t come from Learning. But the results gave me a reason to reconsider.",
+        "detailTitle": "I had to recognize the value before improving the format.",
+        "detail": "The idea challenged my assumptions about where a learning solution should originate. Looking at what was happening in the field helped me see an opportunity worth supporting. My contribution could be to strengthen the approach and make it available to more people, while recognizing whose idea started it."
+      },
+      {
+        "number": 2,
+        "header": "A new product gave us a place to test it.",
+        "subheader": "Almost no sales. A specific performance problem.",
+        "body": "I chose a newly launched product and created a quiz around it, curating existing content to help employees learn. Digitizing the approach made it practical to distribute across a region supporting 5,500 employees.",
+        "detailTitle": "The useful part needed to survive the move to scale.",
+        "detail": "The original approach connected product knowledge to the work of selling. A manual paper process would be difficult to extend across the region, so I changed how people accessed it. Focusing on one product also gave the campaign a clear purpose and a concrete sales result to watch."
+      },
+      {
+        "number": 3,
+        "header": "We brought the campaign into the field.",
+        "subheader": "Leaders and trainers turned the idea into a coordinated effort.",
+        "body": "I worked with sales leaders and trainers to get the quiz into employees’ hands. We spent Friday morning training the region, using the curated materials to build understanding of the product.",
+        "detailTitle": "Existing resources needed a connected story.",
+        "detail": "The product information was already available. What was missing was a narrative that connected those resources and a way to guide people through using them. Curating the content around the quiz gave the campaign focus and gave leaders and trainers a shared starting point for supporting their teams."
+      },
+      {
+        "number": 4,
+        "header": "The rest of the weekend was about application.",
+        "subheader": "Side-by-side coaching carried the learning into customer conversations.",
+        "body": "After Friday’s training, we worked alongside employees through the weekend. The three-day effort connected product knowledge with practical support where sales were happening.",
+        "detailTitle": "The quiz was the beginning of the intervention.",
+        "detail": "Knowing an answer didn’t complete the work. Coaching gave employees support as they brought that understanding into real interactions. The campaign combined a focused learning activity with time in the field, giving people an opportunity to apply what they had learned while help was available."
+      },
+      {
+        "number": 5,
+        "header": "Then we ran out of product.",
+        "subheader": "Our region outsold the other seven regions combined.",
+        "body": "The sales response drew attention beyond the campaign. The warehouse GM called the Region VP to ask what had happened. A local idea had become a regional effort with nationally visible results.",
+        "detailTitle": "The partnership mattered as much as the format.",
+        "detail": "This was a coordinated effort involving the original field insight, curated learning, sales leadership, and hands-on coaching. The result showed what we could accomplish by bringing those pieces together. My VP’s support when the work drew national attention also reflected the strength of the partnership we had built."
+      },
+      {
+        "number": 6,
+        "header": "The results also raised questions.",
+        "subheader": "Sales leaders celebrated. Curriculum challenged the approach.",
+        "body": "The head of Curriculum questioned why I had built something instead of using their materials. I stayed factual: the resources were theirs. I had curated them into an experience that helped the field use them.",
+        "detailTitle": "Explaining the work opened a new partnership.",
+        "detail": "I acknowledged the concern and clarified what had changed: the narrative connecting the information and the mechanism for putting it into practice. That conversation ultimately created an opportunity to work more closely with Curriculum and influence how future materials were developed."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d see the potential sooner.",
+        "subheader": "A useful idea deserves attention wherever it originates.",
+        "body": "I would spend less time questioning why the idea came from outside Learning and more time understanding what made it work. I would also involve Curriculum earlier so we could strengthen and scale it together.",
+        "detailTitle": "My role was to help the idea travel.",
+        "detail": "I didn’t need to be the source of the solution to make a meaningful contribution. Recognizing the District Manager’s insight, adapting the delivery, and connecting the right people turned a local practice into something larger. The lesson was to look for the strength in an idea before concentrating on its flaws."
+      }
+    ]
+  },
+  "verizon-building-the-bench": {
+    "sourceCaseNumber": 11,
+    "cards": [
+      {
+        "number": 1,
+        "header": "We were hiring leaders who weren’t staying.",
+        "subheader": "External recruiting wasn’t building the bench we needed.",
+        "body": "Senior leadership wanted new people and new ideas, so we increasingly filled leadership roles with external hires. But many arrived unprepared for the realities of fast-paced retail: demanding customers, high expectations, and young teams to lead. Our internal bench remained thin.",
+        "detailTitle": "The hiring direction left an opportunity unexplored.",
+        "detail": "Bringing in outside experience had a clear purpose. The problem was that those hires weren’t staying long enough to provide the leadership our stores needed. As a new HR Business Partner supporting 27 stores and 450 employees, I wanted to understand whether we were overlooking people who already knew the work and might want to grow."
+      },
+      {
+        "number": 2,
+        "header": "Some employees barely entered the conversation.",
+        "subheader": "We knew the top performers and the people struggling. Less about everyone between.",
+        "body": "My role put me close to hiring, development, and performance decisions. I heard plenty about employees being considered for advancement or managed for poor performance. I started asking about the people quietly doing their jobs—and whether anyone knew what they wanted next.",
+        "detailTitle": "Visibility was shaping who got considered.",
+        "detail": "The employees attracting the most attention weren’t necessarily the only ones with potential. Someone could be dependable and capable without standing out in the conversations I was hearing. I didn’t assume everyone in that middle group wanted a promotion. I wanted leaders to know enough about them to make an informed assessment."
+      },
+      {
+        "number": 3,
+        "header": "“Tell me about your staff. Let’s go one by one.”",
+        "subheader": "A simple question made gaps in managers’ knowledge visible.",
+        "body": "Most of my work happened through store leaders. I asked them to walk through their teams, employee by employee. Sometimes we reached a name they couldn’t tell me much about. That became a coaching opportunity: what did they need to learn about that person?",
+        "detailTitle": "The manager needed to own the discovery.",
+        "detail": "Going through every name kept the discussion from returning to the same familiar employees. It also made the gap specific. A leader might know someone’s performance without knowing their ambitions or interests. My role was to help managers recognize where their understanding stopped and encourage the conversations that would fill it in."
+      },
+      {
+        "number": 4,
+        "header": "Strong sales weren’t the whole leadership story.",
+        "subheader": "Potential also showed up in influence, ownership, and initiative.",
+        "body": "I encouraged leaders to look beyond sales results when considering future managers. How did someone influence colleagues? Did they take ownership or make things better? Just as importantly, did they actually want to lead? Those questions gave us a broader basis for recognizing potential.",
+        "detailTitle": "Interest and readiness deserved separate attention.",
+        "detail": "Your best salesperson isn’t automatically your best leader. Wanting a promotion also doesn’t mean someone is ready for one. Understanding both motivation and capability helped make development conversations more useful. It created room to discuss what an aspiring leader needed to build, while respecting employees whose ambitions didn’t involve managing a team."
+      },
+      {
+        "number": 5,
+        "header": "Employees started seeing a future for themselves.",
+        "subheader": "The change showed up in skip-level conversations.",
+        "body": "As leaders expanded their attention, my conversations with employees became more positive. People felt noticed and more optimistic about their future. Employees who had been missing from talent discussions were beginning to see that their contributions and ambitions mattered.",
+        "detailTitle": "Advocacy meant helping people become known.",
+        "detail": "I had moved into HR because I knew the stores and wanted the people working in them to have an advocate. This work made that purpose concrete. I could help leaders see employees more fully, so that opportunities depended on a better understanding of the team and what each person could contribute."
+      },
+      {
+        "number": 6,
+        "header": "Internal promotions increased 15%.",
+        "subheader": "Our leadership bench grew—and those new leaders stayed.",
+        "body": "When managers knew more about their teams, we found more people who could step into leadership. Internal promotions increased 15%, and the newly promoted leaders stayed. Employees who had previously been overlooked became part of the answer to our staffing problem.",
+        "detailTitle": "Better succession planning began with better conversations.",
+        "detail": "The result came from expanding who leaders considered and what they knew about those people. We had started with a thin internal bench and external hires who weren’t staying. Looking more closely at existing employees revealed leadership potential that our usual performance discussions hadn’t brought forward."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d coach the leader sooner.",
+        "subheader": "Being able to solve a problem didn’t always mean I should.",
+        "body": "Earlier in my HR career, I sometimes stepped in because I could help an employee directly. With hindsight, I would put more emphasis on developing the manager responsible. Supporting an employee also meant helping their leader become better equipped to support them.",
+        "detailTitle": "Advocacy included building managers’ capability.",
+        "detail": "Solving an immediate problem could be useful, but it didn’t necessarily prepare the manager for the next one. The stronger approach was to help leaders ask better questions, understand their people, and take responsibility for their development. That was an important lesson in where my role could have the most lasting effect."
+      }
+    ]
+  },
+  "samsung-budget-portfolio": {
+    "sourceCaseNumber": 12,
+    "cards": [
+      {
+        "number": 1,
+        "header": "Every expense was a decision.",
+        "subheader": "A $3.2M budget meant choosing what we could make possible.",
+        "body": "I managed an annual budget supporting 40 employees and more than 10 vendors across learning, creative, technology, and communications. I wanted to understand what each expense delivered and whether that was the best use of the money.",
+        "detailTitle": "Existing spending deserved the same scrutiny as new requests.",
+        "detail": "An expense can become familiar enough that people stop questioning it. I treated budget management as part of setting direction: money committed to one service was money unavailable for another idea. Understanding those commitments helped me decide where we needed outside expertise, what represented fair value, and where we could create room to invest."
+      },
+      {
+        "number": 2,
+        "header": "I asked what we were actually buying.",
+        "subheader": "Rates, hours, and deliverables needed to add up.",
+        "body": "I compared agency and contractor rates, questioned how many hours work should require, and asked vendors to explain their quotes. Before deciding whether a price made sense, I needed to understand the labor and expertise behind it.",
+        "detailTitle": "A useful negotiation starts with understanding the work.",
+        "detail": "Different assignments can justify different rates. The questions were what a vendor was contributing and how the proposed cost reflected that contribution. Looking at the work in detail gave me a basis for discussing price, instead of asking for an arbitrary discount or accepting a quote simply because it fit within the budget."
+      },
+      {
+        "number": 3,
+        "header": "One post update cost $500.",
+        "subheader": "A recurring charge in our communications app stood out.",
+        "body": "A vendor charged us $500 every time they updated a post in our digital communications app. I watched the work for a few weeks to understand what those updates involved before challenging the fee.",
+        "detailTitle": "Observation gave me something concrete to question.",
+        "detail": "The price alone didn’t explain whether the charge was reasonable. I needed to understand the task behind it. Spending time observing the work let me move beyond a general concern about cost and ask a more specific question: how did the effort required for this update justify the amount we were paying?"
+      },
+      {
+        "number": 4,
+        "header": "“Show me the math.”",
+        "subheader": "The rate went from $500 to $50 per post.",
+        "body": "I asked the vendor to explain the labor involved and how it compared with the hourly rates we paid for other work. Following that conversation, they reduced the fee by 90%.",
+        "detailTitle": "The comparison made the pricing difficult to justify.",
+        "detail": "We already paid the vendor for other assets and deliverables, which gave us a reference point. I could ask them to reconcile this charge with those rates and the work required. That made the discussion about a specific inconsistency in the pricing, with a clear basis for changing it."
+      },
+      {
+        "number": 5,
+        "header": "That freed $450 for something else.",
+        "subheader": "The value of the savings was in what they could fund.",
+        "body": "Reducing the fee created room for research and development, employee incentives, and stronger creative work. I could put more of the existing budget behind testing ideas, rewarding contributions, and improving execution.",
+        "detailTitle": "Efficiency created room to say yes.",
+        "detail": "A promising idea still needs resources. Recovering money from lower-value spending gave me more options when deciding what to support. The important next decision was where that money could make a greater contribution—whether through experimentation, motivating the team, or improving the quality of what we delivered."
+      },
+      {
+        "number": 6,
+        "header": "I applied that thinking across the $3.2M.",
+        "subheader": "Each commitment had to earn its place in the budget.",
+        "body": "The post-update fee was one example of how I managed the broader portfolio. I questioned established expenses, evaluated tradeoffs, and looked for opportunities to redirect resources toward work that built capability or improved results.",
+        "detailTitle": "The budget expressed our priorities.",
+        "detail": "Across learning, creative, technology, and communications, every funding decision affected what the team could accomplish. Managing those decisions together helped me consider the value of an expense alongside other possible uses of the money. I was proud of creating flexibility to support better ideas instead of treating the existing spending pattern as permanent."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d let my team see more of the money.",
+        "subheader": "Financial decisions were leadership-development opportunities, too.",
+        "body": "I managed much of the portfolio myself. I would involve my team more in vendor negotiations, forecasting, tradeoffs, and funding decisions so they could build the judgment those responsibilities require.",
+        "detailTitle": "They needed access to the reasoning behind the decisions.",
+        "detail": "Participating would have helped team members understand how a quote gets evaluated, why one investment takes priority, and what changes when resources are limited. Those were opportunities to develop future leaders through real decisions. I could have shared more of that responsibility while helping them connect their work to the financial choices supporting it."
+      }
+    ]
+  },
+  "samsung-influencing-700": {
+    "sourceCaseNumber": 13,
+    "cards": [
+      {
+        "number": 1,
+        "header": "The strategy depended on people I didn’t manage.",
+        "subheader": "Seven channel partners. Four regions. More than six launches a year.",
+        "body": "Major launches relied on 400 full-time employees and 300 people in third-party roles. I had no direct authority over them. Getting the strategy into the field meant building an approach that could work through their leaders and everyday routines.",
+        "detailTitle": "Personal persuasion could only reach so far.",
+        "detail": "I couldn’t make every launch depend on convincing hundreds of people individually. The work needed support from the people who set local priorities, a clear reason for employees to participate, and practical help with execution. My responsibility was to put those pieces together so the strategy could move beyond the initial announcement."
+      },
+      {
+        "number": 2,
+        "header": "First, I defined what people needed to do.",
+        "subheader": "A launch objective had to become a specific expectation.",
+        "body": "I started by identifying the behavior each launch required. I made the expectation clear enough that employees could understand what successful execution looked like and leaders could recognize whether it was happening.",
+        "detailTitle": "Broad agreement leaves too much open to interpretation.",
+        "detail": "Supporting a launch can mean different things to different people. Defining the required behavior gave us a shared basis for training, coaching, and follow-up. It also made the next conversation with field leaders more useful: we could discuss what their teams needed to do and what support that would require."
+      },
+      {
+        "number": 3,
+        "header": "Their leaders had to stand behind it.",
+        "subheader": "Local reinforcement determined whether the work became a priority.",
+        "body": "Before asking the field to act, I worked to get their leaders behind the expectation. Those leaders needed to reinforce it with their teams. Without that support, the strategy could be understood and still treated as optional.",
+        "detailTitle": "Employees take direction from the people leading their daily work.",
+        "detail": "My request entered an environment where managers were already setting priorities and holding people accountable. Their involvement connected the launch to those existing responsibilities. Getting them on board meant establishing support for the behavior after the message reached the field, when employees had to decide where to put their attention."
+      },
+      {
+        "number": 4,
+        "header": "The reason to care had to be theirs.",
+        "subheader": "I connected the work to outcomes the field already owned.",
+        "body": "I explained how the requested behavior supported goals employees were already responsible for achieving. That gave the launch a place in their work and a reason to matter beyond the fact that my team had asked for it.",
+        "detailTitle": "Relevance required understanding another person’s priorities.",
+        "detail": "People didn’t need to adopt my goals simply because the launch mattered to me. I needed to understand what mattered to them and make the connection clear. That required translating the strategy into terms the field could use: how the action related to their responsibilities and why it deserved their time."
+      },
+      {
+        "number": 5,
+        "header": "Then I made it easier to act.",
+        "subheader": "Training, tools, and follow-up supported the expectation.",
+        "body": "I gave people the preparation and resources they needed to execute, supported by check-ins and accountability. The aim was to remove as much friction as possible between understanding the request and carrying it out.",
+        "detailTitle": "Agreement alone doesn’t prepare someone to deliver.",
+        "detail": "Someone can understand why an action matters and still need help doing it. Training and tools addressed that practical gap. Check-ins created opportunities to identify where execution needed support, while accountability kept the expectation active. Together, those elements gave the field more than a launch message to work from."
+      },
+      {
+        "number": 6,
+        "header": "People began pulling each other in.",
+        "subheader": "Recognition helped the behavior spread beyond the original push.",
+        "body": "I used shout-outs and leaderboards to recognize strong execution and make examples visible. People began sharing what worked, competing, and recognizing one another. The momentum grew beyond what my team could generate on its own.",
+        "detailTitle": "Good work became something peers could learn from.",
+        "detail": "Recognition helped employees see how colleagues were putting the expectation into practice. As people shared their approaches and encouraged one another, reinforcement came from more places. That was the result I was proud of: a strategy sustained through leaders and peers, with less dependence on my direct involvement."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I’d learn the field role more deeply.",
+        "subheader": "Better understanding would have made my requests more relevant.",
+        "body": "I would spend more time learning the work employees actually did. The better I understood their responsibilities and daily demands, the more precisely I could connect a launch expectation to something that mattered to them.",
+        "detailTitle": "Influence depends on the quality of that connection.",
+        "detail": "Knowing someone’s goals is a starting point. Understanding their job helps explain what makes those goals difficult to achieve and where a new request might help or add friction. More firsthand knowledge would have strengthened both how I positioned the work and the support I provided for people to carry it out."
+      }
+    ]
+  },
+  "verizon-early-failure": {
+    "sourceCaseNumber": 14,
+    "cards": [
+      {
+        "number": 1,
+        "header": "I was told the team needed someone firm.",
+        "subheader": "I arrived with an approach that had worked for me before.",
+        "body": "My District Manager said the store needed stronger leadership. I took that to mean firm expectations, consistent policy enforcement, and accountability. Leading a team of 16 employees with three direct reports, I went in ready to correct what wasn’t working.",
+        "detailTitle": "I accepted the diagnosis before understanding the team.",
+        "detail": "The direction matched what I already believed about leadership: clarity and consistency helped people perform. Because that approach had worked elsewhere, I felt confident applying it here. I hadn’t spent enough time listening to the employees or understanding their experience before deciding how they needed to be led."
+      },
+      {
+        "number": 2,
+        "header": "Most of what they heard was correction.",
+        "subheader": "My focus on policy was shaping the environment.",
+        "body": "I repeatedly pointed out what was wrong, what violated policy, and what required corrective action. Employees became increasingly negative about me. I believed I was maintaining standards, but I wasn’t paying enough attention to how people experienced my leadership.",
+        "detailTitle": "Consistency didn’t make my delivery effective.",
+        "detail": "Each correction might have had a rationale, but together they created a pattern. The team was working for someone whose attention centered on mistakes and violations. I needed to consider the cumulative effect of those interactions and whether my approach was helping people succeed or making their workplace harder to be in."
+      },
+      {
+        "number": 3,
+        "header": "Then my District Manager publicly joked about my harshness.",
+        "subheader": "His comment exposed the problem with the direction I’d followed.",
+        "body": "He had told me the team needed someone firm. Now he was joking about how harsh I was. That contradiction made me reconsider the guidance I’d accepted—and recognize that continuing to follow it was my decision.",
+        "detailTitle": "I had confused following direction with exercising judgment.",
+        "detail": "I’d relied on my manager’s assessment and an approach that had worked elsewhere. Both gave me confidence, but neither relieved me of the responsibility to notice when it wasn’t working. I needed to evaluate my leadership by its effect on this team and make a different choice."
+      },
+      {
+        "number": 4,
+        "header": "I apologized. Not everyone accepted.",
+        "subheader": "Repair started with acknowledging what employees had experienced.",
+        "body": "I apologized to the team together and to employees individually. Some were receptive; others weren’t. I had to give people room to respond honestly, without expecting them to reassure me or immediately trust that things would change.",
+        "detailTitle": "The team didn’t owe me a fresh start.",
+        "detail": "By the time I was ready to change, employees had already formed their opinions through repeated interactions with me. An apology couldn’t reset that history. I needed to respect their different responses and follow through consistently, including with people who remained skeptical. They would decide whether my actions gave them a reason to trust me."
+      },
+      {
+        "number": 5,
+        "header": "I changed how I held the standard.",
+        "subheader": "I made more room to listen before responding.",
+        "body": "I stopped assuming that firmness meant speaking first, last, or loudest. I began questioning how I applied policy and considering the employee and customer experience. Checking my own approach became part of the work before coaching someone else.",
+        "detailTitle": "Better judgment required more context.",
+        "detail": "I still had a responsibility to address problems and maintain expectations. Listening helped me consider what was happening before deciding how to respond. That meant examining both the issue and my delivery: what needed to change, why it mattered, and whether the way I addressed it would help the person move forward."
+      },
+      {
+        "number": 6,
+        "header": "The environment changed. Performance followed.",
+        "subheader": "NPS and sales rose. Turnover fell.",
+        "body": "Over time, the changes in my leadership were followed by improvements in customer experience, sales, and retention. The store moved from C-level to A-level. Those results mattered, but they didn’t erase the environment I had initially created.",
+        "detailTitle": "Improvement didn’t cancel out the earlier impact.",
+        "detail": "I’m proud that I heard difficult feedback and acted on it. I also recognize that employees had already spent time working in conditions my behavior helped create. Both belong in this story. The turnaround showed that I could change; the earlier experience remained a lesson in the responsibility that comes with leading people."
+      },
+      {
+        "number": 7,
+        "header": "Looking back, I would listen before deciding.",
+        "subheader": "A new team deserved more than my previous playbook.",
+        "body": "I would spend more time understanding the people and the workplace before choosing my approach. I learned to examine my own contribution to a problem before coaching others—and to take seriously how long a leader’s treatment can stay with someone.",
+        "detailTitle": "The way I use authority is part of my performance.",
+        "detail": "People remember how someone with power treated them, especially early in their working lives. That experience shaped the standard I now hold myself to: be a leader I would want to work for. Clear expectations still matter. So do listening, judgment, and the willingness to change when my own behavior is getting in the way."
+      }
+    ]
+  }
+}

@@ -343,6 +343,58 @@ const CAREER_EXPLORER_STORIES = [
     sourceConfidence: 'high',
   },
   {
+  "id": "ai-building-capability",
+  "company": "Across my work",
+  "timeframe": "Ongoing",
+  "hook": "How did AI change what I could build?",
+  "summary": "Expanded from AI-generated images into interactive dashboards, learning paths, and working prototypes without a development team.",
+  "heroMetrics": [
+    "7 AI tools in active use"
+  ],
+  "challenge": "Early AI output took considerable refinement before it could support a useful finished experience.",
+  "myRole": {
+    "owned": "Defined what a useful solution needed to accomplish.",
+    "built": "Created images, working prototypes, dashboards, and interactive learning experiences.",
+    "led": "Kept experimenting and learning across seven AI tools.",
+    "influenced": "Questioned familiar formats and evaluated alternatives against the needs of the person using them."
+  },
+  "scale": [
+    "Seven AI tools",
+    "Content, visuals, and interactive solutions"
+  ],
+  "callsMade": [
+    "Evaluated whether generated output supported the message.",
+    "Questioned the deliverable format before building it.",
+    "Kept traditional formats when they remained the clearest choice."
+  ],
+  "changed": {
+    "business": "Expanded the range of solutions I could attempt without development-team support.",
+    "capability": "Added AI-assisted coding, product thinking, and UI exploration to my practice.",
+    "systemic": "Made experimentation part of how I solve problems."
+  },
+  "whatIKnowNow": "More capability demands more judgment about what will help the person using the solution.",
+  "doOver": "I would have trusted my ability to develop these capabilities sooner.",
+  "askMeAbout": [
+    "How I choose between traditional and interactive formats",
+    "How I evaluate whether new functionality has a useful purpose"
+  ],
+  "capabilityScores": {
+    "ai-emerging-tech": 3,
+    "hands-on-builder": 3,
+    "build-scratch": 2,
+    "strategy-execution": 2,
+    "ambiguity": 2
+  },
+  "tags": [
+    "AI and Emerging Technology",
+    "Hands-on Building",
+    "Lifelong Learning"
+  ],
+  "storyType": "builder",
+  "visualConcept": "Imagery to follow",
+  "sourceConfidence": "high"
+},
+  {
     id: 'tmobile-transformation',
     company: 'T-Mobile for Business',
     timeframe: '2020 – 2021',
@@ -1302,7 +1354,7 @@ function openSellerStrategyExperience(storyId = 'walmart-lifecycle') {
   popup.className = 'seller-strategy-popup';
   popup.style.cssText = 'position:fixed;inset:0;margin:auto;padding:0;box-sizing:border-box;border:1px solid #C9BFB3;width:min(480px,calc(100vw - 32px));max-width:calc(100vw - 32px);height:min(852px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
   const frame = document.createElement('iframe');
-  frame.src = 'case-study-seller-strategy.html?v=20261017-cert-align&embedded=1&story=' + encodeURIComponent(storyId);
+  frame.src = 'case-study-seller-strategy.html?v=20261017-approved-copy&embedded=1&story=' + encodeURIComponent(storyId);
   frame.title = CAREER_EXPLORER_STORIES.find(story => story.id === storyId)?.hook ?? 'Interactive case study';
   frame.style.cssText = 'position:absolute;inset:0;display:block;width:100%;height:100%;min-width:0;min-height:0;border:0';
   const responsiveStyle = document.createElement('style');

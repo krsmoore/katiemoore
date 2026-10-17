@@ -15,6 +15,14 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 @media(max-height:650px){.copy{bottom:80px}.sheet{padding:18px 22px 22px}.sheet h2{margin-top:8px}.sheet p{font-size:14px;line-height:1.45}}
 .opp-story .copy h1,.cert-story .copy h1{font-size:clamp(28px,8vw,38px);line-height:1.07}
 .cert-story .scene{background:#201c1d}
+
+.approved-copy .copy h1{font-size:clamp(26px,7.5vw,34px);line-height:1.1;letter-spacing:-.65px}
+.approved-copy .copy .card-subheader{font:italic 17px/1.35 Georgia,serif;color:#e5bcc0;margin-top:12px;max-width:none}
+.approved-copy .copy .card-body{font-size:14px;line-height:1.55;max-width:none;margin-top:12px}
+.card-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px}
+.card-actions .detail{margin:0}.story-replay{padding:0 0 6px;border:0;border-bottom:1px solid #eee5dc;background:none;color:#eee5dc;font-size:11px}
+.approved-copy .sheet h2{font-size:clamp(24px,6.5vw,30px);line-height:1.15}.approved-copy .sheet p{max-width:none}
+@media(max-height:650px){.approved-copy .copy h1{font-size:27px}.approved-copy .copy .card-subheader{font-size:15px}.approved-copy .copy .card-body{font-size:13px}.card-actions{margin-top:12px}}
 </style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/cover.webp" alt="Editorial collage of logistics programs, seller needs, and a transformation from twenty programs to one strategy"><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
 let pages=[
 {label:'The cover',title:'',text:'',zoom:1,x:50,y:50},
@@ -45,7 +53,30 @@ let pages=[
   const ty=clamp(h*.28-z*(oy+dh*p.focus.y),h-z*(oy+dh),-z*oy);
   img.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';return;
  }
- const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.forEach((p,j)=>{let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}let transitionTimer;function go(n){clearTimeout(transitionTimer);current=Math.max(0,Math.min(pages.length-1,n));let p=pages[current];closeSheet();reader.classList.toggle('cover',current===0);camera(p);copy.classList.add('hide');transitionTimer=setTimeout(()=>{copy.innerHTML=current===0?coverMarkup():`<div class="kicker">${p.label}</div><h1>${p.title}</h1><p>${p.text}</p>${current===pages.length-1?(reader.matches('.opp-story,.cert-story')?'<button class="download" style="border:0;cursor:pointer" onclick="go(0)">Read the story again ↺</button>':`<a class="download" href="${pdfPath}" download>Download the case study (PDF) ↓</a>`):'<button class="detail" onclick="openSheet()">Behind the work +</button>'}`;copy.scrollTop=0;copy.classList.remove('hide');if(reader.classList.contains('cert-story'))camera(p)},160);document.querySelector('.counter').innerHTML=`${String(current+1).padStart(2,'0')} / ${String(pages.length).padStart(2,'0')}<small>${current===0?'Open the story':'Swipe or tap to continue'}</small>`;[...progress.children].forEach((b,j)=>{b.classList.toggle('active',j<=current);b.setAttribute('aria-current',j===current?'step':'false')});document.querySelector('#prev').disabled=current===0;document.querySelector('#prev').style.opacity=current===0?.25:1;document.querySelector('#next').textContent=current===pages.length-1?'↺':'→';document.querySelector('#next').setAttribute('aria-label',current===pages.length-1?'Return to cover':'Next screen');document.querySelector('.framework').style.display=isSeller && !reader.classList.contains('ai-story') && !reader.classList.contains('opp-story') && !reader.classList.contains('cert-story') && current===4?'block':'none'}function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?0:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))go(current+(dx<0?1:-1))},{passive:true});initializeStory();
+ const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.forEach((p,j)=>{let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}let transitionTimer;function go(n){
+ clearTimeout(transitionTimer);
+ current=Math.max(0,Math.min(pages.length-1,n));
+ const p=pages[current],last=current===pages.length-1;
+ closeSheet();reader.classList.toggle('cover',current===0);camera(p);copy.classList.add('hide');
+ transitionTimer=setTimeout(()=>{
+  if(current===0){copy.innerHTML=coverMarkup();}
+  else{
+   const sub=p.subheader?'<p class="card-subheader">'+safe(p.subheader)+'</p>':'';
+   const detail=p.detail?'<button class="detail" onclick="openSheet()">Behind the work +</button>':'';
+   const replay=last?'<button class="story-replay" onclick="go(0)">Read the story again ↺</button>':'';
+   copy.innerHTML='<div class="kicker">Card '+current+' of '+(pages.length-1)+'</div><h1>'+p.title+'</h1>'+sub+'<p class="card-body">'+p.text+'</p><div class="card-actions">'+detail+replay+'</div>';
+  }
+  copy.scrollTop=0;copy.classList.remove('hide');
+  if(reader.classList.contains('cert-story'))camera(p);
+ },160);
+ document.querySelector('.counter').innerHTML=String(current+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0')+'<small>'+(current===0?'Open the story':'Swipe or tap to continue')+'</small>';
+ [...progress.children].forEach((b,j)=>{b.classList.toggle('active',j<=current);b.setAttribute('aria-current',j===current?'step':'false');});
+ const previous=document.querySelector('#prev'),next=document.querySelector('#next');
+ previous.disabled=current===0;previous.style.opacity=current===0?.25:1;
+ next.textContent=last?'↺':'→';next.setAttribute('aria-label',last?'Return to cover':'Next screen');
+ document.querySelector('.framework').style.display='none';
+}
+function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].detailTitle || pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?0:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))go(current+(dx<0?1:-1))},{passive:true});initializeStory();
 
 function safe(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function coverMarkup(){return (isSeller?'':'<div class="kicker">'+safe(document.title)+'</div><h1>'+safe(activeStory.hook)+'</h1><p>'+safe(activeStory.summary)+'</p>')+'<button class="begin" onclick="go(1)">Open the story &nbsp; ↗</button>';}
@@ -110,7 +141,23 @@ async function initializeStory(){
    }
   }catch(error){copy.textContent='This story could not load. Please refresh to try again.';return;}
  }
+ try{await applyApprovedCopy(id);}catch(error){copy.textContent='This story could not load. Please refresh to try again.';return;}
  buildProgress();go(0);
  window.addEventListener('resize',()=>{if(reader.matches('.opp-story,.cert-story'))camera(pages[current]);});
+}
+
+async function applyApprovedCopy(id){
+ const response=await fetch('case-study-story/approved-copy.json?v=20261017-copy');
+ if(!response.ok)throw new Error('Approved copy unavailable');
+ const all=await response.json(),story=all[id];
+ if(!story||story.cards.length!==7)throw new Error('Case study copy missing');
+ const existing=pages;
+ const sourceScenes=id==='walmart-certification'?[1,2,4,5,6,7,8]:[1,2,3,4,5,6,Math.min(existing.length-1,7)];
+ pages=[existing[0],...story.cards.map((card,index)=>{
+  const scene=existing[sourceScenes[index]]||existing[existing.length-1];
+  return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};
+ })];
+ reader.classList.add('approved-copy');
+ document.querySelector('.masthead span:last-child').textContent='CASE '+String(story.sourceCaseNumber).padStart(2,'0');
 }
 </script></body></html>

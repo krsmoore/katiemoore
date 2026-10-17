@@ -152,7 +152,7 @@ async function applyApprovedCopy(id){
  const all=await response.json(),story=all[id];
  if(!story||story.cards.length!==7)throw new Error('Case study copy missing');
  const existing=pages;
- const sourceScenes=id==='walmart-certification'?[1,2,4,5,6,7,8]:[1,2,3,4,5,6,Math.min(existing.length-1,7)];
+ const sourceScenes=id==='walmart-certification'?[1,3,2,4,5,6,7]:[1,2,3,4,5,6,Math.min(existing.length-1,7)];
  pages=[existing[0],...story.cards.map((card,index)=>{
   const scene=existing[sourceScenes[index]]||existing[existing.length-1];
   return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};

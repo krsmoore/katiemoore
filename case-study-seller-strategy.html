@@ -62,7 +62,21 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 .sheet{inset:auto;top:50%;left:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);width:calc(100% - 32px);max-width:520px;max-height:calc(100% - 48px);border-radius:16px;padding:28px 24px;overflow-y:auto;box-shadow:0 0 0 100vmax #0009,0 20px 70px #0006}
 .sheet[hidden]{display:none}
 @media(max-height:600px){.sheet{max-height:calc(100% - 32px);padding:20px 22px}}
-</style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/seller-strategy/1.1.webp" alt="Twenty programs. No shared story. Logistics photos and program folders."><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><button class="card-flip-toggle" type="button" onclick="toggleCard()" hidden>Flip to read ↻</button><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
+
+.dedicated-images:not(.cover)::before{content:'';position:absolute;inset:72px 12px 141px;background-image:var(--card-image);background-size:contain;background-position:center;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.dedicated-images:not(.cover) .copy{background:rgba(246,242,234,.89);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);justify-content:flex-start;padding:26px 24px}
+.dedicated-images:not(.cover) .copy h1,.dedicated-images:not(.cover) .copy .card-subheader{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.dedicated-images .copy .card-body{margin-top:8px;font-size:15px;line-height:1.55}
+.dedicated-images .card-actions{display:block;margin-top:20px}
+.inline-work{border-top:1px solid #a98b5380;padding-top:18px;width:100%;cursor:pointer}
+.inline-work h2{font:700 20px/1.25 Georgia,serif;color:#702f3a;margin:0 0 12px}
+.inline-work h3{font:700 17px/1.35 Georgia,serif;color:#30262a;margin:0 0 10px}
+.inline-work p{font-size:14px;line-height:1.55;color:#393331;max-width:none;margin:0}
+.dedicated-images .story-replay{display:inline-block;margin-top:18px}
+
+.dedicated-images:not(.cover)::before{inset:76px 24px 145px;background-size:cover;border-radius:12px;opacity:0;transition:opacity .25s}
+.dedicated-images.is-flipped:not(.cover)::before{opacity:1}
+</style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/seller-strategy-redo/1.1.webp" alt="Twenty programs. No shared story. Logistics photos and program folders."><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><button class="card-flip-toggle" type="button" onclick="toggleCard()" hidden>Flip to read ↻</button><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
 let pages=[
 {label:'The cover',title:'',text:'',zoom:1,x:50,y:50},
 {label:'01 / The assignment',title:'Teach the<br><em>whole portfolio.</em>',text:'The ask: train hundreds of employees on more than 20 logistics programs.',zoom:1.85,x:0,y:0,detail:'The assignment brought the complexity into focus: each offering had its own story, but employees needed to understand how the portfolio worked together.'},
@@ -75,6 +89,7 @@ let pages=[
 ];let current=0;let isSeller=true;let pdfPath='case-studies/walmart-lifecycle.pdf?v=20261016-km1';function camera(p){
  if(p.image){
   if(img.getAttribute('src')!==p.image)img.src=p.image;
+  reader.style.setProperty('--card-image','url("'+p.image+'")');
   img.alt=p.imageAlt;
   img.style.transform='none';
   if(current===0){reader.style.removeProperty('--photo-height');}
@@ -113,7 +128,7 @@ let pages=[
   if(current===0){copy.innerHTML=coverMarkup();}
   else{
    const sub=p.subheader?'<p class="card-subheader">'+safe(p.subheader)+'</p>':'';
-   const detail=p.detail?'<button class="detail" onclick="openSheet()">Behind the work +</button>':'';
+   const detail=reader.classList.contains('dedicated-images')?'<section class="inline-work"><h2>Behind the work</h2><h3>'+safe(p.detailTitle)+'</h3><p>'+safe(p.detail)+'</p></section>':p.detail?'<button class="detail" onclick="openSheet()">Behind the work +</button>':'';
    const replay=last?'<button class="story-replay" onclick="go(0)">Read the story again ↺</button>':'';
    copy.innerHTML='<div class="kicker">Card '+current+' of '+(pages.length-1)+'</div><h1>'+p.title+'</h1>'+sub+'<p class="card-body">'+p.text+'</p><div class="card-actions">'+detail+replay+'</div>';
   }
@@ -142,7 +157,7 @@ function setCardFlipped(flipped,focus=true){
   scene.removeAttribute('role');scene.removeAttribute('aria-label');scene.removeAttribute('tabindex');scene.removeAttribute('aria-hidden');scene.inert=false;
   copy.removeAttribute('aria-hidden');copy.inert=false;
  }
- if(focus&&active){if(flipped)copy.querySelector('.detail')?.focus({preventScroll:true});else toggle.focus({preventScroll:true});}
+ if(focus&&active)toggle.focus({preventScroll:true});
 }
 function toggleCard(){if(current>0&&reader.classList.contains('dedicated-images'))setCardFlipped(!reader.classList.contains('is-flipped'));}
 document.querySelector('.scene').addEventListener('click',()=>{if(Date.now()-lastCardSwipe>400)toggleCard();});
@@ -240,7 +255,7 @@ async function applyApprovedCopy(id){
   reader.classList.add('dedicated-images');
   pages.forEach((p,index)=>{
    const number=Math.max(1,index);
-   p.image='case-study-story/seller-strategy/1.'+number+'.webp';
+   p.image='case-study-story/seller-strategy-redo/1.'+number+'.webp';
    p.imageAlt=number===1?'Twenty programs. No shared story. Logistics photos and program folders.':story.cards[number-1].header;
   });
  }

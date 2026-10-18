@@ -1354,7 +1354,7 @@ function openSellerStrategyExperience(storyId = 'walmart-lifecycle') {
   popup.className = 'seller-strategy-popup';
   popup.style.cssText = 'position:fixed;inset:0;margin:auto;padding:0;box-sizing:border-box;border:1px solid #C9BFB3;width:min(480px,calc(100vw - 32px));max-width:calc(100vw - 32px);height:min(852px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);background:#F6F2EA;box-shadow:0 24px 100px #18181b40;overflow:hidden';
   const frame = document.createElement('iframe');
-  frame.src = 'case-study-seller-strategy.html?v=20261017-no-old-cover&embedded=1&story=' + encodeURIComponent(storyId);
+  frame.src = 'case-study-seller-strategy.html?v=20261017-translucent-redo&embedded=1&story=' + encodeURIComponent(storyId);
   frame.title = CAREER_EXPLORER_STORIES.find(story => story.id === storyId)?.hook ?? 'Interactive case study';
   frame.style.cssText = 'position:absolute;inset:0;display:block;width:100%;height:100%;min-width:0;min-height:0;border:0';
   const responsiveStyle = document.createElement('style');

@@ -176,11 +176,12 @@ let activeStory;
 function exitStory(){if(window.parent!==window)window.parent.postMessage('close-seller-strategy',location.origin);else location.href='career.html';}
 async function initializeStory(){
  const id=new URLSearchParams(location.search).get('story')||'walmart-lifecycle';
- if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround','samsung-future-director'].includes(id))reader.classList.add('dedicated-images');
+ if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround','samsung-future-director','samsung-ai-readiness'].includes(id))reader.classList.add('dedicated-images');
  if(id==='walmart-opp')img.src='case-study-story/opp-redo/2.1.webp';
  if(id==='walmart-certification')img.src='case-study-story/certification-redo/3.1.webp';
  if(id==='samsung-turnaround')img.src='case-study-story/turnaround-redo/4.1.webp';
  if(id==='samsung-future-director')img.src='case-study-story/director-redo/5.1.webp';
+ if(id==='samsung-ai-readiness')img.src='case-study-story/ai-redo/6.1.webp';
  if(id!=='walmart-lifecycle'){
   try{
    const response=await fetch('case-study-story/case-study-data.json');if(!response.ok)throw new Error('Story unavailable');
@@ -190,7 +191,7 @@ async function initializeStory(){
    const s=activeStory;const card=(label,title,text,detail)=>({label,title:safe(title),text:safe(text),detail,zoom:1,x:50,y:50});
    pages=[card('The cover','',''),card('01 / The challenge','The starting point.',s.challenge,s.summary),card('02 / My role','The work I owned.',s.myRole.owned,Object.values(s.myRole).join(' ')),card('03 / The decisions','Choosing a direction.',s.callsMade[0],s.callsMade.slice(1).join(' ')),card('04 / What changed','The result.',s.changed.business,[s.changed.capability,s.changed.systemic,...s.heroMetrics].join(' ')),card('05 / The reflection','What I learned.',s.whatIKnowNow,s.doOver),card('06 / Go deeper','Want to learn more?','Download the full case study.')];
    if(id==='samsung-ai-readiness'){
-    reader.classList.remove('generic');isSeller=true;reader.classList.add('ai-story');document.querySelector('.masthead span:last-child').textContent='CASE 06';img.src='case-study-story/ai-demo.webp';img.alt='Galaxy AI launch collage comparing a restaurant demo with an everyday food-planning recommendation across markets';
+    reader.classList.remove('generic');isSeller=true;reader.classList.add('ai-story');document.querySelector('.masthead span:last-child').textContent='CASE 06';img.src='case-study-story/ai-redo/6.1.webp';img.alt='Galaxy AI launch collage comparing a restaurant demo with an everyday food-planning recommendation across markets';
     const ai=(label,title,text,zoom,x,y,detail)=>({label,title,text,zoom,x,y,detail});
     pages=[ai('The cover','','',1,50,50),
      ai('01 / The stakes','One launch.<br><em>192K employees.</em>','An impressive AI demonstration needed to work across different markets—not just on the launch stage.',1.85,20,0,s.myRole.led+' '+s.scale.join('. ')),
@@ -255,12 +256,12 @@ async function applyApprovedCopy(id){
   return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};
  })];
 
- if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround','samsung-future-director'].includes(id)){
-  reader.classList.remove('opp-story','cert-story','generic');
+ if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround','samsung-future-director','samsung-ai-readiness'].includes(id)){
+  reader.classList.remove('opp-story','cert-story','generic','ai-story');
   reader.classList.add('dedicated-images');
   pages.forEach((p,index)=>{
    const number=Math.max(1,index);
-   p.image=id==='samsung-future-director'?'case-study-story/director-redo/5.'+number+'.webp':id==='samsung-turnaround'?'case-study-story/turnaround-redo/4.'+number+'.webp':id==='walmart-certification'?'case-study-story/certification-redo/3.'+number+'.webp':id==='walmart-opp'?'case-study-story/opp-redo/2.'+number+'.webp':'case-study-story/seller-strategy-redo/1.'+number+'.webp';
+   p.image=id==='samsung-ai-readiness'?'case-study-story/ai-redo/6.'+number+'.webp':id==='samsung-future-director'?'case-study-story/director-redo/5.'+number+'.webp':id==='samsung-turnaround'?'case-study-story/turnaround-redo/4.'+number+'.webp':id==='walmart-certification'?'case-study-story/certification-redo/3.'+number+'.webp':id==='walmart-opp'?'case-study-story/opp-redo/2.'+number+'.webp':'case-study-story/seller-strategy-redo/1.'+number+'.webp';
    p.imageAlt=story.cards[number-1].header;
   });
  }

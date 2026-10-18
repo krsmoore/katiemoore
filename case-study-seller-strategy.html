@@ -23,6 +23,21 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 .card-actions .detail{margin:0}.story-replay{padding:0 0 6px;border:0;border-bottom:1px solid #eee5dc;background:none;color:#eee5dc;font-size:11px}
 .approved-copy .sheet h2{font-size:clamp(24px,6.5vw,30px);line-height:1.15}.approved-copy .sheet p{max-width:none}
 @media(max-height:650px){.approved-copy .copy h1{font-size:27px}.approved-copy .copy .card-subheader{font-size:15px}.approved-copy .copy .card-body{font-size:13px}.card-actions{margin-top:12px}}
+
+.dedicated-images{background:#201c1d}
+.dedicated-images .scene{top:76px;bottom:auto;height:var(--photo-height,40%);background:#201c1d}
+.dedicated-images .scene img{object-fit:contain;object-position:center;transition:opacity .25s;background:#201c1d;transform:none!important}
+.dedicated-images .scene .veil{display:none}
+.dedicated-images .copy{bottom:88px;padding:18px 20px;max-height:calc(100% - 280px);background:#252123f5}
+.dedicated-images .copy h1{font-size:clamp(24px,6.6vw,30px)}
+.dedicated-images .copy .card-subheader{font-size:15px;margin-top:9px}
+.dedicated-images .copy .card-body{font-size:13px;line-height:1.5;margin-top:10px}
+.dedicated-images .copy .kicker{margin-bottom:9px}
+.dedicated-images .card-actions{margin-top:12px}
+.dedicated-images .hint{display:none}
+.dedicated-images.cover .scene{inset:0;height:100%}
+.dedicated-images.cover .copy{bottom:100px;background:none;max-height:none}
+@media(max-height:650px){.dedicated-images .copy{bottom:78px;padding:14px 18px}.dedicated-images .copy h1{font-size:24px}}
 </style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/cover.webp" alt="Editorial collage of logistics programs, seller needs, and a transformation from twenty programs to one strategy"><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
 let pages=[
 {label:'The cover',title:'',text:'',zoom:1,x:50,y:50},
@@ -34,6 +49,18 @@ let pages=[
 {label:'06 / The shift',title:'One seller.<br><em>One strategy.</em>',text:'Two competing fulfillment suites became options within one portfolio—easier to learn, explain, and scale.',zoom:2,x:100,y:91,detail:'The shift was in the mental approach: the conversation could lead to the right solution for a seller’s needs rather than the next program pitch.'},
 {label:'07 / Go deeper',title:'Want to<br><em>learn more?</em>',text:'Download the case study.',zoom:1.7,x:100,y:100}
 ];let current=0;let isSeller=true;let pdfPath='case-studies/walmart-lifecycle.pdf?v=20261016-km1';function camera(p){
+ if(p.image){
+  if(img.getAttribute('src')!==p.image)img.src=p.image;
+  img.alt=p.imageAlt;
+  img.style.transform='none';
+  if(current===0){reader.style.removeProperty('--photo-height');}
+  else{
+   const available=Math.max(150,copy.offsetTop-94);
+   reader.style.setProperty('--photo-height',available+'px');
+  }
+  return;
+ }
+
  if(reader.matches('.opp-story,.cert-story') && p.focus){
   const w=reader.clientWidth,h=reader.clientHeight,z=Math.min(p.zoom,1.8);
   if(z===1){img.style.transform='translate(0px,0px) scale(1)';return;}
@@ -67,7 +94,7 @@ let pages=[
    copy.innerHTML='<div class="kicker">Card '+current+' of '+(pages.length-1)+'</div><h1>'+p.title+'</h1>'+sub+'<p class="card-body">'+p.text+'</p><div class="card-actions">'+detail+replay+'</div>';
   }
   copy.scrollTop=0;copy.classList.remove('hide');
-  if(reader.classList.contains('cert-story'))camera(p);
+  if(reader.matches('.cert-story,.dedicated-images'))camera(p);
  },160);
  document.querySelector('.counter').innerHTML=String(current+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0')+'<small>'+(current===0?'Open the story':'Swipe or tap to continue')+'</small>';
  [...progress.children].forEach((b,j)=>{b.classList.toggle('active',j<=current);b.setAttribute('aria-current',j===current?'step':'false');});
@@ -143,7 +170,7 @@ async function initializeStory(){
  }
  try{await applyApprovedCopy(id);}catch(error){copy.textContent='This story could not load. Please refresh to try again.';return;}
  buildProgress();go(0);
- window.addEventListener('resize',()=>{if(reader.matches('.opp-story,.cert-story'))camera(pages[current]);});
+ window.addEventListener('resize',()=>{if(reader.matches('.opp-story,.cert-story,.dedicated-images'))camera(pages[current]);});
 }
 
 async function applyApprovedCopy(id){
@@ -157,6 +184,15 @@ async function applyApprovedCopy(id){
   const scene=existing[sourceScenes[index]]||existing[existing.length-1];
   return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};
  })];
+
+ if(id==='walmart-lifecycle'){
+  reader.classList.add('dedicated-images');
+  pages.forEach((p,index)=>{
+   const number=Math.max(1,index);
+   p.image='case-study-story/seller-strategy/1.'+number+'.webp';
+   p.imageAlt=number===1?'Twenty programs. No shared story. Logistics photos and program folders.':story.cards[number-1].header;
+  });
+ }
  reader.classList.add('approved-copy');
  document.querySelector('.masthead span:last-child').textContent='CASE '+String(story.sourceCaseNumber).padStart(2,'0');
 }

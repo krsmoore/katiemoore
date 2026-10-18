@@ -176,7 +176,9 @@ let activeStory;
 function exitStory(){if(window.parent!==window)window.parent.postMessage('close-seller-strategy',location.origin);else location.href='career.html';}
 async function initializeStory(){
  const id=new URLSearchParams(location.search).get('story')||'walmart-lifecycle';
- if(id==='walmart-lifecycle')reader.classList.add('dedicated-images');
+ if(['walmart-lifecycle','walmart-opp','walmart-certification'].includes(id))reader.classList.add('dedicated-images');
+ if(id==='walmart-opp')img.src='case-study-story/opp-redo/2.1.webp';
+ if(id==='walmart-certification')img.src='case-study-story/certification-redo/3.1.webp';
  if(id!=='walmart-lifecycle'){
   try{
    const response=await fetch('case-study-story/case-study-data.json');if(!response.ok)throw new Error('Story unavailable');
@@ -202,7 +204,7 @@ async function initializeStory(){
     reader.classList.remove('generic');isSeller=true;reader.classList.add('opp-story');
     document.querySelector('.masthead span:nth-child(2)').textContent='BUILDING OPP';
     document.querySelector('.masthead span:last-child').textContent='CASE 02';
-    img.src='case-study-story/opp-lossless.webp';img.alt='OPP collage showing scattered requests, an initial tracker, a rebuilt intake system, and operations, productivity, and performance dashboards';
+    img.src='case-study-story/opp-redo/2.1.webp';img.alt='OPP collage showing scattered requests, an initial tracker, a rebuilt intake system, and operations, productivity, and performance dashboards';
     const opp=(label,title,text,zoom,x,y,detail)=>({label,title,text,zoom,focus:{x,y},detail});
     pages=[opp('The cover','','',1,.5,.5),
      opp('01 / The challenge','I couldn’t manage<br><em>work I couldn’t see.</em>','When I arrived, Enablement did not just lack dashboards. It lacked the operating infrastructure needed to produce the data.',2.7,.47,.08,'I arrived in March and could not answer basic questions about the work. There was no project management system, standardized intake, completion hierarchy, or consistent set of metrics. Before I could manage capacity, I needed a way to see demand and workload.'),
@@ -219,7 +221,7 @@ async function initializeStory(){
     reader.classList.remove('generic');isSeller=true;reader.classList.add('cert-story');
     document.querySelector('.masthead span:nth-child(2)').textContent='BUILDING CAPABILITY';
     document.querySelector('.masthead span:last-child').textContent='CASE 03';
-    img.src='case-study-story/certification-lossless.webp';img.alt='Certification collage contrasting hard-to-find information and memorization with role-based capability, redesigned learning, and business results';
+    img.src='case-study-story/certification-redo/3.1.webp';img.alt='Certification collage contrasting hard-to-find information and memorization with role-based capability, redesigned learning, and business results';
     const cert=(label,title,text,zoom,x,y,detail)=>({label,title,text,zoom,focus:{x,y},detail});
     pages=[cert('The cover','','',1,.5,.5),
      cert('01 / The signal','The questions coming to me<br><em>weren’t difficult.</em>','Associates kept escalating questions whose answers already existed. When I tried finding those answers myself in real time, I discovered how hard our knowledge systems were to search.',1.8,.17,.14,'I saw the pattern in listening sessions, seller-call notes, live call observations, and my work as a point of contact for WFS questions. These were what I called Tier 1 questions: they did not require interpretation or specialized system access. The repeated escalations pointed to a systems problem.'),
@@ -251,12 +253,13 @@ async function applyApprovedCopy(id){
   return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};
  })];
 
- if(id==='walmart-lifecycle'){
+ if(['walmart-lifecycle','walmart-opp','walmart-certification'].includes(id)){
+  reader.classList.remove('opp-story','cert-story');
   reader.classList.add('dedicated-images');
   pages.forEach((p,index)=>{
    const number=Math.max(1,index);
-   p.image='case-study-story/seller-strategy-redo/1.'+number+'.webp';
-   p.imageAlt=number===1?'Twenty programs. No shared story. Logistics photos and program folders.':story.cards[number-1].header;
+   p.image=id==='walmart-certification'?'case-study-story/certification-redo/3.'+number+'.webp':id==='walmart-opp'?'case-study-story/opp-redo/2.'+number+'.webp':'case-study-story/seller-strategy-redo/1.'+number+'.webp';
+   p.imageAlt=story.cards[number-1].header;
   });
  }
  reader.classList.add('approved-copy');

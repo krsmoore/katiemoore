@@ -176,9 +176,10 @@ let activeStory;
 function exitStory(){if(window.parent!==window)window.parent.postMessage('close-seller-strategy',location.origin);else location.href='career.html';}
 async function initializeStory(){
  const id=new URLSearchParams(location.search).get('story')||'walmart-lifecycle';
- if(['walmart-lifecycle','walmart-opp','walmart-certification'].includes(id))reader.classList.add('dedicated-images');
+ if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround'].includes(id))reader.classList.add('dedicated-images');
  if(id==='walmart-opp')img.src='case-study-story/opp-redo/2.1.webp';
  if(id==='walmart-certification')img.src='case-study-story/certification-redo/3.1.webp';
+ if(id==='samsung-turnaround')img.src='case-study-story/turnaround-redo/4.1.webp';
  if(id!=='walmart-lifecycle'){
   try{
    const response=await fetch('case-study-story/case-study-data.json');if(!response.ok)throw new Error('Story unavailable');
@@ -253,12 +254,12 @@ async function applyApprovedCopy(id){
   return {...scene,label:String(card.number).padStart(2,'0')+' / '+card.header,title:safe(card.header),subheader:card.subheader,text:safe(card.body),detailTitle:card.detailTitle,detail:card.detail};
  })];
 
- if(['walmart-lifecycle','walmart-opp','walmart-certification'].includes(id)){
-  reader.classList.remove('opp-story','cert-story');
+ if(['walmart-lifecycle','walmart-opp','walmart-certification','samsung-turnaround'].includes(id)){
+  reader.classList.remove('opp-story','cert-story','generic');
   reader.classList.add('dedicated-images');
   pages.forEach((p,index)=>{
    const number=Math.max(1,index);
-   p.image=id==='walmart-certification'?'case-study-story/certification-redo/3.'+number+'.webp':id==='walmart-opp'?'case-study-story/opp-redo/2.'+number+'.webp':'case-study-story/seller-strategy-redo/1.'+number+'.webp';
+   p.image=id==='samsung-turnaround'?'case-study-story/turnaround-redo/4.'+number+'.webp':id==='walmart-certification'?'case-study-story/certification-redo/3.'+number+'.webp':id==='walmart-opp'?'case-study-story/opp-redo/2.'+number+'.webp':'case-study-story/seller-strategy-redo/1.'+number+'.webp';
    p.imageAlt=story.cards[number-1].header;
   });
  }

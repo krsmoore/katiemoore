@@ -38,7 +38,26 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 .dedicated-images.cover .scene{inset:0;height:100%}
 .dedicated-images.cover .copy{bottom:100px;background:none;max-height:none}
 @media(max-height:650px){.dedicated-images .copy{bottom:78px;padding:14px 18px}.dedicated-images .copy h1{font-size:24px}}
-</style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/cover.webp" alt="Editorial collage of logistics programs, seller needs, and a transformation from twenty programs to one strategy"><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
+
+.card-flip-toggle[hidden]{display:none}
+.card-flip-toggle{position:absolute;bottom:87px;left:50%;transform:translateX(-50%);z-index:5;white-space:nowrap;border:1px solid #d6b77d;background:#f6f2ea;color:#702f3a;padding:11px 22px;border-radius:24px;font-size:12px}
+.dedicated-images{perspective:1400px}
+.dedicated-images:not(.cover) .scene{inset:72px 12px 141px;width:auto;height:auto;transition:transform .55s;backface-visibility:hidden;transform:rotateY(0deg);transform-origin:center;cursor:pointer}
+.dedicated-images:not(.cover) .scene img{width:100%;height:100%;object-fit:contain;transform:none!important}
+.dedicated-images:not(.cover) .copy{inset:76px 24px 145px;max-height:none;margin:0;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;overflow:auto;transition:transform .55s,opacity .2s;backface-visibility:hidden;transform:rotateY(180deg);background:#f6f2ea;color:#18181b;border:1px solid #c9bfb3;pointer-events:none}
+.dedicated-images.is-flipped:not(.cover) .scene{transform:rotateY(-180deg);pointer-events:none}
+.dedicated-images.is-flipped:not(.cover) .copy{transform:rotateY(0deg);pointer-events:auto;opacity:1}
+.dedicated-images .copy .kicker{color:#702f3a}
+.dedicated-images .copy h1{font-size:clamp(28px,7.5vw,36px);line-height:1.12}
+.dedicated-images .copy .card-subheader{color:#702f3a;font-size:18px;line-height:1.35;margin-top:16px}
+.dedicated-images .copy .card-body{color:#514b48;font-size:15px;line-height:1.6;margin-top:18px}
+.dedicated-images .copy .detail{color:#702f3a;border-color:#a98b53;font-size:13px}
+.dedicated-images .copy .story-replay{color:#702f3a;border-color:#a98b53}
+.dedicated-images .card-actions{margin-top:24px}
+.dedicated-images .scene:focus-visible{outline:2px solid #d6b77d;outline-offset:3px}
+@media(max-height:650px){.dedicated-images:not(.cover) .copy{padding:18px 20px;justify-content:flex-start}.dedicated-images .copy h1{font-size:27px}.dedicated-images .copy .card-subheader{font-size:16px;margin-top:12px}.dedicated-images .copy .card-body{font-size:14px;margin-top:12px}.dedicated-images .card-actions{margin-top:16px}}
+@media(prefers-reduced-motion:reduce){.dedicated-images .scene,.dedicated-images .copy{transition:none!important}}
+</style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/cover.webp" alt="Editorial collage of logistics programs, seller needs, and a transformation from twenty programs to one strategy"><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><button class="card-flip-toggle" type="button" onclick="toggleCard()" hidden>Flip to read ↻</button><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
 let pages=[
 {label:'The cover',title:'',text:'',zoom:1,x:50,y:50},
 {label:'01 / The assignment',title:'Teach the<br><em>whole portfolio.</em>',text:'The ask: train hundreds of employees on more than 20 logistics programs.',zoom:1.85,x:0,y:0,detail:'The assignment brought the complexity into focus: each offering had its own story, but employees needed to understand how the portfolio worked together.'},
@@ -84,7 +103,7 @@ let pages=[
  clearTimeout(transitionTimer);
  current=Math.max(0,Math.min(pages.length-1,n));
  const p=pages[current],last=current===pages.length-1;
- closeSheet();reader.classList.toggle('cover',current===0);camera(p);copy.classList.add('hide');
+ closeSheet();reader.classList.toggle('cover',current===0);setCardFlipped(false,false);camera(p);copy.classList.add('hide');
  transitionTimer=setTimeout(()=>{
   if(current===0){copy.innerHTML=coverMarkup();}
   else{
@@ -93,7 +112,7 @@ let pages=[
    const replay=last?'<button class="story-replay" onclick="go(0)">Read the story again ↺</button>':'';
    copy.innerHTML='<div class="kicker">Card '+current+' of '+(pages.length-1)+'</div><h1>'+p.title+'</h1>'+sub+'<p class="card-body">'+p.text+'</p><div class="card-actions">'+detail+replay+'</div>';
   }
-  copy.scrollTop=0;copy.classList.remove('hide');
+  copy.scrollTop=0;copy.classList.remove('hide');setCardFlipped(false,false);
   if(reader.matches('.cert-story,.dedicated-images'))camera(p);
  },160);
  document.querySelector('.counter').innerHTML=String(current+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0')+'<small>'+(current===0?'Open the story':'Swipe or tap to continue')+'</small>';
@@ -103,7 +122,27 @@ let pages=[
  next.textContent=last?'↺':'→';next.setAttribute('aria-label',last?'Return to cover':'Next screen');
  document.querySelector('.framework').style.display='none';
 }
-function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].detailTitle || pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?0:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))go(current+(dx<0?1:-1))},{passive:true});initializeStory();
+let lastCardSwipe=0;
+function setCardFlipped(flipped,focus=true){
+ if(!reader.classList.contains('dedicated-images'))return;
+ const active=current>0,scene=document.querySelector('.scene'),toggle=document.querySelector('.card-flip-toggle');
+ reader.classList.toggle('is-flipped',active&&flipped);
+ toggle.hidden=!active;toggle.textContent=flipped?'Flip back to photo ↻':'Flip to read ↻';
+ toggle.setAttribute('aria-expanded',String(active&&flipped));
+ if(active){
+  scene.setAttribute('role','button');scene.setAttribute('aria-label','Flip card to read the story');scene.tabIndex=flipped?-1:0;
+  scene.setAttribute('aria-hidden',String(flipped));scene.inert=flipped;
+  copy.setAttribute('aria-hidden',String(!flipped));copy.inert=!flipped;
+ }else{
+  scene.removeAttribute('role');scene.removeAttribute('aria-label');scene.removeAttribute('tabindex');scene.removeAttribute('aria-hidden');scene.inert=false;
+  copy.removeAttribute('aria-hidden');copy.inert=false;
+ }
+ if(focus&&active){if(flipped)copy.querySelector('.detail')?.focus({preventScroll:true});else toggle.focus({preventScroll:true});}
+}
+function toggleCard(){if(current>0&&reader.classList.contains('dedicated-images'))setCardFlipped(!reader.classList.contains('is-flipped'));}
+document.querySelector('.scene').addEventListener('click',()=>{if(Date.now()-lastCardSwipe>400)toggleCard();});
+document.querySelector('.scene').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard();}});
+function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].detailTitle || pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?0:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){lastCardSwipe=Date.now();go(current+(dx<0?1:-1));}},{passive:true});initializeStory();
 
 function safe(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function coverMarkup(){return (isSeller?'':'<div class="kicker">'+safe(document.title)+'</div><h1>'+safe(activeStory.hook)+'</h1><p>'+safe(activeStory.summary)+'</p>')+'<button class="begin" onclick="go(1)">Open the story &nbsp; ↗</button>';}

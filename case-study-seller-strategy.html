@@ -70,13 +70,13 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 .dedicated-images .card-actions{display:block;margin-top:20px}
 .inline-work{border-top:1px solid #a98b5380;padding-top:18px;width:100%;cursor:pointer}
 .inline-work h2{font:700 20px/1.25 Georgia,serif;color:#702f3a;margin:0 0 12px}
-.inline-work h3{font:700 17px/1.35 Georgia,serif;color:#30262a;margin:0 0 10px}
+.inline-work h3{font:700 21px/1.35 Georgia,serif;letter-spacing:normal;font-stretch:normal;color:#702f3a;margin:0 0 14px}
 .inline-work p{font-size:14px;line-height:1.55;color:#393331;max-width:none;margin:0}
 .dedicated-images .story-replay{display:inline-block;margin-top:18px}
 
 .dedicated-images:not(.cover)::before{inset:76px 24px 145px;background-size:cover;border-radius:12px;opacity:0;transition:opacity .25s}
 .dedicated-images.is-flipped:not(.cover)::before{opacity:1}
-</style></head><body><div class="reader cover"><div class="scene"><img src="case-study-story/seller-strategy-redo/1.1.webp" alt="Twenty programs. No shared story. Logistics photos and program folders."><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><button class="card-flip-toggle" type="button" onclick="toggleCard()" hidden>Flip to read ↻</button><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
+</style></head><body><div class="reader dedicated-images"><div class="scene"><img src="case-study-story/seller-strategy-redo/1.1.webp" alt="Twenty programs. No shared story. Logistics photos and program folders."><div class="veil"></div></div><button class="close-story" aria-label="Close story" onclick="exitStory()">×</button><header><div class="masthead"><span class="logo">KM</span><span>ONE SELLER STRATEGY</span><span>CASE 01</span></div><nav class="progress" aria-label="Story chapters"></nav></header><div class="hint">SWIPE TO EXPLORE</div><div class="framework"><div><span>01</span>What is the seller trying to do?</div><div><span>02</span>Where are they in the lifecycle?</div><div><span>03</span>Which solution fits the need?</div></div><section class="copy" aria-live="polite"></section><button class="card-flip-toggle" type="button" onclick="toggleCard()" hidden>Flip to read ↻</button><footer class="controls"><button class="arrow" id="prev" aria-label="Previous screen">←</button><div class="counter"></div><button class="arrow" id="next" aria-label="Next screen">→</button></footer><aside class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="detailtitle"><button aria-label="Close detail" onclick="closeSheet()">×</button><h2 id="detailtitle"></h2><p id="detailtext"></p></aside></div><script>
 let pages=[
 {label:'The cover',title:'',text:'',zoom:1,x:50,y:50},
 {label:'01 / The assignment',title:'Teach the<br><em>whole portfolio.</em>',text:'The ask: train hundreds of employees on more than 20 logistics programs.',zoom:1.85,x:0,y:0,detail:'The assignment brought the complexity into focus: each offering had its own story, but employees needed to understand how the portfolio worked together.'},
@@ -119,27 +119,27 @@ let pages=[
   const ty=clamp(h*.28-z*(oy+dh*p.focus.y),h-z*(oy+dh),-z*oy);
   img.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';return;
  }
- const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.forEach((p,j)=>{let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}let transitionTimer;function go(n){
+ const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.slice(1).forEach((p,index)=>{const j=index+1;let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}let transitionTimer;function go(n){
  clearTimeout(transitionTimer);
- current=Math.max(0,Math.min(pages.length-1,n));
+ current=Math.max(1,Math.min(pages.length-1,n));
  const p=pages[current],last=current===pages.length-1;
  closeSheet();reader.classList.toggle('cover',current===0);setCardFlipped(false,false);camera(p);copy.classList.add('hide');
  transitionTimer=setTimeout(()=>{
   if(current===0){copy.innerHTML=coverMarkup();}
   else{
    const sub=p.subheader?'<p class="card-subheader">'+safe(p.subheader)+'</p>':'';
-   const detail=reader.classList.contains('dedicated-images')?'<section class="inline-work"><h2>Behind the work</h2><h3>'+safe(p.detailTitle)+'</h3><p>'+safe(p.detail)+'</p></section>':p.detail?'<button class="detail" onclick="openSheet()">Behind the work +</button>':'';
-   const replay=last?'<button class="story-replay" onclick="go(0)">Read the story again ↺</button>':'';
+   const detail=reader.classList.contains('dedicated-images')?'<section class="inline-work"><h3>'+safe(p.detailTitle)+'</h3><p>'+safe(p.detail)+'</p></section>':p.detail?'<button class="detail" onclick="openSheet()">Behind the work +</button>':'';
+   const replay=last?'<button class="story-replay" onclick="go(1)">Read the story again ↺</button>':'';
    copy.innerHTML='<div class="kicker">Card '+current+' of '+(pages.length-1)+'</div><h1>'+p.title+'</h1>'+sub+'<p class="card-body">'+p.text+'</p><div class="card-actions">'+detail+replay+'</div>';
   }
   copy.scrollTop=0;copy.classList.remove('hide');setCardFlipped(false,false);
   if(reader.matches('.cert-story,.dedicated-images'))camera(p);
  },160);
- document.querySelector('.counter').innerHTML=String(current+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0')+'<small>'+(current===0?'Open the story':reader.classList.contains('dedicated-images')?'Tap or swipe card to flip':'Swipe or tap to continue')+'</small>';
- [...progress.children].forEach((b,j)=>{b.classList.toggle('active',j<=current);b.setAttribute('aria-current',j===current?'step':'false');});
+ document.querySelector('.counter').innerHTML=String(current).padStart(2,'0')+' / '+String(pages.length-1).padStart(2,'0')+'<small>'+(current===0?'Open the story':reader.classList.contains('dedicated-images')?'Tap or swipe card to flip':'Swipe or tap to continue')+'</small>';
+ [...progress.children].forEach((b,j)=>{b.classList.toggle('active',j+1<=current);b.setAttribute('aria-current',j+1===current?'step':'false');});
  const previous=document.querySelector('#prev'),next=document.querySelector('#next');
- previous.disabled=current===0;previous.style.opacity=current===0?.25:1;
- next.textContent=last?'↺':'→';next.setAttribute('aria-label',last?'Return to cover':'Next screen');
+ previous.disabled=current===1;previous.style.opacity=current===1?.25:1;
+ next.textContent=last?'↺':'→';next.setAttribute('aria-label',last?'Return to first card':'Next screen');
  document.querySelector('.framework').style.display='none';
 }
 let lastCardSwipe=0;
@@ -168,7 +168,7 @@ copy.addEventListener('click',event=>{
  toggleCard();
 });
 document.querySelector('.scene').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard();}});
-function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].detailTitle || pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?0:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){lastCardSwipe=Date.now();if(reader.classList.contains('dedicated-images')&&current>0)toggleCard();else go(current+(dx<0?1:-1));}},{passive:true});initializeStory();
+function openSheet(){document.querySelector('#detailtitle').textContent=pages[current].detailTitle || pages[current].label.split('/ ')[1];document.querySelector('#detailtext').textContent=pages[current].detail;document.querySelector('.sheet').hidden=false;document.querySelector('.sheet button').focus()}function closeSheet(){document.querySelector('.sheet').hidden=true}document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current===pages.length-1?1:current+1);document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.sheet').hidden)exitStory();else{closeSheet();copy.querySelector('.detail')?.focus();}return;}if(!document.querySelector('.sheet').hidden)return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1)});let sx,sy;reader.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});reader.addEventListener('touchend',e=>{if(!document.querySelector('.sheet').hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){lastCardSwipe=Date.now();if(reader.classList.contains('dedicated-images')&&current>0)toggleCard();else go(current+(dx<0?1:-1));}},{passive:true});initializeStory();
 
 function safe(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function coverMarkup(){return (isSeller?'':'<div class="kicker">'+safe(document.title)+'</div><h1>'+safe(activeStory.hook)+'</h1><p>'+safe(activeStory.summary)+'</p>')+'<button class="begin" onclick="go(1)">Open the story &nbsp; ↗</button>';}
@@ -248,7 +248,7 @@ async function initializeStory(){
   }catch(error){copy.textContent='This story could not load. Please refresh to try again.';return;}
  }
  try{await applyApprovedCopy(id);}catch(error){copy.textContent='This story could not load. Please refresh to try again.';return;}
- buildProgress();go(0);
+ buildProgress();go(1);
  window.addEventListener('resize',()=>{if(reader.matches('.opp-story,.cert-story,.dedicated-images'))camera(pages[current]);});
 }
 

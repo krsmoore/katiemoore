@@ -64,7 +64,7 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 @media(max-height:600px){.sheet{max-height:calc(100% - 32px);padding:20px 22px}}
 
 .dedicated-images:not(.cover)::before{content:'';position:absolute;inset:72px 12px 141px;background-image:var(--card-image);background-size:contain;background-position:center;background-repeat:no-repeat;pointer-events:none;z-index:0}
-.dedicated-images:not(.cover) .copy{background:rgba(246,242,234,.89);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);justify-content:flex-start;padding:26px 24px}
+.dedicated-images:not(.cover) .copy{background:linear-gradient(to bottom,rgba(246,242,234,.99) 0%,rgba(246,242,234,.98) 32%,rgba(246,242,234,.94) 62%,rgba(246,242,234,.89) 100%);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);justify-content:flex-start;padding:26px 24px}
 .dedicated-images:not(.cover) .copy h1,.dedicated-images:not(.cover) .copy .card-subheader{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .dedicated-images .copy .card-body{margin-top:8px;font-size:15px;line-height:1.55}
 .dedicated-images .card-actions{display:block;margin-top:20px}

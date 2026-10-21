@@ -51,7 +51,11 @@ export function createHandler(getStripe,catalog=CATALOG){return async function(r
    return json({received:true});
   }
   return json({error:'Not found'},404,cors);
- }catch{return json({error:'Delivery is temporarily unavailable. Please try again.'},503,cors);}
+ }catch(error){
+  if(error?.code==='resource_missing')return json({error:'Purchase not found'},404,cors);
+  if(error?.type==='StripeAuthenticationError')return json({error:'Payment verification is not connected. Please contact Katie for help.'},503,cors);
+  return json({error:'Delivery is temporarily unavailable. Please try again.'},503,cors);
+ }
 };}
 async function pdf(env,product){const obj=await env.PDFS.get(product.file);if(!obj)return json({error:'File unavailable'},503);return new Response(obj.body,{headers:{'Content-Type':'application/pdf','Content-Disposition':'attachment; filename="'+product.file+'"','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}});}
 export class OrderProcessor{

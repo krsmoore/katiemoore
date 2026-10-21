@@ -1,13 +1,47 @@
 {
-  "name":"katie-moore-digital-downloads",
-  "main":"src/worker.mjs",
-  "compatibility_date":"2026-10-18",
-  "compatibility_flags":["nodejs_compat"],
-  "keep_vars":true,
-  "secrets":{"required":["STRIPE_TEST_SECRET_KEY","STRIPE_TEST_WEBHOOK_SECRET","DOWNLOAD_SIGNING_SECRET","MAIL_BRIDGE_SECRET"]},
-  "vars":{"SITE_ORIGIN":"https://krsmoore.github.io","SITE_BASE":"https://krsmoore.github.io/katiemoore","LIVE_ENABLED":"false"},
-  "r2_buckets":[{"binding":"PDFS","bucket_name":"katie-moore-private-templates"}],
-  "durable_objects":{"bindings":[{"name":"ORDERS","class_name":"DownloadOrder"}]},
-  "migrations":[{"tag":"v1","new_sqlite_classes":["DownloadOrder"]}]
+  "name": "katie-moore-digital-downloads",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-10-18",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "keep_vars": true,
+  "secrets": {
+    "required": [
+      "STRIPE_TEST_SECRET_KEY",
+      "STRIPE_TEST_WEBHOOK_SECRET",
+      "DOWNLOAD_SIGNING_SECRET",
+      "MAIL_BRIDGE_SECRET",
+      "STRIPE_SECRET_KEY",
+      "STRIPE_WEBHOOK_SECRET"
+    ]
+  },
+  "vars": {
+    "SITE_ORIGIN": "https://krsmoore.github.io",
+    "SITE_BASE": "https://krsmoore.github.io/katiemoore",
+    "LIVE_ENABLED": "true",
+    "MAIL_BRIDGE_URL": "https://script.google.com/macros/s/AKfycbzbVeScuQT9UeGqolTfcxHIoLdTH9-xTCf6RN-yf0ESich6uECWgLHigBEQrHfqrL9R/exec"
+  },
+  "r2_buckets": [
+    {
+      "binding": "PDFS",
+      "bucket_name": "katie-moore-private-templates"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ORDERS",
+        "class_name": "DownloadOrder"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "DownloadOrder"
+      ]
+    }
+  ]
 }
-

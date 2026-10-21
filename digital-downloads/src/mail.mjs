@@ -13,6 +13,6 @@ export function mailTransport(env,send){return async (url,options)=>{
  const response=await send(env.MAIL_BRIDGE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({timestamp,payload,signature})});
  if(!response.ok)throw Error('Mail bridge unavailable');
  const result=await response.json();
- if(!result.ok)throw Error('Mail delivery not confirmed');
+ if(!result.ok){const error=Error('Mail delivery not confirmed');error.needsReview=!!result.needsReview;throw error;}
  return Response.json({id:result.id});
 };}

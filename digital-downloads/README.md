@@ -14,10 +14,11 @@ Configure Stripe sandbox webhook `/webhook?mode=test` for `checkout.session.comp
 
 Deploy `gmail/Code.gs` as a Google Apps Script web app that executes as the Gmail account owner. Save `MAIL_BRIDGE_SECRET` in Script Properties, authorize MailApp, and allow signed server requests to the web app. It sends mail without reading the inbox. Check the account's current sending quota before launch. For a domain-based sender, the optional Resend transport uses `EMAIL_API_KEY` and `EMAIL_FROM` instead.
 
-The Durable Object stores one fulfillment record per environment and Checkout Session, serializes duplicate events, and retries transient email errors. The mail bridge also records delivery IDs. An ambiguous Gmail send is held for review rather than sent twice. Automated retries stop after 22 hours; review any order with `attention: true`. Signing links expire after seven days. Keep Durable Object fulfillment records so old webhook retries remain idempotent.
+The Durable Object stores one fulfillment record per environment and Checkout Session, serializes duplicate events, and retries transient email errors. The mail bridge also records delivery IDs. An ambiguous Gmail send is held for review rather than sent twice. Gmail retries can continue for six days to allow daily quota recovery; the optional Resend path stops after 22 hours to stay within its idempotency window. Review any order with `attention: true`. Signing links expire after seven days. Keep Durable Object fulfillment records so old webhook retries remain idempotent.
 
 ## Verification before live sales
 
 Run `npm test`. Then buy each sandbox product using Stripe test payment details and confirm the actual PDF matches the purchased product. Test delivery after closing checkout, duplicate webhook events, pending/delayed payment, invalid signatures and expired tokens. Verify the Gmail message and its download link in an actual inbox. Local tests use Stripe and mail doubles and do not replace this end-to-end check.
 
 Only after those checks, create live prices and Payment Links, update the catalog and frontend links, configure independent live API/webhook secrets, and deliberately set `LIVE_ENABLED=true` in both Worker and frontend. No live secrets or links are configured by default.
+

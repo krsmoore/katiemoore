@@ -59,7 +59,8 @@ export class OrderProcessor{
  fetch(request){return this.ctx.blockConcurrencyWhile(async()=>{const incoming=await request.json();let r=await this.ctx.storage.get('order');if(r?.sent||r?.attention)return json({received:true});if(!r){if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(incoming.email||''))return json({error:'Email missing'},503);r={...incoming,created:Date.now(),attempts:0};await this.ctx.storage.put('order',r);}await this.deliver(r);return json({queued:true});});}
  async deliver(r){
   if(r.sent||r.attention)return;
-  if(Date.now()-r.created>22*3600000){r.attention=true;await this.ctx.storage.put('order',r);return;}
+  const retryWindow=this.env.MAIL_BRIDGE_URL?6*86400000:22*3600000;
+  if(Date.now()-r.created>retryWindow){r.attention=true;await this.ctx.storage.put('order',r);return;}
   await this.ctx.storage.setAlarm(Date.now()+5*60000);
   try{
    if(!this.env.MAIL_BRIDGE_URL&&(!this.env.EMAIL_API_KEY||!this.env.EMAIL_FROM))throw Error('Email not connected');
@@ -68,7 +69,7 @@ export class OrderProcessor{
    const res=await this.send('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+this.env.EMAIL_API_KEY,'Content-Type':'application/json','Idempotency-Key':'download-'+r.mode+'-'+r.sessionId},body:JSON.stringify({from:this.env.EMAIL_FROM,to:[r.email],subject:(r.mode==='test'?'TEST — ':'')+'Your '+p.title+' PDF',html:'<div style="background:#f6f2e9;color:#201820;padding:32px;font:16px/1.6 Arial"><p style="color:#702f3a;letter-spacing:2px">KATIE MOORE</p><h1 style="font-family:Georgia">Your '+p.title+' is ready.</h1><p>Thank you for your order. Download your '+p.pages+'-page printable PDF below.</p><p><a style="background:#702f3a;color:white;padding:14px 24px;display:inline-block" href="'+link+'">Download your PDF</a></p><p>This private link is available for seven days. US Letter PDF. Print and reuse.</p></div>',text:'Your '+p.title+' is ready: '+link+'\nThis link expires in seven days.'})});
    if(!res.ok)throw Error('Email send failed');
    const result=await res.json();r.sent=true;r.emailId=result.id;await this.ctx.storage.put('order',r);await this.ctx.storage.deleteAlarm();
-  }catch{r.attempts++;await this.ctx.storage.put('order',r);}
+  }catch(error){r.attempts++;r.attention=!!error.needsReview;await this.ctx.storage.put('order',r);if(r.attention)await this.ctx.storage.deleteAlarm();else await this.ctx.storage.setAlarm(Date.now()+Math.min(60,5*2**Math.min(r.attempts,4))*60000);}
  }
  alarm(){return this.ctx.blockConcurrencyWhile(async()=>{const r=await this.ctx.storage.get('order');if(r)await this.deliver(r);});}
 }

@@ -27,3 +27,18 @@ test('expired, tampered and cross-product tokens are rejected',async()=>{const x
 test('live sales remain disabled',async()=>{const x=setup();assert.equal((await x.handler(req('/verify?session_id=cs_live_abc'),x.env)).status,503);});
 test('email outage persists outbox and alarm retries it',async()=>{const x=setup();x.order.send=async()=>new Response('unavailable',{status:503});await webhook(x);assert.equal(x.records.get('order').sent,undefined);x.order.send=async()=>Response.json({id:'recovered'});await x.order.alarm();assert.equal(x.records.get('order').sent,true);});
 test('free endpoint cannot choose a paid PDF',async()=>{const x=setup();await x.handler(req('/free?mode=test&product=complete_bundle'),x.env);assert.deepEqual(x.files,['Find-Your-Examples-Template.pdf']);});
+
+test('Gmail delivery can recover after the daily quota resets',async()=>{
+ const x=setup();x.env.MAIL_BRIDGE_URL='https://mail.example/exec';
+ x.order.send=async()=>new Response('quota unavailable',{status:503});await webhook(x);
+ const r=x.records.get('order');r.created=Date.now()-25*3600000;delete r.token;await x.order.ctx.storage.put('order',r);
+ x.order.send=async()=>Response.json({id:'quota-reset-delivery'});await x.order.alarm();
+ assert.equal(x.records.get('order').sent,true);assert.equal(!!x.records.get('order').attention,false);
+});
+
+test('ambiguous mail delivery is held for review without repeated send attempts',async()=>{
+ const x=setup();let attempts=0;x.order.send=async()=>{attempts++;const error=Error('Ambiguous');error.needsReview=true;throw error;};
+ await webhook(x);await webhook(x);await x.order.alarm();
+ assert.equal(attempts,1);assert.equal(x.records.get('order').attention,true);
+});
+

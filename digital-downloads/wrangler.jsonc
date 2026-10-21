@@ -1,0 +1,10 @@
+{
+  "name":"katie-moore-digital-downloads",
+  "main":"src/worker.mjs",
+  "compatibility_date":"2026-10-18",
+  "compatibility_flags":["nodejs_compat"],
+  "vars":{"SITE_ORIGIN":"https://krsmoore.github.io","SITE_BASE":"https://krsmoore.github.io/katiemoore","LIVE_ENABLED":"false"},
+  "r2_buckets":[{"binding":"PDFS","bucket_name":"katie-moore-private-templates"}],
+  "durable_objects":{"bindings":[{"name":"ORDERS","class_name":"DownloadOrder"}]},
+  "migrations":[{"tag":"v1","new_sqlite_classes":["DownloadOrder"]}]
+}

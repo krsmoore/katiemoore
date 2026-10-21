@@ -1,0 +1,7 @@
+const enc=new TextEncoder();
+const hex=b=>Array.from(new Uint8Array(b),x=>x.toString(16).padStart(2,'0')).join('');
+export async function mac(secret,text){const key=await crypto.subtle.importKey('raw',enc.encode(secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);return hex(await crypto.subtle.sign('HMAC',key,enc.encode(text)));}
+export function equal(a,b){if(typeof a!=='string'||typeof b!=='string'||a.length!==b.length)return false;let d=0;for(let i=0;i<a.length;i++)d|=a.charCodeAt(i)^b.charCodeAt(i);return d===0;}
+export async function token(secret,claims){const payload=btoa(JSON.stringify(claims)).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');return payload+'.'+await mac(secret,payload);}
+export async function readToken(secret,value,now=Date.now()){if(!secret||typeof value!=='string'||value.length>2048)return null;const [payload,signature,...extra]=value.split('.');if(extra.length||!equal(await mac(secret,payload||''),signature))return null;try{const c=JSON.parse(atob(payload.replaceAll('-','+').replaceAll('_','/')));return Number.isSafeInteger(c.exp)&&c.exp>now&&c.exp<=now+8*86400000?c:null;}catch{return null;}}
+export async function verifySignature(secret,raw,header,now=Date.now()){if(!secret||!header)return false;const parts=header.split(',').map(x=>x.split('=')),ts=parts.find(([k])=>k==='t')?.[1];if(!/^\d+$/.test(ts||'')||Math.abs(now/1000-Number(ts))>300)return false;const expected=await mac(secret,ts+'.'+raw);return parts.some(([k,v])=>k==='v1'&&equal(v,expected));}

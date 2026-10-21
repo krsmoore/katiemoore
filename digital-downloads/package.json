@@ -1,0 +1,2 @@
+{"name":"katie-moore-digital-downloads","private":true,"type":"module","scripts":{"test":"node --test --test-isolation=none test/*.test.mjs","deploy":"wrangler deploy"},"dependencies":{"stripe":"23.0.0"},"devDependencies":{"wrangler":"^4.0.0"}}
+

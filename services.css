@@ -129,3 +129,9 @@
 .shop-product:has(.download-artwork) {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
 
 footer .custom-solutions{margin:0;max-width:720px;font-size:16px;line-height:1.6;text-align:right}footer .custom-solutions a{text-decoration:underline;text-underline-offset:4px;color:#dfb96d}@media(max-width:760px){footer .custom-solutions{text-align:left}}
+
+/* Shared category banner: aubergine, paper lettering, and brass separators. */
+.category-nav{background:#30222a;color:var(--cream);border-block-color:var(--brass)}
+.category-nav a{color:var(--cream);border-right-color:var(--brass)}
+.category-nav a:hover{color:#dfbd7a}
+.category-nav [aria-selected="true"]{color:var(--cream);text-decoration-color:var(--brass)}

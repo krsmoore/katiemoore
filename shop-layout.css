@@ -33,3 +33,17 @@
 @media(max-width:1000px){#shop .shop-collection,#shop .fun-section{grid-template-columns:1fr;gap:20px;padding:30px 24px}#shop .shop-collection>.group-intro{padding:0 0 0 20px}#shop .group-intro>p:not(.eyebrow){max-width:650px}#shop .group-intro h2{max-width:620px;margin:10px 0 14px}#shop .shop-rail{grid-auto-columns:clamp(320px,62%,500px)}#shop .template-shop .template-format{margin-top:12px!important}}
 @media(max-width:600px){#shop .shop-collection,#shop .fun-section{padding:28px 16px;gap:16px}#shop .group-intro h2{font-size:32px}#shop .shop-rail{grid-auto-columns:92%;gap:12px}#shop .shop-rail>.shop-product{grid-template-columns:minmax(0,1.4fr) minmax(80px,.6fr);gap:14px;padding:18px;min-height:345px}#shop .shop-rail .product-copy h3{font-size:24px}#shop .shop-rail .product-copy>p:not(.service-tag):not(.eyebrow){font-size:14px;line-height:1.5}#shop .shop-rail .service-button{font-size:10px}#shop .fun-cards{grid-template-columns:1fr 1fr;gap:12px}#shop .fun-cards article{padding:16px}#shop .fun-cards h3{font-size:21px}}
 @media(prefers-reduced-motion:reduce){#shop .shop-rail{scroll-behavior:auto}}
+
+/* Contrast between collections keeps the paper previews from blending into the page. */
+#shop .storybook-shop{background:#fffdf9;border-top:3px solid var(--wine)}
+#shop .template-shop{background:#612333;color:#fffaf4;border-top:0}
+#shop .template-shop .eyebrow{color:#e6c98b}
+#shop .template-shop .group-intro{border-color:#d7b675}
+#shop .template-shop .template-format,#shop .template-shop .shop-rail-controls{color:#eadbdc}
+#shop .template-shop .shop-rail-controls button{border-color:#c9a5ad}
+#shop .template-shop .shop-rail-controls button:hover:not(:disabled){background:#fffaf4;color:#612333;border-color:#fffaf4}
+#shop .template-shop .shop-rail{scrollbar-color:#e6c98b transparent}
+#shop .template-shop .shop-product{background:#fffdf9;border-color:#d8c8c7}
+#shop .fun-section{background:#ebe5e9;max-width:none;padding-inline:max(24px,calc((100% - 1400px)/2))}
+#shop .fun-cards article{background:#fffdf9;border-color:#cbbdc3}
+@media(max-width:600px){#shop .fun-section{padding-inline:16px}}

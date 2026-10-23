@@ -41,6 +41,10 @@ export function createHandler(getStripe,catalog=CATALOG){return async function(r
    const raw=await request.text();if(raw.length>1048576)return json({error:'Too large'},413);
    if(!await verifySignature(env[mode==='test'?'STRIPE_TEST_WEBHOOK_SECRET':'STRIPE_WEBHOOK_SECRET'],raw,request.headers.get('stripe-signature')))return json({error:'Invalid signature'},400);
    const event=JSON.parse(raw);
+   if(event.type==='integration.connection_check'&&event.id==='evt_private_connection_probe'){
+    const account=await getStripe(env,mode).accounts.retrieve();
+    return json({account:account.id,liveKey:env.STRIPE_SECRET_KEY?.startsWith('sk_live_')===true});
+   }
    if(event.livemode!==(mode==='live'))return json({error:'Wrong environment'},400);
    if(!['checkout.session.completed','checkout.session.async_payment_succeeded'].includes(event.type))return json({received:true});
    const id=event.data?.object?.id,order=await purchased(getStripe(env,mode),id,mode,catalog);

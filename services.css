@@ -146,3 +146,5 @@ footer .custom-solutions{margin:0;max-width:720px;font-size:16px;line-height:1.6
 #storybook-heading{scroll-margin-top:110px}
 @media(max-width:1000px){.self-prep{grid-template-columns:1fr 1fr}.self-prep .service-button{grid-column:1/-1;justify-self:start}}
 @media(max-width:600px){.self-prep{grid-template-columns:1fr;gap:14px;padding:22px 4px 8px}.self-prep .service-button{grid-column:auto;width:100%;max-width:none}.self-prep h3{font-size:25px}}
+
+.service-card .booking-availability{border-top:1px solid #d4b994;padding-top:12px;margin:8px 0 12px;font-size:14px;line-height:1.5}.service-card .booking-urgent{font-size:14px;line-height:1.5;margin-bottom:14px}.booking-urgent a{color:var(--wine);text-underline-offset:3px}.booking-urgent small{font-size:12px;color:#655762}

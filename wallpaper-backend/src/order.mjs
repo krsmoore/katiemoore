@@ -59,7 +59,7 @@ export async function parseBrief(request){
   return {product,reference,fields,photos,hash};
 }
 export class OrderProcessor{
-  constructor(ctx,env,getStripe,send=fetch){this.ctx=ctx;this.env=env;this.getStripe=getStripe;this.send=send;}
+  constructor(ctx,env,getStripe,send=fetch){this.ctx=ctx;this.env=env;this.getStripe=getStripe;this.send=(...args)=>send.call(globalThis,...args);}
   fetch(request){return this.ctx.blockConcurrencyWhile(()=>this.handle(request));}
   async handle(request){
     try{

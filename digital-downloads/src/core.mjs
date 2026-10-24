@@ -20,7 +20,15 @@ export function createHandler(getStripe,catalog=CATALOG){return async function(r
  if(mode==='live'&&env.LIVE_ENABLED!=='true')return json({error:'Live sales are not enabled yet.'},503,cors);
  if(request.method==='OPTIONS')return new Response(null,{status:204,headers:{...cors,'Access-Control-Allow-Methods':'GET, OPTIONS'}});
  try{
-  if(url.pathname==='/free'&&request.method==='GET')return pdf(env,catalog.find_examples);
+  if(url.pathname==='/free'&&request.method==='GET'){
+   const p=catalog[url.searchParams.get('key')||'find_examples'];
+   if(!p||p.amount!==0)return json({error:'Free download not found'},404,cors);
+   return pdf(env,p);
+  }
+  if(url.pathname==='/catalog-status'&&request.method==='GET'&&mode==='test'){
+   const entries=await Promise.all(Object.entries(catalog).map(async([key,p])=>{const head=await env.PDFS.head(p.file);return {key,ready:!!head&&head.size===p.bytes&&head.etag===p.md5};}));
+   return json({products:entries},200,cors);
+  }
   if(url.pathname==='/verify'&&request.method==='GET'){
    if(request.headers.get('Origin')!==env.SITE_ORIGIN)return json({error:'Origin not allowed'},403,cors);
    const order=await purchased(getStripe(env,mode),url.searchParams.get('session_id'),mode,catalog);

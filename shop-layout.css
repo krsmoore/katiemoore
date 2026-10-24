@@ -56,3 +56,6 @@
 #shop .storybook-shop .shop-rail-controls button{border-color:var(--brass)}
 #shop .storybook-shop .shop-rail-controls button:hover:not(:disabled){background:var(--cream);color:#30222a}
 #shop .storybook-shop .shop-rail{scrollbar-color:#d3ae5d transparent}
+
+/* Use the same ink-toned background as the other category opening sections. */
+#shop .storybook-shop{background:radial-gradient(ellipse at left,#30222a,#221d22);color:#fffaf4}

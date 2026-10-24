@@ -86,7 +86,7 @@ export class OrderProcessor{
       if(url.pathname==='/status'){
         const record=await this.ctx.storage.get('record');
         if(!record||record.sessionId!==url.searchParams.get('session_id'))return reply({error:'Order not found'},404);
-        if(record.paymentStatus==='paid'&&record.deliveryStatus==='retrying'&&Date.now()-(record.lastDeliveryAttempt||0)>60000)await this.deliver(record);
+        if(record.paymentStatus==='paid'&&record.deliveryStatus==='retrying'&&Date.now()-(record.lastDeliveryAttempt||0)>60000&&Date.now()>=(record.retryNotBefore||0))await this.deliver(record);
         return reply({deliveryStatus:record.deliveryStatus,...(record.mode==='test'?{deliveryError:record.deliveryError}:{})});
       }
       return reply({error:'Not found'},404);
@@ -94,7 +94,9 @@ export class OrderProcessor{
   }
   async deliver(record){
     if(record.paymentStatus!=='paid'||record.deliveryStatus==='sent')return;
+    if(Date.now()<(record.retryNotBefore||0)){await this.ctx.storage.setAlarm(record.retryNotBefore);return;}
     record.lastDeliveryAttempt=Date.now();
+    delete record.deliveryError;
     const body=new FormData();
     for(const [key,values] of Object.entries(record.fields||{}))body.set(key,values.join(', '));
     body.set('Order reference',record.reference);body.set('Payment status',record.mode==='test'?'SANDBOX TEST — no real payment':'PAID — verified by Stripe');body.set('Stripe Checkout Session',record.sessionId);
@@ -107,12 +109,12 @@ export class OrderProcessor{
     try{
       const response=await this.send('https://formsubmit.co/'+this.env.BRIEF_INBOX,{method:'POST',headers:{Referer:this.env.SITE_BASE+'/'+PRODUCTS[record.product].page},body,signal:AbortSignal.timeout(15000)});
       const text=await response.text();let success=false;try{const result=JSON.parse(text);success=result.success===true||result.success==='true';}catch{success=/The form was submitted successfully/i.test(text);}
-      if(!response.ok||!success){record.deliveryError='provider-'+response.status+(response.headers.get('cf-mitigated')==='challenge'?'-challenge':'')+(success?'':'-no-receipt');throw Error('Email was not accepted');}
+      if(!response.ok||!success){record.deliveryError='provider-'+response.status+(response.headers.get('cf-mitigated')==='challenge'?'-challenge':'')+(success?'':'-no-receipt');if(response.status===429){const retry=response.headers.get('Retry-After');const wait=/^\d+$/.test(retry||'')?Number(retry)*1000:Date.parse(retry||'')-Date.now();record.retryNotBefore=Date.now()+Math.max(15*60000,Number.isFinite(wait)?wait:0);}throw Error('Email was not accepted');}
       record.deliveryStatus='sent';record.sentAt=Date.now();await this.ctx.storage.put('record',record);
       // Remove the saved answers and images after the email service accepts delivery.
       const keys=[...(await this.ctx.storage.list({prefix:'photo:'})).keys()];if(keys.length)await this.ctx.storage.delete(keys);
       delete record.fields;record.photos=[];await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Date.now()+90*DAY);
-    }catch(err){record.deliveryError=record.deliveryError||('delivery-'+(['TypeError','TimeoutError','AbortError'].includes(err.name)?err.name:'unavailable'));record.deliveryStatus='retrying';record.deliveryAttempts=(record.deliveryAttempts||0)+1;await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Date.now()+Math.min(3600000,60000*2**Math.min(record.deliveryAttempts,6)));}
+    }catch(err){record.deliveryError=record.deliveryError||('delivery-'+(['TypeError','TimeoutError','AbortError'].includes(err.name)?err.name:'unavailable'));record.deliveryStatus='retrying';record.deliveryAttempts=(record.deliveryAttempts||0)+1;await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Math.max(record.retryNotBefore||0,Date.now()+Math.min(3600000,60000*2**Math.min(record.deliveryAttempts,6))));}
   }
   async alarm(){return this.ctx.blockConcurrencyWhile(async()=>{const r=await this.ctx.storage.get('record');if(!r)return;if(r.paymentStatus==='paid'&&r.deliveryStatus!=='sent'){await this.deliver(r);return;}await this.ctx.storage.deleteAll();});}
 }

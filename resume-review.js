@@ -1,5 +1,10 @@
 (() => {
   const form=document.getElementById('visionForm'),file=form.elements.attachment,zone=document.getElementById('uploadZone');
+  const liveEnabled=false;
+  if(!liveEnabled&&new URLSearchParams(location.search).get('checkout')!=='test'){
+    const notice=document.createElement('p');notice.className='hint';notice.textContent='Preview: payment and delivery are being verified. Live submissions are not open yet.';form.before(notice);
+    form.querySelector('button[type=submit]').disabled=true;
+  }
   document.getElementById('orderRef').value='RR-'+crypto.randomUUID();
   const location=form.elements['Current city and state'],desired=form.elements['Desired city and state'];
   function validateLocation(){location.setCustomValidity(location.value.trim()||desired.value.trim()?'':'Please enter a current or desired location.');}

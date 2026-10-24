@@ -103,7 +103,7 @@ export class OrderProcessor{
       body.set(i===0?'attachment':'attachment'+(i+1),new Blob(parts,{type:photo.type}),photo.name);
     }
     try{
-      const response=await this.send('https://formsubmit.co/'+this.env.BRIEF_INBOX,{method:'POST',headers:{Referer:this.env.SITE_BASE+'/'+PRODUCTS[record.product].page},body,signal:AbortSignal.timeout(15000)});
+      const response=await this.send('https://formsubmit.co/'+(record.product==='resume_review'?'ajax/':'')+this.env.BRIEF_INBOX,{method:'POST',headers:{Referer:this.env.SITE_BASE+'/'+PRODUCTS[record.product].page,Accept:'application/json'},body,signal:AbortSignal.timeout(15000)});
       const text=await response.text();let success=false;try{const result=JSON.parse(text);success=result.success===true||result.success==='true';}catch{success=/The form was submitted successfully/i.test(text);}
       if(!response.ok||!success)throw Error('Email was not accepted');
       record.deliveryStatus='sent';record.sentAt=Date.now();await this.ctx.storage.put('record',record);

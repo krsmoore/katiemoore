@@ -61,6 +61,15 @@
       nav.scrollIntoView({ block: 'start', behavior: 'instant' });
     });
   });
+  document.querySelectorAll('.self-prep a').forEach(link=>{
+    link.addEventListener('click',event=>{
+      if(event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)return;
+      event.preventDefault();
+      select(keys.indexOf('shop'));
+      history.replaceState(null,'',link.href);
+      requestAnimationFrame(()=>document.getElementById('storybook-heading')?.scrollIntoView({block:'start',behavior:'instant'}));
+    });
+  });
   const requestedTab = new URLSearchParams(location.search).get('tab') || location.hash.slice(1);
   const initial = keys.indexOf(requestedTab);
   select(initial >= 0 ? initial : 0);

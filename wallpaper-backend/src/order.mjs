@@ -112,7 +112,7 @@ export class OrderProcessor{
       // Remove the saved answers and images after the email service accepts delivery.
       const keys=[...(await this.ctx.storage.list({prefix:'photo:'})).keys()];if(keys.length)await this.ctx.storage.delete(keys);
       delete record.fields;record.photos=[];await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Date.now()+90*DAY);
-    }catch{record.deliveryStatus='retrying';record.deliveryAttempts=(record.deliveryAttempts||0)+1;await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Date.now()+Math.min(3600000,60000*2**Math.min(record.deliveryAttempts,6)));}
+    }catch(err){record.deliveryError=record.deliveryError||('delivery-'+(['TypeError','TimeoutError','AbortError'].includes(err.name)?err.name:'unavailable'));record.deliveryStatus='retrying';record.deliveryAttempts=(record.deliveryAttempts||0)+1;await this.ctx.storage.put('record',record);await this.ctx.storage.setAlarm(Date.now()+Math.min(3600000,60000*2**Math.min(record.deliveryAttempts,6)));}
   }
   async alarm(){return this.ctx.blockConcurrencyWhile(async()=>{const r=await this.ctx.storage.get('record');if(!r)return;if(r.paymentStatus==='paid'&&r.deliveryStatus!=='sent'){await this.deliver(r);return;}await this.ctx.storage.deleteAll();});}
 }

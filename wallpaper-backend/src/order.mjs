@@ -86,13 +86,15 @@ export class OrderProcessor{
       if(url.pathname==='/status'){
         const record=await this.ctx.storage.get('record');
         if(!record||record.sessionId!==url.searchParams.get('session_id'))return reply({error:'Order not found'},404);
-        return reply({deliveryStatus:record.deliveryStatus});
+        if(record.paymentStatus==='paid'&&record.deliveryStatus==='retrying'&&Date.now()-(record.lastDeliveryAttempt||0)>60000)await this.deliver(record);
+        return reply({deliveryStatus:record.deliveryStatus,...(record.mode==='test'?{deliveryError:record.deliveryError}:{})});
       }
       return reply({error:'Not found'},404);
     }catch(err){return reply({error:err.status?err.message:'Checkout is temporarily unavailable. Your saved questionnaire is safe; please retry.'},err.status||503);}
   }
   async deliver(record){
     if(record.paymentStatus!=='paid'||record.deliveryStatus==='sent')return;
+    record.lastDeliveryAttempt=Date.now();
     const body=new FormData();
     for(const [key,values] of Object.entries(record.fields||{}))body.set(key,values.join(', '));
     body.set('Order reference',record.reference);body.set('Payment status',record.mode==='test'?'SANDBOX TEST — no real payment':'PAID — verified by Stripe');body.set('Stripe Checkout Session',record.sessionId);
@@ -103,9 +105,9 @@ export class OrderProcessor{
       body.set(i===0?'attachment':'attachment'+(i+1),new Blob(parts,{type:photo.type}),photo.name);
     }
     try{
-      const response=await this.send('https://formsubmit.co/'+(record.product==='resume_review'?'ajax/':'')+this.env.BRIEF_INBOX,{method:'POST',headers:{Referer:this.env.SITE_BASE+'/'+PRODUCTS[record.product].page,Accept:'application/json'},body,signal:AbortSignal.timeout(15000)});
+      const response=await this.send('https://formsubmit.co/'+this.env.BRIEF_INBOX,{method:'POST',headers:{Referer:this.env.SITE_BASE+'/'+PRODUCTS[record.product].page},body,signal:AbortSignal.timeout(15000)});
       const text=await response.text();let success=false;try{const result=JSON.parse(text);success=result.success===true||result.success==='true';}catch{success=/The form was submitted successfully/i.test(text);}
-      if(!response.ok||!success)throw Error('Email was not accepted');
+      if(!response.ok||!success){record.deliveryError='provider-'+response.status+(response.headers.get('cf-mitigated')==='challenge'?'-challenge':'')+(success?'':'-no-receipt');throw Error('Email was not accepted');}
       record.deliveryStatus='sent';record.sentAt=Date.now();await this.ctx.storage.put('record',record);
       // Remove the saved answers and images after the email service accepts delivery.
       const keys=[...(await this.ctx.storage.list({prefix:'photo:'})).keys()];if(keys.length)await this.ctx.storage.delete(keys);

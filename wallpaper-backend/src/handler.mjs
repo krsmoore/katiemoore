@@ -67,12 +67,12 @@ export function createHandler(getStripe, cryptoProvider) {
         if(!id||!/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)||!REFERENCE.test(reference||''))return json({error:'Invalid session'},400,cors);
         const session=await getStripe(env,mode).checkout.sessions.retrieve(id);
         if(session.metadata?.site!=='katiemoore'||session.client_reference_id!==reference||!PRODUCTS[session.metadata.product_key])return json({error:'Session not found'},404,cors);
-        let deliveryStatus;
+        let deliveryStatus,deliveryError;
         if(session.metadata?.brief_version==='2'&&env.WALLPAPER_ORDERS){
           const stub=env.WALLPAPER_ORDERS.get(env.WALLPAPER_ORDERS.idFromName(mode+':'+reference));
-          const response=await stub.fetch('https://order/status?session_id='+id);if(response.ok)deliveryStatus=(await response.json()).deliveryStatus;
+          const response=await stub.fetch('https://order/status?session_id='+id);if(response.ok){const delivery=await response.json();deliveryStatus=delivery.deliveryStatus;deliveryError=delivery.deliveryError;}
         }
-        return json({status:session.status,paymentStatus:session.payment_status,reference,amount:session.amount_total,currency:session.currency,deliveryStatus},200,cors);
+        return json({status:session.status,paymentStatus:session.payment_status,reference,amount:session.amount_total,currency:session.currency,deliveryStatus,...(mode==='test'?{deliveryError}:{})},200,cors);
       }
       if(isWebhook&&request.method==='POST'){
         const signature=request.headers.get('stripe-signature');

@@ -64,7 +64,10 @@ export const CATALOG={
     "pages": 148,
     "file": "InterviewStoryBank.YourNextCareerMove.DigitalDownload.KM.pdf",
     "bytes": 245001,
-    "md5": "4d05b535b477b2f9c920a7111c33eba1"
+    "md5": "4d05b535b477b2f9c920a7111c33eba1",
+    "liveLink": "plink_1UUERA37dVOsPr0AUk61VF76",
+    "livePrice": "price_1UUERA37dVOsPr0AUHnC07z3",
+    "liveUrl": "https://buy.stripe.com/eVq8wIe6edDkfWx0AB3Je06"
   },
   "career_workbook": {
     "testLink": "plink_1UUEHu7V1kfjGKUWT5NtRbok",
@@ -75,7 +78,10 @@ export const CATALOG={
     "pages": 142,
     "file": "InterviewStoryBank.BuildingYourCareer.DigitalDownload.KM.pdf",
     "bytes": 244087,
-    "md5": "41316fb4dac13d970ab4706262c5eb53"
+    "md5": "41316fb4dac13d970ab4706262c5eb53",
+    "liveLink": "plink_1UUERB37dVOsPr0AbDYCIeKA",
+    "livePrice": "price_1UUERB37dVOsPr0ANpZUfEHo",
+    "liveUrl": "https://buy.stripe.com/9B69AM7HQczg25H6YZ3Je07"
   },
   "chapter_brand": {
     "title": "Define Your Brand Template — Your Next Chapter",
@@ -94,7 +100,10 @@ export const CATALOG={
     "pages": 6,
     "file": "InterviewStoryBank.YourNextCareerMove.StoryBankTemplate.KM.pdf",
     "bytes": 30068,
-    "md5": "5fd3592f36e6e1330724ed086b229157"
+    "md5": "5fd3592f36e6e1330724ed086b229157",
+    "liveLink": "plink_1UUERD37dVOsPr0AQeewFLEG",
+    "livePrice": "price_1UUERD37dVOsPr0AUNZGt3iq",
+    "liveUrl": "https://buy.stripe.com/28EdR2bY62YG5hT1EF3Je08"
   },
   "chapter_practice_feedback": {
     "testLink": "plink_1UUEHw7V1kfjGKUWRc3MoqRt",
@@ -105,7 +114,10 @@ export const CATALOG={
     "pages": 7,
     "file": "InterviewStoryBank.YourNextCareerMove.PracticeAndFeedbackTemplate.KM.pdf",
     "bytes": 31998,
-    "md5": "ca4f2ee26fccc92e37d46712ef7c13eb"
+    "md5": "ca4f2ee26fccc92e37d46712ef7c13eb",
+    "liveLink": "plink_1UUERE37dVOsPr0APGAWMLm0",
+    "livePrice": "price_1UUERE37dVOsPr0AAzztVDQl",
+    "liveUrl": "https://buy.stripe.com/8x214g1js56O39L8333Je09"
   },
   "chapter_interview_preparation": {
     "testLink": "plink_1UUEHx7V1kfjGKUWf3P0zOvU",
@@ -116,7 +128,10 @@ export const CATALOG={
     "pages": 9,
     "file": "InterviewStoryBank.YourNextCareerMove.InterviewPreparationTemplate.KM.pdf",
     "bytes": 33647,
-    "md5": "1b92d49a9f08442b6d1288b1c3115909"
+    "md5": "1b92d49a9f08442b6d1288b1c3115909",
+    "liveLink": "plink_1UUERF37dVOsPr0AYidgvqDK",
+    "livePrice": "price_1UUERF37dVOsPr0A85QnGSmR",
+    "liveUrl": "https://buy.stripe.com/4gM3co5zIdDk6lX0AB3Je0a"
   },
   "chapter_complete_bundle": {
     "testLink": "plink_1UUEHz7V1kfjGKUWMWdchJGc",
@@ -127,6 +142,9 @@ export const CATALOG={
     "pages": 25,
     "file": "InterviewStoryBank.YourNextCareerMove.CompleteTemplateBundle.KM.pdf",
     "bytes": 53734,
-    "md5": "8492967307d2e7b71ba6b05396acd975"
+    "md5": "8492967307d2e7b71ba6b05396acd975",
+    "liveLink": "plink_1UUERG37dVOsPr0Aa5QjtdCj",
+    "livePrice": "price_1UUERG37dVOsPr0ARkt4X3ow",
+    "liveUrl": "https://buy.stripe.com/28EdR20fofLs39L9773Je0b"
   }
 };

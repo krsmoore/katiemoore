@@ -1,8 +1,9 @@
 (() => {
   const apiBase=String(window.WALLPAPER_API_BASE||'').replace(/\/$/,'');if(!apiBase)return;
   const form=document.getElementById('visionForm'),params=new URLSearchParams(location.search),mode=params.get('checkout')==='test'?'test':'live';
-  const product=location.pathname.endsWith('looking-forward.html')?'looking_forward_wallpaper':'vision_board_wallpaper';
-  const prefix=product==='vision_board_wallpaper'?'VB':'LF',price=prefix==='VB'?'$15':'$10',query='?mode='+mode;
+  const resumeReview=location.pathname.endsWith('resume-review.html');
+  const product=resumeReview?'resume_review':location.pathname.endsWith('looking-forward.html')?'looking_forward_wallpaper':'vision_board_wallpaper';
+  const prefix=resumeReview?'RR':product==='vision_board_wallpaper'?'VB':'LF',price=resumeReview?'$100':prefix==='VB'?'$15':'$10',query='?mode='+mode;
   const submitArea=form.querySelector('.submit-area'),prepareButton=form.querySelector('button[type="submit"]'),questions=form.querySelector('.questions');
   prepareButton.textContent='Continue to payment — '+price;
   const section=document.createElement('section');section.className='embedded-payment';section.hidden=true;
@@ -13,6 +14,7 @@
   const retry=document.createElement('button');retry.type='button';retry.textContent='Retry checkout';retry.hidden=true;
   const edit=document.createElement('button');edit.type='button';edit.textContent='Edit my answers';edit.hidden=true;
   const restart=document.createElement('a');restart.href=location.pathname+(mode==='test'?'?checkout=test':'');restart.textContent='Start a new questionnaire';restart.hidden=true;
+  if(resumeReview)note.textContent='Complete the $100 payment below to submit your resume and answers. They will be sent to Katie automatically once payment is confirmed.';
   section.append(heading,note,status,mount,retry,edit,restart);submitArea.before(section);
   let checkout,sessionId=params.get('session_id'),reference=params.get('pay'),clientSecret,busy=false,hasAnswers=false;
   const fields=()=>form.querySelectorAll('fieldset');
@@ -23,11 +25,12 @@
     const result=await api('/session-status'+query+'&session_id='+encodeURIComponent(sessionId)+'&reference='+encodeURIComponent(reference));
     if(result.status==='complete'&&result.paymentStatus==='paid'){
       checkout?.destroy();mount.replaceChildren();questions.hidden=true;submitArea.hidden=true;edit.hidden=true;retry.hidden=true;restart.hidden=false;
-      heading.textContent='Payment received. Questionnaire submitted.';
+      heading.textContent=resumeReview?'Payment received. Resume submitted.':'Payment received. Questionnaire submitted.';
       note.textContent=result.deliveryStatus==='sent'?'Katie has your answers and photos and will create your personalized wallpaper.':'Your answers and photos are securely saved, and submission will finish automatically. You can close this page.';
+      if(resumeReview)note.textContent=result.deliveryStatus==='sent'?'Katie has your resume and answers. Your review and any follow-up questions will be sent to the email you provided.':'Your resume and answers are securely saved. Submission will finish automatically; you can close this page.';
       status.textContent='Order reference: '+reference;return true;
     }
-    if(result.status==='complete'){note.textContent='Your payment is processing. Your questionnaire and photos will be sent automatically when Stripe confirms payment. You can close this page.';edit.hidden=true;retry.hidden=false;restart.hidden=false;status.textContent='Order reference: '+reference;return true;}
+    if(result.status==='complete'){note.textContent='Your payment is processing. Your submission will be sent automatically when Stripe confirms payment. You can close this page.';edit.hidden=true;retry.hidden=false;restart.hidden=false;status.textContent='Order reference: '+reference;return true;}
     if(result.status==='expired'){status.textContent='This checkout has expired. Please start a new questionnaire.';retry.hidden=true;edit.hidden=true;restart.hidden=false;return true;}
     return false;
   }

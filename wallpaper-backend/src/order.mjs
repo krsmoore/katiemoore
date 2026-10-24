@@ -1,8 +1,8 @@
 import {PRODUCTS} from './handler.mjs';
-const REF=/^(VB|LF)-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const REF=/^(VB|LF|RR)-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const MAX_UPLOAD=10000000, CHUNK=512000, DAY=86400000;
 const COMMON=['name','email','Feelings','Other feeling','Color palette','Custom colors','Additional preferences','Phone type','Phone model','Clock placement','Lock screen widgets','Common notifications','Notification display','Lock screen layout notes','Photo instructions','Photo permission'];
-const FIELDS={vision_board_wallpaper:[...COMMON,'Goal 1','Goal 2','Goal 3','Life areas','Other life area','Milestone','Visual style','Included text'],looking_forward_wallpaper:[...COMMON,'Looking forward 1','Looking forward 2','Looking forward 3','Looking forward 4','Looking forward 5','Date for item 1','Date for item 2','Date for item 3','Date for item 4','Date for item 5','People and pets','Little things','Visual styles']};
+const FIELDS={resume_review:['name','email','Job posting 1','Job posting 2','Job posting 3','Current city and state','Desired city and state','Work arrangements','What employers should understand','Job search progress','Other job search progress','Previous resume feedback','Missing accomplishments','Questions or concerns','Application deadline'],vision_board_wallpaper:[...COMMON,'Goal 1','Goal 2','Goal 3','Life areas','Other life area','Milestone','Visual style','Included text'],looking_forward_wallpaper:[...COMMON,'Looking forward 1','Looking forward 2','Looking forward 3','Looking forward 4','Looking forward 5','Date for item 1','Date for item 2','Date for item 3','Date for item 4','Date for item 5','People and pets','Little things','Visual styles']};
 function fail(message,status=400){throw Object.assign(new Error(message),{status});}
 const reply=(x,status=200)=>Response.json(x,{status,headers:{'Cache-Control':'no-store'}});
 const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -22,11 +22,16 @@ export async function parseBrief(request){
   if(textSize>20000)fail('The questionnaire is too long.');
   const value=key=>fields[key]?.[0];
   if(!value('name')||value('name').length>100||!value('email')||value('email').length>254||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value('email')))fail('Please enter your name and email.');
+  if(product==='resume_review'){
+    if(!value('Job posting 1')||!value('What employers should understand')||(!value('Current city and state')&&!value('Desired city and state')))fail('Please complete the required job link, location, and employer perspective.');
+    for(const key of ['Job posting 1','Job posting 2','Job posting 3'])if(value(key)){let u;try{u=new URL(value(key));}catch{fail('Please enter valid job-posting links.');}if(!['https:','http:'].includes(u.protocol))fail('Please enter http or https job-posting links.');}
+  }else{
   for(const key of ['Phone type','Clock placement','Lock screen widgets','Notification display','Color palette'])if(!value(key))fail('Please complete your phone layout and color choices.');
   const feelings=fields.Feelings?.length||0;
   if(product==='vision_board_wallpaper'){
     if(['Goal 1','Goal 2','Goal 3','Milestone','Visual style'].some(k=>!value(k))||feelings!==3||!fields['Life areas']?.length||fields['Life areas'].length>4)fail('Please complete your goals, feelings, and style choices.');
   }else if(!value('Looking forward 1')||feelings<1||feelings>3||!fields['Visual styles']?.length||fields['Visual styles'].length>2)fail('Please complete your first item, feelings, and style choices.');
+  }
   const photos=[];let total=0;
   for(const name of ['attachment','attachment2','attachment3']){
     const file=form.get(name);if(!file||typeof file==='string'||!file.size)continue;
@@ -34,10 +39,22 @@ export async function parseBrief(request){
     const bytes=new Uint8Array(await file.arrayBuffer());
     const png=file.type==='image/png'&&bytes.length>=8&&[137,80,78,71,13,10,26,10].every((b,i)=>bytes[i]===b);
     const jpeg=file.type==='image/jpeg'&&bytes.length>=3&&bytes[0]===255&&bytes[1]===216&&bytes[2]===255;
+    if(product==='resume_review'){
+      if(name!=='attachment')fail('Please upload one resume only.');
+      const pdf=/\.pdf$/i.test(file.name)&&new TextDecoder().decode(bytes.slice(0,5))==='%PDF-';
+      const doc=/\.doc$/i.test(file.name)&&[208,207,17,224,161,177,26,225].every((b,i)=>bytes[i]===b);
+      // DOCX must be a Word package, not an arbitrary renamed ZIP archive.
+      const zipText=new TextDecoder('latin1').decode(bytes);
+      const docx=/\.docx$/i.test(file.name)&&bytes[0]===80&&bytes[1]===75&&zipText.includes('[Content_Types].xml')&&zipText.includes('word/document.xml')&&!zipText.includes('vbaProject.bin');
+      if(!pdf&&!doc&&!docx)fail('Please upload a valid PDF or Word document.');
+      photos.push({name:'resume'+(pdf?'.pdf':doc?'.doc':'.docx'),type:pdf?'application/pdf':doc?'application/msword':'application/vnd.openxmlformats-officedocument.wordprocessingml.document',size:file.size,hash:await digest(bytes),bytes:bytes.buffer});
+      continue;
+    }
     if(!png&&!jpeg)fail('Please upload valid JPEG or PNG photos.');
     photos.push({name:'photo-'+(photos.length+1)+(png?'.png':'.jpg'),type:file.type,size:file.size,hash:await digest(bytes),bytes:bytes.buffer});
   }
-  if(photos.length&&!value('Photo permission'))fail('Please confirm you have permission to use these photos.');
+  if(product==='resume_review'&&!photos.length)fail('Please upload your current resume.');
+  if(product!=='resume_review'&&photos.length&&!value('Photo permission'))fail('Please confirm you have permission to use these photos.');
   const hash=await digest(new TextEncoder().encode(JSON.stringify({product,reference,fields,photos:photos.map(({bytes,...p})=>p)})));
   return {product,reference,fields,photos,hash};
 }
@@ -49,7 +66,7 @@ export class OrderProcessor{
       const url=new URL(request.url);
       if(url.pathname==='/stage'){
         const mode=url.searchParams.get('mode')==='test'?'test':'live';
-        const brief=await parseBrief(request);let record=await this.ctx.storage.get('record');
+        const brief=await parseBrief(request);if(!PRODUCTS[brief.product][mode])return reply({error:'Resume review checkout is being prepared. Please try again shortly.'},503);let record=await this.ctx.storage.get('record');
         if(record&&record.hash!==brief.hash)return reply({error:'This checkout already has a saved questionnaire. Start a new questionnaire to change it.'},409);
         if(!record){
           record={product:brief.product,reference:brief.reference,fields:brief.fields,hash:brief.hash,mode,created:Date.now(),paymentStatus:'unpaid',deliveryStatus:'pending',photos:brief.photos.map(({bytes,...p})=>p)};
@@ -79,7 +96,7 @@ export class OrderProcessor{
     const body=new FormData();
     for(const [key,values] of Object.entries(record.fields||{}))body.set(key,values.join(', '));
     body.set('Order reference',record.reference);body.set('Payment status',record.mode==='test'?'SANDBOX TEST — no real payment':'PAID — verified by Stripe');body.set('Stripe Checkout Session',record.sessionId);
-    body.set('_subject',(record.mode==='test'?'SANDBOX TEST — ':'')+(record.product==='vision_board_wallpaper'?'Vision Board Wallpaper':'Looking Forward Wallpaper')+' — PAID — '+record.reference);
+    body.set('_subject',(record.mode==='test'?'SANDBOX TEST — ':'')+(record.product==='resume_review'?'Resume Review':record.product==='vision_board_wallpaper'?'Vision Board Wallpaper':'Looking Forward Wallpaper')+' — PAID — '+record.reference);
     body.set('_template','table');body.set('_captcha','false');
     for(let i=0;i<(record.photos||[]).length;i++){
       const photo=record.photos[i],parts=[];for(let n=0;n<Math.ceil(photo.size/CHUNK);n++)parts.push(await this.ctx.storage.get('photo:'+i+':'+n));

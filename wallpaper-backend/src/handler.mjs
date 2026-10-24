@@ -1,8 +1,9 @@
 export const PRODUCTS = {
+  resume_review: {amount:10000, live:null, test:'price_1UUCoj7V1kfjGKUW5Hc8qolL', page:'resume-review.html', prefix:'RR'},
   vision_board_wallpaper: {amount:1500, live:'price_1UQI1p37dVOsPr0Aza6gPH0r', test:'price_1UKomi7V1kfjGKUWsIZhT4fj', page:'vision-board.html', prefix:'VB'},
   looking_forward_wallpaper: {amount:1000, live:'price_1UQI1q37dVOsPr0ATbRRu8FB', test:'price_1UQHcI7V1kfjGKUWPPmyZajv', page:'looking-forward.html', prefix:'LF'}
 };
-const REFERENCE=/^(VB|LF)-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const REFERENCE=/^(VB|LF|RR)-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function json(data,status=200,headers={}) { return Response.json(data,{status,headers:{'Cache-Control':'no-store',...headers}}); }
 export function createHandler(getStripe, cryptoProvider) {
@@ -48,6 +49,7 @@ export function createHandler(getStripe, cryptoProvider) {
         if(bodyText.length>4096)return json({error:'Request too large'},413,cors);
         let body;try{body=JSON.parse(bodyText);}catch{return json({error:'Invalid request'},400,cors);}
         const product=PRODUCTS[body.product];
+        if(body.product==='resume_review')return json({error:'Please complete the resume review form first.'},400,cors);
         if(!product||!REFERENCE.test(body.reference)||!body.reference.startsWith(product.prefix+'-')||typeof body.email!=='string'||body.email.length>254||!EMAIL.test(body.email))return json({error:'Invalid order details'},400,cors);
         const stripe=getStripe(env,mode);
         const session=await stripe.checkout.sessions.create({

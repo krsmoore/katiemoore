@@ -135,3 +135,14 @@ footer .custom-solutions{margin:0;max-width:720px;font-size:16px;line-height:1.6
 .category-nav a{color:var(--cream);border-right-color:var(--brass)}
 .category-nav a:hover{color:#dfbd7a}
 .category-nav [aria-selected="true"]{color:var(--cream);text-decoration-color:var(--brass)}
+
+/* A self-guided next step alongside job-search support. */
+.self-prep{grid-column:1/-1;display:grid;grid-template-columns:1.05fr 1.2fr auto;gap:24px;align-items:center;border-top:1px solid var(--brass);padding:22px 4px 6px;margin-top:6px}
+.self-prep .eyebrow{font-size:11px;letter-spacing:2px;margin:0 0 8px}
+.self-prep h3{font:400 25px/1.2 Georgia,serif;letter-spacing:-.4px}
+.self-prep>p{font-size:16px;line-height:1.5;margin:0;max-width:470px}
+.self-prep .service-button{background:transparent;border:1px solid #d3ae5d;color:var(--cream);margin:0;min-height:46px;padding:12px 18px;max-width:320px}
+.self-prep .service-button:hover{background:var(--cream);color:var(--wine)}
+#storybook-heading{scroll-margin-top:110px}
+@media(max-width:1000px){.self-prep{grid-template-columns:1fr 1fr}.self-prep .service-button{grid-column:1/-1;justify-self:start}}
+@media(max-width:600px){.self-prep{grid-template-columns:1fr;gap:14px;padding:22px 4px 8px}.self-prep .service-button{grid-column:auto;width:100%;max-width:none}.self-prep h3{font-size:25px}}

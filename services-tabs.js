@@ -64,4 +64,7 @@
   const requestedTab = new URLSearchParams(location.search).get('tab') || location.hash.slice(1);
   const initial = keys.indexOf(requestedTab);
   select(initial >= 0 ? initial : 0);
+  if(requestedTab==='shop' && location.hash==='#storybook-heading'){
+    requestAnimationFrame(()=>document.getElementById('storybook-heading')?.scrollIntoView({block:'start',behavior:'instant'}));
+  }
 })();

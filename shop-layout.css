@@ -47,3 +47,12 @@
 #shop .fun-section{background:#ebe5e9;max-width:none;padding-inline:max(24px,calc((100% - 1400px)/2))}
 #shop .fun-cards article{background:#fffdf9;border-color:#cbbdc3}
 @media(max-width:600px){#shop .fun-section{padding-inline:16px}}
+
+/* Match the other category panels with an aubergine first collection. */
+#shop .storybook-shop{background:#30222a;color:var(--cream);border-top-color:var(--brass)}
+#shop .storybook-shop .group-intro{border-color:var(--brass)}
+#shop .storybook-shop .group-intro .eyebrow{color:#d3ae5d}
+#shop .storybook-shop .shop-rail-controls{color:#eadfd8}
+#shop .storybook-shop .shop-rail-controls button{border-color:var(--brass)}
+#shop .storybook-shop .shop-rail-controls button:hover:not(:disabled){background:var(--cream);color:#30222a}
+#shop .storybook-shop .shop-rail{scrollbar-color:#d3ae5d transparent}

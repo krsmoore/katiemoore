@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+
+#km-workshop-audiences .km-offering .kb-audience {
+  display:grid;
+  grid-template-columns:78px minmax(0,1fr);
+  align-items:start;
+  gap:13px;
+  padding:18px 30px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+#km-workshop-audiences .km-offering .kb-audience h3 {
+  margin:7px 0 0;
+  font:500 11px/1.4 Inter,Arial,sans-serif;
+  letter-spacing:1.3px;
+  color:var(--oxblood);
+  text-transform:uppercase;
+}
+#km-workshop-audiences .km-offering .kb-audiences {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:start;
+  gap:7px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+#km-workshop-audiences .km-offering .kb-audiences li {
+  font:400 11px/1.45 Inter,Arial,sans-serif;
+  color:var(--aubergine);
+  border:1px solid var(--line);
+  padding:6px 9px;
+  max-width:100%;
+  overflow-wrap:break-word;
+}
+@media(max-width:620px) {
+  #km-workshop-audiences .km-offering .kb-audience {grid-template-columns:1fr;gap:10px;padding:18px 22px;}
+  #km-workshop-audiences .km-offering .kb-audience h3 {margin:0;}
+}
+
+
+
+#km-workshop-audiences .km-offering {--paper:#F6F2EA;--ink:#18181B;--oxblood:#702F3A;--aubergine:#594653;--brass:#B3935A;--mushroom:#C9BFB3;--dark:#282127;--line:#D8CCBD;--muted:#675B60;font:400 14px/1.5 Inter,Arial,sans-serif;color:var(--ink);width:100%;}
+#km-workshop-audiences .km-offering * {box-sizing:border-box;}
+#km-workshop-audiences .km-offering [hidden] {display:none!important;}
+#km-workshop-audiences .km-offering button,#km-workshop-audiences .km-offering input,#km-workshop-audiences .km-offering textarea {font:inherit;}
+#km-workshop-audiences .km-offering button:focus-visible,#km-workshop-audiences .km-offering input:focus-visible,#km-workshop-audiences .km-offering textarea:focus-visible {outline:2px solid var(--brass);outline-offset:4px;}
+#km-workshop-audiences .km-offering button {border-radius:0;}
+#km-workshop-audiences .km-offering p {margin:0;}
+#km-workshop-audiences .km-offering .kb-stage {padding:25px 20px;background:#322A30;min-height:1050px;display:grid;align-items:center;}
+#km-workshop-audiences .km-offering .kb-modal {position:relative;width:100%;max-width:660px;margin:auto;background:var(--paper);box-shadow:0 22px 70px #18181B66;border-top:2px solid var(--brass);}
+#km-workshop-audiences .km-offering .kb-close {position:absolute;right:12px;top:12px;z-index:3;display:grid;place-items:center;width:38px;height:38px;border:1px solid #B3935A66;background:transparent;color:var(--paper);}
+#km-workshop-audiences .km-offering .kb-close svg {width:17px;height:17px;}
+#km-workshop-audiences .km-offering .kb-hero {position:relative;background:var(--dark);color:var(--paper);padding:27px 30px 31px;}
+#km-workshop-audiences .km-offering .kb-kicker {font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--brass);padding-right:40px;margin-bottom:23px;}
+#km-workshop-audiences .km-offering .kb-hero-grid {display:grid;grid-template-columns:1.1fr 1fr;gap:19px;align-items:center;min-height:350px;}
+#km-workshop-audiences .km-offering .kb-title {font:400 52px/.94 'Cormorant Garamond',Georgia,serif;letter-spacing:-1px;margin:0 0 18px;color:var(--paper);}
+#km-workshop-audiences .km-offering .kb-title em {font-weight:400;color:#D5BC90;}
+#km-workshop-audiences .km-offering .kb-deck {font-size:13px;line-height:1.6;max-width:250px;color:#E4DCD7;}
+#km-workshop-audiences .km-offering .kb-format {display:flex;flex-wrap:wrap;gap:13px;font-size:11px;color:var(--mushroom);margin-top:22px;letter-spacing:.4px;}
+#km-workshop-audiences .km-offering .kb-format span {display:inline-flex;align-items:center;gap:5px;}
+#km-workshop-audiences .km-offering .kb-format svg {width:13px;height:13px;color:var(--brass);}
+#km-workshop-audiences .km-offering .kb-stack {position:relative;height:310px;margin:1px 8px 0 4px;isolation:isolate;}
+#km-workshop-audiences .km-offering .kb-back-sheet {position:absolute;inset:10px 5px 2px;background:var(--aubergine);border:1px solid #B3935A80;transform:rotate(7deg);z-index:-2;transition:transform .4s ease;}
+#km-workshop-audiences .km-offering .kb-mid-sheet {position:absolute;inset:3px 1px 6px;background:var(--mushroom);transform:rotate(-5deg);z-index:-1;transition:transform .4s ease;}
+#km-workshop-audiences .km-offering .kb-paper {position:absolute;inset:0;background:var(--paper);color:var(--ink);padding:17px 18px 14px;box-shadow:0 5px 15px #18181B40;transform:rotate(2deg);display:flex;flex-direction:column;transition:transform .4s ease;}
+#km-workshop-audiences .km-offering[data-step="1"] .kb-paper {transform:rotate(-1deg);}
+#km-workshop-audiences .km-offering[data-step="1"] .kb-mid-sheet {transform:rotate(5deg);}
+#km-workshop-audiences .km-offering[data-step="2"] .kb-paper {transform:rotate(0deg);}
+#km-workshop-audiences .km-offering[data-step="2"] .kb-mid-sheet {transform:rotate(-3deg);}
+#km-workshop-audiences .km-offering[data-step="2"] .kb-back-sheet {transform:rotate(3deg);}
+#km-workshop-audiences .km-offering .kb-paper-top {display:flex;align-items:center;justify-content:space-between;gap:6px;color:var(--oxblood);font-size:11px;text-transform:uppercase;letter-spacing:1.2px;padding-bottom:9px;border-bottom:1px solid var(--brass);}
+#km-workshop-audiences .km-offering .kb-paper-km {font:500 19px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:-1.6px;}
+#km-workshop-audiences .km-offering .kb-paper h3 {font:500 26px/1.02 'Cormorant Garamond',Georgia,serif;margin:12px 0 8px;color:var(--ink);}
+#km-workshop-audiences .km-offering .kb-paper-body {font-size:11px;line-height:1.5;margin:0;}
+#km-workshop-audiences .km-offering .kb-paper-question {border-left:2px solid var(--brass);padding-left:8px;margin-top:12px;font-size:11px;color:var(--oxblood);}
+#km-workshop-audiences .km-offering .kb-paper-bottom {margin-top:auto;padding-top:9px;display:flex;justify-content:space-between;gap:5px;font-size:11px;letter-spacing:.7px;color:var(--muted);text-transform:uppercase;}
+#km-workshop-audiences .km-offering .kb-paper-stamp {background:var(--oxblood);color:var(--paper);padding:3px 6px;font-size:11px;letter-spacing:.5px;}
+#km-workshop-audiences .km-offering .kb-body {padding:22px 30px 0;}
+#km-workshop-audiences .km-offering .kb-preview-label {font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.6px;margin-bottom:12px;display:flex;justify-content:space-between;gap:10px;}
+#km-workshop-audiences .km-offering .kb-route {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line);gap:17px;}
+#km-workshop-audiences .km-offering .kb-chapter {padding:0 0 12px;background:transparent;color:var(--muted);border:0;border-bottom:3px solid transparent;display:flex;align-items:center;gap:8px;text-align:left;}
+#km-workshop-audiences .km-offering .kb-chapter[aria-pressed="true"] {color:var(--oxblood);border-bottom-color:var(--oxblood);}
+#km-workshop-audiences .km-offering .kb-chapter-num {font:400 30px/1 'Cormorant Garamond',Georgia,serif;color:var(--brass);transition:color .2s ease;}
+#km-workshop-audiences .km-offering .kb-chapter[aria-pressed="true"] .kb-chapter-num {color:var(--oxblood);}
+#km-workshop-audiences .km-offering .kb-chapter-name {font-size:11px;font-weight:500;line-height:1.3;}
+#km-workshop-audiences .km-offering .kb-scene {display:grid;grid-template-columns:1.12fr 1fr;gap:26px;padding:21px 0 22px;min-height:185px;}
+#km-workshop-audiences .km-offering .kb-scene h3 {font:400 28px/1.04 'Cormorant Garamond',Georgia,serif;margin:0 0 9px;letter-spacing:-.3px;}
+#km-workshop-audiences .km-offering .kb-scene-copy {font-size:12px;color:var(--muted);line-height:1.6;}
+#km-workshop-audiences .km-offering .kb-source {border-left:1px solid var(--line);padding-left:22px;}
+#km-workshop-audiences .km-offering .kb-label {font-size:11px;letter-spacing:1.5px;color:var(--oxblood);text-transform:uppercase;font-weight:500;margin-bottom:8px;}
+#km-workshop-audiences .km-offering .kb-source p:last-child {font-size:12px;line-height:1.6;}
+#km-workshop-audiences .km-offering .kb-outcomes {background:#EAE3D9;padding:17px 30px;display:grid;grid-template-columns:1fr 1.6fr;gap:20px;align-items:center;}
+#km-workshop-audiences .km-offering .kb-outcomes h3 {font:400 25px/1.05 'Cormorant Garamond',Georgia,serif;margin:0;}
+#km-workshop-audiences .km-offering .kb-deliverables {display:grid;gap:6px;list-style:none;padding:0;margin:0;}
+#km-workshop-audiences .km-offering .kb-deliverables li {display:flex;align-items:center;gap:8px;font-size:11px;}
+#km-workshop-audiences .km-offering .kb-deliverables svg {width:13px;height:13px;color:var(--oxblood);flex-shrink:0;}
+#km-workshop-audiences .km-offering .kb-footer {display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 30px;}
+#km-workshop-audiences .km-offering .kb-brand {display:flex;align-items:center;gap:10px;white-space:nowrap;color:var(--oxblood);}
+#km-workshop-audiences .km-offering .kb-brand b {font:500 28px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:-3px;padding-right:4px;}
+#km-workshop-audiences .km-offering .kb-brand span {font-size:11px;letter-spacing:1.3px;text-transform:uppercase;}
+#km-workshop-audiences .km-offering .kb-cta {display:inline-flex;justify-content:center;align-items:center;gap:17px;background:var(--oxblood);color:var(--paper);border:0;min-height:44px;padding:12px 17px;font-size:11px;}
+#km-workshop-audiences .km-offering .kb-cta:hover {background:var(--aubergine);}
+#km-workshop-audiences .km-offering .kb-cta svg {width:15px;height:15px;}
+#km-workshop-audiences .km-offering .kb-reopen {display:flex;justify-content:center;align-items:center;}
+#km-workshop-audiences .km-offering .kb-contact {padding:27px 30px 30px;}
+#km-workshop-audiences .km-offering .kb-back {display:flex;align-items:center;gap:7px;padding:6px 0;background:transparent;border:0;color:var(--oxblood);font-size:12px;margin-bottom:21px;}
+#km-workshop-audiences .km-offering .kb-back svg {width:14px;height:14px;}
+#km-workshop-audiences .km-offering .kb-contact h2 {font:400 41px/1.05 'Cormorant Garamond',Georgia,serif;margin:0 0 12px;}
+#km-workshop-audiences .km-offering .kb-contact-intro {font-size:13px;color:var(--muted);}
+#km-workshop-audiences .km-offering .kb-form {display:grid;gap:15px;margin-top:23px;}
+#km-workshop-audiences .km-offering .kb-fields {display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+#km-workshop-audiences .km-offering .kb-form label {display:grid;gap:6px;font-size:12px;}
+#km-workshop-audiences .km-offering .kb-form input,#km-workshop-audiences .km-offering .kb-form textarea {width:100%;min-width:0;background:transparent;border:1px solid var(--line);color:var(--ink);padding:10px;}
+#km-workshop-audiences .km-offering .kb-form textarea {min-height:90px;resize:vertical;}
+#km-workshop-audiences .km-offering .kb-form-note {font-size:11px;color:var(--muted);}
+#km-workshop-audiences .km-offering .kb-status {font-size:12px;color:var(--oxblood);}
+#km-workshop-audiences .km-offering.kb-contact-open .kb-close {color:var(--oxblood);border-color:var(--line);}
+@media(max-width:620px) {
+ #km-workshop-audiences .km-offering .kb-stage {padding:17px 9px;min-height:1440px;}
+ #km-workshop-audiences .km-offering .kb-hero {padding:25px 22px;}
+ #km-workshop-audiences .km-offering .kb-hero-grid {grid-template-columns:1fr;gap:25px;}
+ #km-workshop-audiences .km-offering .kb-title {font-size:40px;}
+ #km-workshop-audiences .km-offering .kb-title span {display:block;}
+ #km-workshop-audiences .km-offering .kb-deck {max-width:100%;}
+ #km-workshop-audiences .km-offering .kb-format {margin-top:15px;}
+ #km-workshop-audiences .km-offering .kb-stack {width:230px;max-width:calc(100% - 14px);height:310px;margin:0 auto;}
+ #km-workshop-audiences .km-offering .kb-kicker {margin-bottom:20px;}
+ #km-workshop-audiences .km-offering .kb-body {padding:22px 22px 0;}
+ #km-workshop-audiences .km-offering .kb-route {gap:10px;}
+ #km-workshop-audiences .km-offering .kb-chapter {flex-direction:column;align-items:start;gap:5px;}
+ #km-workshop-audiences .km-offering .kb-chapter-num {font-size:27px;}
+ #km-workshop-audiences .km-offering .kb-chapter-name {font-size:11px;}
+ #km-workshop-audiences .km-offering .kb-scene {grid-template-columns:1fr;gap:15px;padding:20px 0;min-height:0;}
+ #km-workshop-audiences .km-offering .kb-source {padding-left:13px;}
+ #km-workshop-audiences .km-offering .kb-scene h3 {font-size:27px;}
+ #km-workshop-audiences .km-offering .kb-outcomes {padding:18px 22px;grid-template-columns:1fr;gap:13px;}
+ #km-workshop-audiences .km-offering .kb-outcomes h3 br {display:none;}
+ #km-workshop-audiences .km-offering .kb-footer {padding:18px 22px;flex-wrap:wrap;gap:16px;}
+ #km-workshop-audiences .km-offering .kb-cta {width:100%;}
+ #km-workshop-audiences .km-offering .kb-contact {padding:26px 22px;}
+ #km-workshop-audiences .km-offering .kb-fields {grid-template-columns:1fr;}
+ #km-workshop-audiences .km-offering .kb-form input,#km-workshop-audiences .km-offering .kb-form textarea {font-size:16px;}
+ #km-workshop-audiences .km-offering .kb-preview-label {font-size:11px;}
+}
+@media(prefers-reduced-motion:reduce) {#km-workshop-audiences .km-offering .kb-paper,#km-workshop-audiences .km-offering .kb-mid-sheet,#km-workshop-audiences .km-offering .kb-back-sheet,#km-workshop-audiences .km-offering .kb-chapter-num {transition:none;}}
+
+
+/* Production dialog shell: no review carousel or simulated inquiry form. */
+#km-workshop-audiences{padding:0;border:0;background:#F6F2EA;width:min(660px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;color:#18181B}
+#km-workshop-audiences::backdrop{background:#18181bcc}
+body.workshop-open{overflow:hidden}
+#km-workshop-audiences .kb-modal-topbar{position:sticky;top:0;height:0;z-index:10}
+#km-workshop-audiences .km-offering .kb-close{position:absolute;right:12px;top:12px;background:#282127;border:1px solid #B3935A;font-size:26px;line-height:1;cursor:pointer}
+#km-workshop-audiences .km-offering .kb-hero{padding-top:27px}
+#km-workshop-audiences .km-offering .kb-title span{display:block}
+#km-workshop-audiences .km-offering .kb-paper-km img{display:block;width:25px;height:24px;object-fit:contain;mix-blend-mode:multiply}
+#km-workshop-audiences .km-offering .kb-brand img{display:block;width:37px;height:33px;object-fit:contain;mix-blend-mode:multiply}
+#km-workshop-audiences .km-offering .kb-footer{position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--line);z-index:5}
+#km-workshop-audiences .km-offering .kb-cta{text-decoration:none;letter-spacing:normal;text-transform:none;cursor:pointer}
+#km-workshop-audiences .km-offering .kb-chapter{cursor:pointer;min-height:55px}
+#km-workshop-audiences .kb-planning-note{padding:0 30px 18px;font:400 11px/1.5 Inter,Arial,sans-serif;color:#675B60}
+#for-teams .workshop-extra>.group-intro{grid-row:span 2}
+@media(max-width:800px){#for-teams .workshop-extra>.group-intro{grid-row:auto}}
+@media(max-width:620px){#km-workshop-audiences{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}#km-workshop-audiences .km-offering .kb-hero-grid{min-height:0}#km-workshop-audiences .kb-planning-note{padding-inline:22px}#km-workshop-audiences .km-offering .kb-footer{padding-block:12px}#km-workshop-audiences .km-offering .kb-brand{display:none}}

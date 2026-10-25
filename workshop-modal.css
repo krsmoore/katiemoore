@@ -163,3 +163,36 @@ body.workshop-open{overflow:hidden}
 #for-teams .workshop-extra>.group-intro{grid-row:span 2}
 @media(max-width:800px){#for-teams .workshop-extra>.group-intro{grid-row:auto}}
 @media(max-width:620px){#km-workshop-audiences{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}#km-workshop-audiences .km-offering .kb-hero-grid{min-height:0}#km-workshop-audiences .kb-planning-note{padding-inline:22px}#km-workshop-audiences .km-offering .kb-footer{padding-block:12px}#km-workshop-audiences .km-offering .kb-brand{display:none}}
+/* Wide screens: use the available width to fit the complete workshop. */
+@media (min-width:900px) and (min-height:680px){
+ #km-workshop-audiences{width:min(1000px,calc(100vw - 48px));max-height:calc(100dvh - 32px)}
+ #km-workshop-audiences .km-offering.kb-modal{max-width:none}
+ #km-workshop-audiences #workshop-detail{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr)}
+ #km-workshop-audiences .km-offering .kb-hero{grid-column:1/-1;padding:18px 28px 20px}
+ #km-workshop-audiences .km-offering .kb-kicker{margin-bottom:12px}
+ #km-workshop-audiences .km-offering .kb-hero-grid{min-height:0;grid-template-columns:1.4fr 1fr;gap:34px}
+ #km-workshop-audiences .km-offering .kb-title{margin-bottom:10px}
+ #km-workshop-audiences .km-offering .kb-title span{display:inline}
+ #km-workshop-audiences .km-offering .kb-deck{max-width:460px}
+ #km-workshop-audiences .km-offering .kb-format{margin-top:12px}
+ #km-workshop-audiences .km-offering .kb-stack{height:200px;width:100%;max-width:330px;margin:0 auto}
+ #km-workshop-audiences .km-offering .kb-paper{padding:12px 16px}
+ #km-workshop-audiences .km-offering .kb-paper h3{margin:10px 0 7px}
+ #km-workshop-audiences .km-offering .kb-paper-question{margin-top:9px}
+ #km-workshop-audiences .km-offering .kb-audience{grid-column:1/-1;padding:10px 28px}
+ #km-workshop-audiences .km-offering .kb-body{grid-column:1;grid-row:3/5;padding:14px 24px 0 28px}
+ #km-workshop-audiences .km-offering .kb-preview-label{margin-bottom:6px}
+ #km-workshop-audiences .km-offering .kb-route{gap:12px}
+ #km-workshop-audiences .km-offering .kb-chapter{min-height:46px;padding-bottom:7px}
+ #km-workshop-audiences .km-offering .kb-scene{min-height:0;padding:12px 0 16px;gap:16px}
+ #km-workshop-audiences .km-offering .kb-scene h3{font-size:26px;margin-bottom:7px}
+ #km-workshop-audiences .km-offering .kb-source{padding-left:16px}
+ #km-workshop-audiences .km-offering .kb-outcomes{grid-column:2;grid-row:3;display:block;padding:16px 24px;border-left:1px solid var(--line)}
+ #km-workshop-audiences .km-offering .kb-outcomes h3{font-size:25px;margin-bottom:12px}
+ #km-workshop-audiences .km-offering .kb-outcomes h3 br{display:none}
+ #km-workshop-audiences .km-offering .kb-deliverables{gap:9px}
+ #km-workshop-audiences .km-offering .kb-deliverables li{align-items:start}
+ #km-workshop-audiences .kb-planning-note{grid-column:2;grid-row:4;background:#EAE3D9;padding:0 24px 12px;border-left:1px solid var(--line)}
+ #km-workshop-audiences .km-offering .kb-footer{grid-column:1/-1;padding:12px 28px;position:static}
+}
+

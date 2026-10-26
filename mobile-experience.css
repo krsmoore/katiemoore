@@ -1,0 +1,102 @@
+/* Phone layouts load last, after the individual page styles. */
+@media(max-width:800px){
+ .site-header .site-identity{min-width:0;font-size:26px}
+ .site-header .site-identity span{font-size:7px;letter-spacing:.85px;max-width:245px}
+ .site-header .mobile-menu-toggle{flex-shrink:0;min-width:56px;min-height:44px}
+ .mobile-nav-ready.menu-open .site-nav{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+ .site-header .site-nav a{font-size:13px;min-height:44px}
+ input:not([type=checkbox]):not([type=radio]):not([type=hidden]),textarea,select{font-size:16px!important}
+ body[data-page="index"] .hero{padding-top:clamp(280px,82vw,390px)}
+ body[data-page="index"] .portrait{height:clamp(280px,82vw,390px)}
+ body[data-page="index"] .portrait{background-image:url('mobile-assets/katie-portrait.webp')}
+ body[data-page="index"] .feature:before{background-image:url('mobile-assets/secondary-offices.webp')}
+ body[data-page="services"] .service-hero{background-image:linear-gradient(90deg,var(--cream) 20%,#f6f2e9dc 37%,#f6f2e900 65%),url('mobile-assets/services-connections.webp')}
+ body[data-page="index"] .hero-copy{padding:24px 6% 28px}
+ body[data-page="index"] .hero-copy h1{font-size:clamp(32px,8.5vw,44px);line-height:1.08}
+ body[data-page="index"] .feature>p br{display:none}
+ body[data-page="index"] .start-links{grid-template-columns:1fr}
+ body[data-page="index"] .start-links a{min-height:112px}
+ body[data-page="index"] footer .identity{max-width:100%;white-space:normal;font-size:28px}
+ body[data-page="index"] footer .identity span{font-size:8px;letter-spacing:1px;line-height:1.5}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:calc(var(--site-header-height,64px) + 12px)}
+ input:not([type=checkbox]):not([type=radio]):not([type=hidden]),textarea,select{font-size:16px!important}
+ input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select{min-height:48px}
+ button,a{touch-action:manipulation}
+ body[data-page="services"] .service-hero{min-height:190px}
+ body[data-page="services"] .hero-copy{padding:24px 20px}
+ body[data-page="services"] .hero-copy h1{font-size:38px;line-height:1.04}
+ body[data-page="services"] .hero-copy>p:last-child{font-size:16px;line-height:1.5;margin-top:12px}
+ body[data-page="services"] .hero-copy .eyebrow{font-size:11px;margin-bottom:8px}
+ body[data-page="services"] .category-nav{position:sticky;top:var(--site-header-height,64px);z-index:90;padding:4px}
+ body[data-page="services"] .category-nav a{font-size:11px;min-height:48px;letter-spacing:.35px}
+ body[data-page="services"] #storybook-heading,body[data-page="services"] #templates-heading{scroll-margin-top:calc(var(--site-header-height,64px) + 72px)}
+ body[data-page="services"] .group-intro h2{font-size:34px;line-height:1.1;letter-spacing:-.8px}
+ body[data-page="services"] .group-intro h2 br{display:none}
+ body[data-page="services"] .service-group{padding:24px 16px}
+ body[data-page="services"] .service-card{padding:20px}
+ body[data-page="services"] .service-button{min-height:48px;font-size:12px}
+ body[data-page="services"] .self-prep{grid-template-columns:1fr;gap:14px}
+ body[data-page="services"] .self-prep .service-button{width:100%;max-width:none}
+ body[data-page="services"] .event-themes{gap:8px}
+ body[data-page="services"] .event-themes li{border:1px solid #c9b68e;padding:6px 10px;font-size:11px;letter-spacing:.5px}
+ body[data-page="services"] .next{padding:24px 20px}
+ body[data-page="services"] .next h2{font-size:30px}
+ #shop .shop-collection,#shop .fun-section{padding:24px 16px;gap:16px}
+ #shop .group-intro h2{font-size:30px;margin:8px 0 12px}
+ #shop .shop-collection>.group-intro{padding-left:16px}
+ #shop .shop-rail{grid-auto-columns:calc(100% - 18px);gap:12px;align-items:start;scroll-padding-inline:2px}
+ #shop .shop-rail>.shop-product{grid-template-columns:minmax(0,1fr) 88px;gap:12px;padding:18px;min-height:0;align-items:start}
+ #shop .shop-rail .product-copy{display:contents}
+ #shop .shop-rail .product-copy>*{grid-column:1/-1;min-width:0}
+ #shop .shop-rail .product-copy>h3{grid-column:1;grid-row:2;font-size:24px;line-height:1.12;margin:0;align-self:start}
+ #shop .shop-rail .product-copy>.service-tag,#shop .shop-rail .product-copy>.eyebrow{grid-row:1;margin:0!important;font-size:11px!important;letter-spacing:.9px}
+ #shop .shop-rail>article>img,#shop .shop-rail>article>.product-preview,#shop .shop-rail>article>.download-artwork{grid-column:2;grid-row:2;width:88px;max-width:100%;max-height:160px;align-self:start}
+ #shop .shop-rail .product-copy>p:not(.service-tag):not(.eyebrow){font-size:16px;line-height:1.5;margin:0}
+ #shop .shop-rail .product-copy>hr{width:100%;margin:0}
+ #shop .shop-rail .product-price{margin:4px 0 0;font-size:21px}
+ #shop .shop-rail .service-button{min-height:48px;font-size:12px;margin:0;width:100%}
+ #shop .shop-rail-controls button{width:44px;height:44px}
+ #shop .shop-rail-controls{font-size:13px;margin-bottom:10px}
+ #shop .fun-cards{grid-template-columns:1fr}
+ #shop .fun-cards h3{font-size:24px}
+ #shop .fun-cards p{font-size:16px}
+ #shop .fun-cards .service-button{font-size:12px;min-height:48px}
+ body[data-page="career"] .timeline-head{margin-bottom:6px}
+ body[data-page="career"] .role-nav{grid-auto-columns:220px;padding-bottom:8px}
+ body[data-page="career"] .role-chip{min-height:100px}
+ body[data-page="career"] .hero-card h2{font-size:30px;line-height:1.12}
+ body[data-page="career"] .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body[data-page="career"] .hero-stat--summary{grid-column:1/-1}
+ body[data-page="career"] .hero-stat--summary .value{font-size:17px;line-height:1.4}
+ body[data-page="career"] .ce-persona-grid,body[data-page="career"] .ce-suggested{grid-template-columns:1fr}
+ body[data-page="career"] .ce-get-in-touch{justify-content:flex-start;padding-right:48px;min-height:44px}
+ body[data-page="career"] .ce-get-in-touch__link{white-space:normal;text-align:left;max-width:100%;font-size:12px}
+ body[data-page="about"] .about-copy{padding-top:24px;padding-bottom:28px}
+ body[data-page="about"] .about-photo-row figure{height:300px}
+ body[data-page="about"] .closing-contact .button{min-height:48px}
+ body:has(#download) main{margin:24px auto;padding:24px 20px}
+ body:has(#download) h1{font-size:34px}
+ body:has(#download) .service-button{display:block;text-align:center}
+ body:has(#visionForm) .hint,body:has(#visionForm) .choices label{font-size:14px;line-height:1.5}
+ #km-workshop-audiences .km-offering .kb-hero{padding:22px 20px}
+ #km-workshop-audiences .km-offering .kb-title{font-size:38px;line-height:1.08}
+ #km-workshop-audiences .km-offering .kb-title span{display:inline}
+ #km-workshop-audiences .km-offering .kb-hero-grid{gap:20px;min-height:0}
+ #km-workshop-audiences .km-offering .kb-stack{height:280px;max-width:290px;margin:auto;width:100%}
+ #km-workshop-audiences .km-offering .kb-paper{padding:14px 16px}
+ #km-workshop-audiences .km-offering .kb-paper h3{font-size:24px;margin:10px 0 8px}
+ #km-workshop-audiences .km-offering .kb-paper p{font-size:13px;line-height:1.45}
+ #km-workshop-audiences .km-offering .kb-paper-question{margin-top:10px}
+ #km-workshop-audiences .km-offering .kb-close{width:44px;height:44px}
+}
+@media(max-width:360px){
+ .site-header .site-identity{font-size:23px}
+ .site-header .site-identity span{font-size:6px;max-width:204px}
+ #shop .shop-rail>.shop-product{grid-template-columns:minmax(0,1fr) 70px;padding:14px;gap:12px}
+ #shop .shop-rail .product-copy>h3{font-size:22px}
+ #shop .shop-rail>article>img,#shop .shop-rail>article>.product-preview,#shop .shop-rail>article>.download-artwork{width:70px}
+ body[data-page="services"] .category-nav a{font-size:10px;letter-spacing:0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

@@ -6,9 +6,9 @@
     form.querySelector('button[type=submit]').disabled=true;
   }
   document.getElementById('orderRef').value='RR-'+crypto.randomUUID();
-  const location=form.elements['Current city and state'],desired=form.elements['Desired city and state'];
-  function validateLocation(){location.setCustomValidity(location.value.trim()||desired.value.trim()?'':'Please enter a current or desired location.');}
-  location.addEventListener('input',validateLocation);desired.addEventListener('input',validateLocation);validateLocation();
+  const currentLocation=form.elements['Current city and state'],desired=form.elements['Desired city and state'];
+  function validateLocation(){currentLocation.setCustomValidity(currentLocation.value.trim()||desired.value.trim()?'':'Please enter a current or desired location.');}
+  currentLocation.addEventListener('input',validateLocation);desired.addEventListener('input',validateLocation);validateLocation();
   function validateFile(){const f=file.files[0];file.setCustomValidity(f&&(!/\.(pdf|doc|docx)$/i.test(f.name)||f.size>10000000)?'Please choose a PDF or Word document up to 10 MB.':'');document.getElementById('fileName').textContent=f?f.name:'';}
   file.addEventListener('change',validateFile);
   zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragging');});zone.addEventListener('dragleave',()=>zone.classList.remove('dragging'));

@@ -33,6 +33,10 @@
       {
         "name": "ORDERS",
         "class_name": "DownloadOrder"
+      },
+      {
+        "name": "INQUIRIES",
+        "class_name": "EventInquiry"
       }
     ]
   },
@@ -41,6 +45,12 @@
       "tag": "v1",
       "new_sqlite_classes": [
         "DownloadOrder"
+      ]
+    },
+    {
+      "tag": "v2-event-inquiry",
+      "new_sqlite_classes": [
+        "EventInquiry"
       ]
     }
   ]

@@ -1,0 +1,127 @@
+<dialog id="km-event-inquiry" aria-labelledby="km-event-title">
+  
+  <section class="km-dialog">
+    <header class="km-header">
+      <div class="km-topline"><span class="km-wordmark">KATIE MOORE</span><button class="km-close cursor-interaction" type="button" data-close="" aria-label="Close inquiry form">×</button></div>
+      <p class="km-eyebrow">WORKSHOPS &amp; KEYNOTES</p>
+      <h1 id="km-event-title">Let’s talk about<br>your event.</h1>
+      <p class="km-intro">Tell me who you’re bringing together and what you have in mind. It’s fine if the details are still taking shape.</p>
+    </header>
+    <div data-form-area="">
+      <nav class="km-steps" aria-label="Inquiry steps">
+        <button type="button" data-step-link="0" aria-current="step" class="cursor-interaction"><span class="km-step-number">1</span><span>Your event</span></button>
+        <button type="button" data-step-link="1" class="cursor-interaction"><span class="km-step-number">2</span><span>The details</span></button>
+        <button type="button" data-step-link="2" class="cursor-interaction"><span class="km-step-number">3</span><span>About you</span></button>
+      </nav>
+      <form novalidate=""><input type="text" name="website_check" tabindex="-1" autocomplete="off" aria-hidden="true" class="km-honey" maxlength="4000">
+        <p class="km-required">* Required</p>
+        <section data-step="0" aria-label="Your event">
+          <fieldset class="km-fieldset km-section">
+            <legend>What are you interested in? *</legend>
+            <div class="km-service-choices">
+              <label class="km-service cursor-interaction"><span class="km-service-top"><input type="radio" name="interest" value="Workshop" required=""><span>Workshop</span></span><span class="km-service-help">Hands-on learning<br>and application</span></label>
+              <label class="km-service cursor-interaction"><span class="km-service-top"><input type="radio" name="interest" value="Keynote"><span>Keynote</span></span><span class="km-service-help">A talk for your team<br>or event</span></label>
+              <label class="km-service cursor-interaction"><span class="km-service-top"><input type="radio" name="interest" value="Help me choose"><span>Help me choose</span></span><span class="km-service-help">Let’s find the<br>right fit</span></label>
+            </div>
+          </fieldset>
+          <div class="km-section">
+            <label class="km-label" for="km-topic">Have a topic or session in mind? <span class="km-optional">Optional</span></label>
+            <input id="km-topic" name="topic" type="text" placeholder="A session title, topic, or idea" maxlength="4000">
+          </div>
+          <div class="km-section">
+            <label class="km-label" for="km-audience">Who is the audience? *</label>
+            <p class="km-help" id="km-audience-help">For example: new managers, senior leaders, a professional association, or a team working through a change.</p>
+            <div class="km-audience-grid">
+              <input id="km-audience" name="audience" type="text" required="" aria-describedby="km-audience-help" placeholder="Who will be attending?" maxlength="4000">
+              <label class="km-inline-label"><span>Approximate group size</span><input name="audience_size" type="text" placeholder="e.g. 30, or not sure yet" maxlength="4000"></label>
+            </div>
+          </div>
+          <div class="km-section km-section-last">
+            <label class="km-label" for="km-goal">What would you like people to take away? *</label>
+            <p class="km-help" id="km-goal-help">Share the goal, challenge, or conversation that prompted you to reach out.</p>
+            <textarea id="km-goal" name="goal" rows="3" required="" aria-describedby="km-goal-help" maxlength="4000"></textarea>
+          </div>
+        </section>
+        <section data-step="1" aria-label="The details" hidden="">
+          <div class="km-section">
+            <label class="km-label" for="km-timing">When are you planning the event? *</label>
+            <select id="km-timing" name="timing" required="" class="cursor-interaction">
+              <option value="">Choose what you know so far</option>
+              <option value="specific">We have a specific date.</option>
+              <option value="range">We have a date range.</option>
+              <option value="flexible">Our timing is flexible.</option>
+              <option value="unsure">We’re still figuring that out.</option>
+            </select>
+            <div data-dates="" hidden="" class="km-conditional">
+              <div class="km-two">
+                <label class="km-small-label"><span data-start-label="">Event date *</span><input type="date" name="date_start" disabled=""></label>
+                <label data-end-date="" class="km-small-label" hidden=""><span>End date *</span><input type="date" name="date_end" disabled=""></label>
+              </div>
+              <div class="km-two km-gap-top">
+                <label class="km-small-label"><span>Preferred time · Optional</span><input type="text" name="preferred_time" placeholder="e.g. 10 a.m. or afternoon" disabled="" maxlength="4000"></label>
+                <label class="km-small-label"><span>Time zone · Optional</span><input type="text" name="time_zone" placeholder="e.g. Central Time" disabled="" maxlength="4000"></label>
+              </div>
+            </div>
+          </div>
+          <fieldset class="km-fieldset km-section">
+            <legend>How will the event take place? *</legend>
+            <div class="km-format-choices">
+              <label class="km-radio cursor-interaction"><input type="radio" name="format" value="In person" required=""><span>In person</span></label>
+              <label class="km-radio cursor-interaction"><input type="radio" name="format" value="Virtual"><span>Virtual</span></label>
+              <label class="km-radio cursor-interaction"><input type="radio" name="format" value="Hybrid"><span>Hybrid</span></label>
+              <label class="km-radio cursor-interaction"><input type="radio" name="format" value="Not decided yet"><span>Not decided yet</span></label>
+            </div>
+            <div data-location="" hidden="" class="km-conditional">
+              <div class="km-two">
+                <label class="km-small-label"><span>City · If known</span><input type="text" name="city" autocomplete="address-level2" disabled="" maxlength="4000"></label>
+                <label class="km-small-label"><span>State / region · If known</span><input type="text" name="state" autocomplete="address-level1" disabled="" maxlength="4000"></label>
+              </div>
+              <label class="km-small-label km-gap-top"><span>Venue · Optional</span><input type="text" name="venue" disabled="" maxlength="4000"></label>
+            </div>
+          </fieldset>
+          <div class="km-section">
+            <label class="km-label" for="km-duration">How much time do you have? <span class="km-optional">Optional</span></label>
+            <p class="km-help">Include the session length and any time for questions. “Open to recommendations” is fine.</p>
+            <input id="km-duration" name="duration" type="text" placeholder="e.g. 45 minutes plus 15 minutes for questions" maxlength="4000">
+          </div>
+          <div class="km-section km-section-last">
+            <label class="km-label" for="km-budget">Do you have a budget in mind? <span class="km-optional">Optional</span></label>
+            <p class="km-help">An estimate or range is helpful. You can leave this blank if you’re still planning.</p>
+            <input id="km-budget" name="budget" type="text" placeholder="Budget or estimated range" maxlength="4000">
+          </div>
+        </section>
+        <section data-step="2" aria-label="About you" hidden="">
+          <div class="km-two km-section">
+            <div><label class="km-label" for="km-name">Your name *</label><input id="km-name" name="name" type="text" autocomplete="name" required="" maxlength="150"></div>
+            <div><label class="km-label" for="km-email">Email address *</label><input id="km-email" name="email" type="email" autocomplete="email" required="" maxlength="254"></div>
+          </div>
+          <div class="km-section">
+            <label class="km-label" for="km-organization">Organization or event name <span class="km-optional">Optional</span></label>
+            <input id="km-organization" name="organization" type="text" autocomplete="organization" maxlength="4000">
+          </div>
+          <div class="km-section">
+            <label class="km-label" for="km-notes">Anything else I should know? <span class="km-optional">Optional</span></label>
+            <p class="km-help">Share relevant context, accessibility needs, or other details about your event.</p>
+            <textarea id="km-notes" name="notes" rows="3" maxlength="4000"></textarea>
+          </div>
+          <div class="km-section km-section-last">
+            <label class="km-small-label"><span>Event website or useful link · Optional</span><input name="event_link" type="text" inputmode="url" placeholder="https://" maxlength="4000"></label>
+            <label class="km-upload km-gap-top"><span class="km-small-label">Attach an agenda or event brief · Optional</span><input type="file" name="attachments" multiple="" aria-label="Attach an agenda or event brief" accept=".pdf,.doc,.docx"><p class="km-help">Up to 3 PDF or Word documents, 10 MB total. Attachments are private.</p></label>
+          </div>
+        </section>
+        <p class="km-validation" role="alert" hidden="">Please complete the required fields before continuing.</p>
+        <footer class="km-footer">
+          <span class="km-footer-note" data-footer-note="">Details can be refined together.</span>
+          <div class="km-footer-actions"><button type="button" class="km-back cursor-interaction" data-back="" hidden="">Back</button><button type="submit" class="km-primary cursor-interaction" data-next="">Continue <span aria-hidden="true">→</span></button></div>
+        </footer>
+        <p class="km-followup" data-followup="" hidden="">I’ll follow up by email about fit, availability, and next steps.</p>
+      </form>
+    </div>
+    <section class="km-success" data-success="" hidden="" role="status">
+      <span class="km-success-mark" aria-hidden="true">✓</span>
+      <h2>Your inquiry is in.</h2>
+      <p>Thanks for reaching out. I’ll follow up by email to discuss fit, availability, and next steps.</p>
+      <button type="button" class="km-primary cursor-interaction" data-done="">Done</button>
+    </section>
+  </section>
+</dialog>

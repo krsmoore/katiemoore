@@ -76,6 +76,7 @@ body{padding:0;display:flex;align-items:center;justify-content:center}
 
 .dedicated-images:not(.cover)::before{inset:76px 24px 145px;background-size:cover;border-radius:12px;opacity:0;transition:opacity .25s}
 .dedicated-images.is-flipped:not(.cover)::before{opacity:1}
+.reader.is-navigating .scene,.reader.is-navigating .copy,.reader.is-navigating::before{transition:none!important}
 </style>
 <!-- Katie Moore sharing metadata -->
 <link rel="canonical" href="https://krsmoore.github.io/katiemoore/case-study-seller-strategy.html">
@@ -109,7 +110,12 @@ let pages=[
 {label:'07 / Go deeper',title:'Want to<br><em>learn more?</em>',text:'Download the case study.',zoom:1.7,x:100,y:100}
 ];let current=0;let isSeller=true;let pdfPath='case-studies/walmart-lifecycle.pdf?v=20261016-km1';function camera(p){
  if(p.image){
-  if(img.getAttribute('src')!==p.image)img.src=p.image;
+  if(img.getAttribute('src')!==p.image){
+   img.style.visibility='hidden';
+   img.onload=()=>{img.style.visibility='visible';};
+   img.src=p.image;
+   if(img.complete&&img.naturalWidth)img.style.visibility='visible';
+  }
   reader.style.setProperty('--card-image','url("'+p.image+'")');
   img.alt=p.imageAlt;
   img.style.transform='none';
@@ -140,12 +146,12 @@ let pages=[
   const ty=clamp(h*.28-z*(oy+dh*p.focus.y),h-z*(oy+dh),-z*oy);
   img.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';return;
  }
- const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.slice(1).forEach((p,index)=>{const j=index+1;let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}let transitionTimer;function go(n){
- clearTimeout(transitionTimer);
+ const dx=-(p.zoom-1)*p.x,dy=-(p.zoom-1)*p.y;img.style.transform=`translate(${dx}%,${dy}%) scale(${p.zoom})`}const reader=document.querySelector('.reader'),img=document.querySelector('.scene img'),copy=document.querySelector('.copy'),progress=document.querySelector('.progress');function buildProgress(){progress.replaceChildren();pages.slice(1).forEach((p,index)=>{const j=index+1;let b=document.createElement('button');b.setAttribute('aria-label',p.label);b.onclick=()=>go(j);progress.appendChild(b)});}function go(n){
+ reader.classList.add('is-navigating');
  current=Math.max(1,Math.min(pages.length-1,n));
  const p=pages[current],last=current===pages.length-1;
- closeSheet();reader.classList.toggle('cover',current===0);setCardFlipped(false,false);camera(p);copy.classList.add('hide');
- transitionTimer=setTimeout(()=>{
+ closeSheet();reader.classList.toggle('cover',current===0);setCardFlipped(false,false);camera(p);
+ {
   if(current===0){copy.innerHTML=coverMarkup();}
   else{
    const sub=p.subheader?'<p class="card-subheader">'+safe(p.subheader)+'</p>':'';
@@ -155,13 +161,26 @@ let pages=[
   }
   copy.scrollTop=0;copy.classList.remove('hide');setCardFlipped(false,false);
   if(reader.matches('.cert-story,.dedicated-images'))camera(p);
- },160);
+ }
+ void reader.offsetWidth;
+ reader.classList.remove('is-navigating');
+ preloadNearbyCards();
  document.querySelector('.counter').innerHTML=String(current).padStart(2,'0')+' / '+String(pages.length-1).padStart(2,'0')+'<small>'+(current===0?'Open the story':reader.classList.contains('dedicated-images')?'Tap or swipe card to flip':'Swipe or tap to continue')+'</small>';
  [...progress.children].forEach((b,j)=>{b.classList.toggle('active',j+1<=current);b.setAttribute('aria-current',j+1===current?'step':'false');});
  const previous=document.querySelector('#prev'),next=document.querySelector('#next');
  previous.disabled=current===1;previous.style.opacity=current===1?.25:1;
  next.textContent=last?'↺':'→';next.setAttribute('aria-label',last?'Return to first card':'Next screen');
  document.querySelector('.framework').style.display='none';
+}
+const preloadedCards=new Map();
+function preloadNearbyCards(){
+ for(const index of [current-1,current+1,current+2]){
+  const image=pages[index]?.image;
+  if(!image||preloadedCards.has(image))continue;
+  const asset=new Image();asset.src=image;
+  asset.decode?.().catch(()=>{});
+  preloadedCards.set(image,asset);
+ }
 }
 let lastCardSwipe=0;
 function setCardFlipped(flipped,focus=true){

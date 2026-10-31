@@ -83,3 +83,15 @@
 /* Brass hover and keyboard-focus color for header and footer navigation. */
 nav a:hover,
 nav a:focus-visible {color:var(--gold);}
+
+/* What drives my work */
+.approach.work-drivers{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:30px 48px;padding-top:40px;padding-bottom:44px}
+.work-drivers h2{font-size:clamp(38px,4vw,58px);line-height:1.06}
+.work-drivers em{color:#702F3A;font-style:italic}
+.work-drivers-summary{align-self:center;border-left:1px solid #B3935A;padding:12px 0 12px 36px;font-size:clamp(21px,2vw,28px);line-height:1.45}
+.work-drivers-themes{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding-top:28px;border-top:1px solid #B3935A}
+.work-drivers-themes article{min-width:0;padding-right:28px;border-right:1px solid #d9cec0}
+.work-drivers-themes article:last-child{border-right:0;padding-right:0}
+.work-drivers-themes h3{font:400 clamp(30px,3vw,42px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.6px;margin:16px 0}
+.work-drivers-themes p:not(.eyebrow){font-size:19px;line-height:1.5}
+@media(max-width:800px){.approach.work-drivers{grid-template-columns:1fr;gap:24px;padding:30px 6%}.work-drivers-summary{border-left:0;padding:0;font-size:21px}.work-drivers-themes{grid-template-columns:1fr;gap:24px;padding-top:24px}.work-drivers-themes article{padding:0 0 24px;border-right:0;border-bottom:1px solid #d9cec0}.work-drivers-themes article:last-child{padding-bottom:0;border-bottom:0}.work-drivers-themes h3{font-size:36px}}

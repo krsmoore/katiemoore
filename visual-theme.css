@@ -285,3 +285,9 @@ h1 { font-family:Georgia,'Times New Roman',serif; font-size:58px; font-weight:40
   *,*::before,*::after {scroll-behavior:auto!important;}
 }
 
+
+/* Keep small Explorer text crisp instead of relying on synthesized fallback weights. */
+#fitQuizModal{font-family:"Segoe UI",Arial,sans-serif;font-synthesis:none}
+#fitQuizModal,#fitQuizModal *{text-shadow:none;-webkit-text-stroke:0}
+#fitQuizModal .ce-company,#fitQuizModal .ce-metric,#fitQuizModal .ce-tags span,#fitQuizModal .ce-get-in-touch__link{font-weight:600}
+#fitQuizModal .ce-card-label{font-weight:600}

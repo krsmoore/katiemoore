@@ -160,7 +160,7 @@ body.workshop-open{overflow:hidden}
 #km-workshop-audiences .km-offering .kb-cta{text-decoration:none;letter-spacing:normal;text-transform:none;cursor:pointer}
 #km-workshop-audiences .km-offering .kb-chapter{cursor:pointer;min-height:55px}
 #km-workshop-audiences .kb-planning-note{padding:0 30px 18px;font:400 11px/1.5 Inter,Arial,sans-serif;color:#675B60}
-#for-teams .workshop-extra>.group-intro{grid-row:span 2}
+#for-teams .workshop-extra>.group-intro{grid-row:auto}
 @media(max-width:800px){#for-teams .workshop-extra>.group-intro{grid-row:auto}}
 @media(max-width:620px){#km-workshop-audiences{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}#km-workshop-audiences .km-offering .kb-hero-grid{min-height:0}#km-workshop-audiences .kb-planning-note{padding-inline:22px}#km-workshop-audiences .km-offering .kb-footer{padding-block:12px}#km-workshop-audiences .km-offering .kb-brand{display:none}}
 /* Wide screens: use the available width to fit the complete workshop. */
@@ -196,3 +196,13 @@ body.workshop-open{overflow:hidden}
  #km-workshop-audiences .km-offering .kb-footer{grid-column:1/-1;padding:12px 28px;position:static}
 }
 
+
+/* Match the three-card speaking layout without forcing a second workshop row. */
+body[data-page="services"] #for-teams .service-group{grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:12px;padding-right:2%}
+body[data-page="services"] #for-teams .group-intro{padding-left:24px;padding-right:12px}
+body[data-page="services"] #for-teams .group-intro h2{font-size:clamp(35px,4.6vw,60px)}
+@media(min-width:1500px){body[data-page="services"] #for-teams .service-group{padding-inline:max(4.6%,calc((100vw - 1400px)/2))}}
+@media(min-width:761px) and (max-width:1100px){body[data-page="services"] #for-teams .service-group{grid-template-columns:repeat(3,minmax(0,1fr))}body[data-page="services"] #for-teams .group-intro{grid-column:1/-1}body[data-page="services"] #for-teams .group-intro h2 br{display:none}body[data-page="services"] #for-teams .group-intro>p:last-child{max-width:800px}}
+@media(max-width:760px){body[data-page="services"] #for-teams .service-group{grid-template-columns:minmax(0,1fr);padding:24px 16px}body[data-page="services"] #for-teams .group-intro h2{font-size:34px}}
+
+@media(min-width:761px) and (max-width:1400px){#for-teams .workshop-topics ul{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;gap:3px}#for-teams .workshop-topics li{overflow-wrap:normal}}

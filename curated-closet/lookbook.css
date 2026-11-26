@@ -23,3 +23,4 @@ figcaption{border-top:1px solid #977550;padding-top:1rem}h3{font-size:clamp(1.35
 [hidden]{display:none!important}
 @media(max-width:850px){figure{grid-template-columns:1fr}figure img{max-height:32rem}}
 @media(max-width:600px){.cover,.story,.story:nth-of-type(even){grid-template-columns:1fr}.cover img{height:auto;min-height:0;aspect-ratio:2.15;object-fit:cover}.cover h1 br{display:none}.cover h1 i:before{content:' '}.cover div{padding:1.5rem}.cover p{margin:.7rem 0}.story{gap:1.1rem}.story:nth-of-type(even)>header,.story:nth-of-type(even)>.portraits{grid-column:auto;grid-row:auto}.choices{margin-top:.8rem}figure img{max-height:58svh}}
+.cover .demo-links{padding:0;display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;align-items:center}.demo-links a:first-child{background:var(--paper);color:var(--ink);padding:.55rem .9rem;border-radius:.35rem;text-decoration:none}

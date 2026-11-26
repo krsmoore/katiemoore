@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Try Curated Closet | Katie Moore</title><link rel="stylesheet" href="lookbook.css"><link rel="stylesheet" href="demo.css"><script defer src="demo.js"></script></head>
+<body><nav><a href="./">← Lookbook</a><a href="https://katie-moore-private-closet.krsmoore.chatgpt.site">Owner sign-in ↗</a></nav>
+<main><header class="demo-cover"><h1>Try the closet</h1><p>Plan with six styled looks and explore a sample wear history. Your plans stay in this browser.</p></header>
+<div class="sections" aria-label="Closet demo navigation" role="navigation"><a href="#planner">Plan an outfit</a><a href="#history">Closet history</a><a href="#reports">Closet reports</a></div>
+<noscript>Enable JavaScript to use the closet demo.</noscript>
+<section id="planner" hidden><h2>Plan an outfit</h2><form id="plan-form"><label for="plan-date">Plan date</label><input type="date" id="plan-date" required><fieldset><legend>Choose a look</legend><div class="outfits" id="outfits"></div></fieldset><button class="primary" type="submit">Save to plan</button></form><p id="plan-status" role="status"></p><h3>Your plans</h3><div id="saved"></div></section>
+<div id="period" hidden><button id="prev" aria-label="Previous month">←</button><strong id="month"></strong><button id="next" aria-label="Next month">→</button></div>
+<section id="history" hidden><h2>Sample closet history</h2><div id="calendar" class="calendar"></div><dialog id="day"><h3 id="day-title"></h3><div id="day-body"></div><form method="dialog"><button autofocus>Close</button></form></dialog></section>
+<section id="reports" hidden><h2>Sample closet reports</h2><div id="stats"></div></section></main></body></html>
